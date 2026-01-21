@@ -1,0 +1,23 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="news" class="container news-single">
+		{% include 'components/breadcrumb.twig' %}
+
+		{% if post.thumbnail %}
+			<div class="news-single__image">
+				<img src="{{ post.thumbnail }}" alt="{{ post.title }}" loading="lazy">
+			</div>
+		{% endif %}
+
+		{% set newsHeader = post.meta('newsHeader') %}
+		<ul class="news-header">
+			<li><time datetime="{{ post.post_date }}">{{ post.post_date | date('d.m.Y') }}</time></li>
+			{% if newsHeader.city %}<li>{{ newsHeader.city }}</li>{% endif %}
+			{% if newsHeader.tag %}<li>{{ newsHeader.tag }}</li>{% endif %}
+		</ul>
+
+		<h1 class="news-single__title subtitle">{{ post.title }}</h1>
+		<div class="news-single__content content section">{{ post.content }}</div>
+	</main>
+{% endblock %}

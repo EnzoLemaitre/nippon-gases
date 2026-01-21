@@ -1,0 +1,67 @@
+{
+    "title": "Image Text 2",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-about.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "imageText2",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "key": "image_692870968a537"
+                },
+                {
+                    "label": "Image position",
+                    "name": "imagePosition",
+                    "type": "select",
+                    "choices": {
+                        "left": "Left",
+                        "right": "Right"
+                    },
+                    "default_value": "left",
+                    "key": "imagePosition_692870968a538"
+                },
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_692870968a539"
+                },
+                {
+                    "label": "Subtitle",
+                    "name": "subtitle",
+                    "type": "text",
+                    "key": "subtitle_692870968a53a"
+                },
+                {
+                    "label": "Description",
+                    "name": "decription",
+                    "type": "textarea",
+                    "new_lines": "wpautop",
+                    "key": "decription_692870968a53b"
+                },
+                {
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
+                    "key": "link_692870968a53c"
+                }
+            ],
+            "key": "imageText2_692870968a536"
+        }
+    ],
+    "key": "group_692870968a472"
+}

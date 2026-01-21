@@ -1,0 +1,45 @@
+<div class="search-filters">
+    <div class="search-form">
+        
+        <div class="search-group">
+            <label for="company-search" class="search-label">
+                {{ __('If you already know the name of a delivery point, simply enter it directly', 'ng') }}
+            </label>
+            <input 
+                type="text" 
+                id="company-search"
+                class="search-input"
+                placeholder="{{ __('Company name', 'ng') }}"
+            >
+        </div>
+        
+        <div class="search-group">
+            <label for="location-search" class="search-label">
+                {{ __('Enter your location and we will show you the closest delivery points.', 'ng') }}
+            </label>
+            <input 
+                type="text" 
+                id="location-search"
+                class="search-input"
+                placeholder="{{ __('City or Postcode', 'ng') }}"
+            >
+        </div>
+        
+        <div class="search-actions">
+            {% include 'components/distributor-button-search.twig' with {
+                label: __('Find delivery point', 'ng'),
+                type: 'button',
+                class: 'btn',
+                attributes: 'id="search-btn"'
+            } %}
+            
+            {% include 'components/distributor-button-search.twig' with {
+                label: __('Reset results', 'ng'),
+                type: 'button',
+                class: 'btn btn__light',
+                attributes: 'id="reset-btn"'
+            } %}
+        </div>
+        
+    </div>
+</div>

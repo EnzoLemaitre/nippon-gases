@@ -1,0 +1,72 @@
+{
+    "title": "Grid Image",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-why.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-innovation.php"
+            }
+        ],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-safety.php"
+            }
+		]
+    ],
+    "fields": [
+        {
+            "name": "gridImage",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_692437865a66d"
+                },
+                {
+                    "label": "Item",
+                    "name": "gridImage",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "key": "title_692437865a66f"
+                        },
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "text",
+                            "key": "description_692437865a670"
+                        },
+                        {
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "key": "image_692437865a671"
+                        }
+                    ],
+                    "key": "gridImage_692437865a66e"
+                }
+            ],
+            "key": "gridImage_692437865a66c"
+        }
+    ],
+    "key": "group_692437865a5b1"
+}

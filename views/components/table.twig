@@ -1,0 +1,13 @@
+{% set table = post.meta('table') %}
+{% if table.rows | length > 0 %}
+	<ul class="table-compo container section">
+		{% for row in table.rows %}
+			{% if row.title or row.description %}
+				<li class="{% if not row.title or not row.description %} full{% endif %}">
+					{% if row.title %}<h2 class="table-compo__title">{{ row.title }}</h2>{% endif %}
+					{% if row.description %}<p class="table-compo__description">{{ row.description }}</p>{% endif %}
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+{% endif %}

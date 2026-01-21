@@ -1,0 +1,24 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="solutions">
+		{% include 'components/heroBanner.twig' %}
+
+		{% set titleSolutions = post.meta('titleSolutions') %}
+		{% if titleSolutions %}
+			<h2 class="subtitle container title-solutions">{{ titleSolutions.title }}</h2>
+		{% endif %}
+
+		{% if solutions %}
+			<div class="solutions-list container section">
+				{% for solution in solutions %}
+					{% include 'components/cardSolution.twig' with { solution } %}
+				{% endfor %}
+			</div>
+		{% else %}
+			<p class="empty-content container section">{{ __('No solutions found.', 'ng') }}</p>
+		{% endif %}
+
+		{% include 'components/contactAlert.twig' %}
+	</main>
+{% endblock %}

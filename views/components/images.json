@@ -1,0 +1,41 @@
+{
+    "title": "Images",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-solution-electronics.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "images",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Images",
+                    "name": "images",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "required": 1,
+                            "key": "image_6929c9c8bf0bc"
+                        }
+                    ],
+                    "key": "images_6929c9c8bf0b8"
+                }
+            ],
+            "key": "images_6929c9c8bf0b3"
+        }
+    ],
+    "key": "group_6929c9c8beff7"
+}

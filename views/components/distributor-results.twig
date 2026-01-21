@@ -1,0 +1,20 @@
+<div class="results-panel">
+	<div class="results-header">
+		<h2 class="results-title">
+			{{ __('Results', 'ng') }}
+			(<span id="results-count">{{ distributors|length }}</span>)
+		</h2>
+	</div>
+
+	<div class="results-list" id="results-container">
+		{% for distributor in distributors %}
+			{% include 'components/distributor-card.twig' with {
+                distributor: distributor
+            } %}
+		{% endfor %}
+	</div>
+
+	<p class="no-results" id="no-results" style="display: none;">
+		{{ __('No distributors found.', 'ng') }}
+	</p>
+</div>

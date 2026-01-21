@@ -1,0 +1,39 @@
+{% set nippon = post.meta('nipponGases') %}
+{% if nippon.card.title or nippon.card.description or nippon.card.link or nippon.card.cards | length > 0 %}
+	<section class="container section nippon-gases">
+		{% if nippon.card.title %}<h2 class="nippon-gases__title subtitle">{{ nippon.card.title }}</h2>{% endif %}
+
+		{% if nippon.card.cards | length > 0 or nippon.card.description or nippon.card.link %}
+			<div class="nippon-gases__inner">
+				{% if nippon.card.description or nippon.card.link %}
+					<div class="nippon-gases__text{% if nippon.card.cards | length == 0 %} no-number{% endif %}">
+						{% if nippon.card.description %}<p class="nippon-gases__description">{{ nippon.card.description }}</p>{% endif %}
+						{% if nippon.card.link %}
+							{{ link(nippon.card.link, 'btn') }}
+						{% endif %}
+					</div>
+				{% endif %}
+				{% if nippon.card.cards | length > 0 %}
+					<div class="nippon-gases__number">
+						{% for card in nippon.card.cards %}
+							<div class="nippon-gases__number__card color-{{ card.color }}">
+								<div class="nippon-gases__number__card__content">
+									{% set img = get_image(card.image) %}
+									<div class="nippon-gases__number__card__number{{ not img ? ' no-image' : '' }}">
+										<p class="nippon-gases__number__card__number__title">{{ card.number }}</p>
+										<p class="nippon-gases__number__card__number__description">{{ card.description }}</p>
+									</div>
+									{% if img %}
+										<div class="nippon-gases__number__card__image">
+											<img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" width="{{ img.width }}" height="{{ img.height }}">
+										</div>
+									{% endif %}
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+	</section>
+{% endif %}

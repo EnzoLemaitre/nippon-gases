@@ -1,0 +1,254 @@
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://unpkg.com/topojson@3"></script>
+
+{% set map = post.meta('map') %}
+{% set europe = map.europe %}
+{% set world = map.world %}
+
+{% if europe | length > 0 or world | length > 0 %}
+	<div class="map-compo {{ noSection ? '' : 'section' }}">
+		<div class="container">
+			<ul class="map-compo__tabs">
+				{% if europe | length > 0 %}<li class="active europe">{{ __('Europe', 'ng') }}</li>{% endif %}
+				{% if world | length > 0 %}<li class="world {{ (europe | length < 1) ? 'active' : '' }}">{{ __('Worldwilde', 'ng') }}</li>{% endif %}
+			</ul>
+
+			{% if europe | length > 0 %}
+				<ul class="map-compo__countries europe-list-countries active">
+					{% for country in europe %}
+						<li class="code-{{ country.countryCode }}" code="{{ country.countryCode }}">{{ country.country }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+
+			{% if world | length > 0 %}
+				<ul class="map-compo__countries world-list-countries{{ (europe | length < 1) ? ' active' : '' }}">
+					{% for country in world %}
+						<li class="code-{{ country.countryCode }}" code="{{ country.countryCode }}">{{ country.country }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+
+			<div class="map-compo__legend"></div>
+		</div>
+		<div class="map-compo__map-container">
+			<svg id="map" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet"></svg>
+		</div>
+	</div>
+
+	<script>
+		let currentMap = 'europe';
+		const width = 800;
+		const height = 500;
+		const svg = d3.select("#map");
+
+		const europeanCountryCodes = [
+			"008", // Albanie
+			"020", // Andorre
+			"040", // Autriche
+			"112", // Bélarus
+			"056", // Belgique
+			"070", // Bosnie-Herzégovine
+			"100", // Bulgarie
+			"191", // Croatie
+			"203", // République tchèque
+			"208", // Danemark
+			"233", // Estonie
+			"246", // Finlande
+			"250", // France
+			"276", // Allemagne
+			"300", // Grèce
+			"348", // Hongrie
+			"352", // Islande
+			"372", // Irlande
+			"380", // Italie
+			"428", // Lettonie
+			"438", // Liechtenstein
+			"440", // Lituanie
+			"442", // Luxembourg
+			"470", // Malte
+			"498", // Moldavie
+			"492", // Monaco
+			"499", // Monténégro
+			"528", // Pays-Bas
+			"807", // Macédoine du Nord
+			"578", // Norvège
+			"616", // Pologne
+			"620", // Portugal
+			"642", // Roumanie
+			"674", // Saint-Marin
+			"688", // Serbie
+			"703", // Slovaquie
+			"705", // Slovénie
+			"724", // Espagne
+			"752", // Suède
+			"756", // Suisse
+			"804", // Ukraine
+			"826", // Royaume-Uni
+			"336"  // Vatican
+		];
+
+		const allowedCountries = [];
+		{% for country in europe %}
+			allowedCountries.push("{{ country.countryCode }}");
+		{% endfor %}
+
+		{% for country in world %}
+			allowedCountries.push("{{ country.countryCode }}");
+		{% endfor %}
+
+
+		let detailsCountry = [];
+		{% if europe | length > 0 %}
+			detailsCountry = {{ europe | json_encode() }};
+		{% endif %}
+		{% if world | length > 0 %}
+			detailsCountry = [...detailsCountry, ...{{ world | json_encode() }}];
+		{% endif %}
+
+		const mapConfigs = {
+			europe: {
+				projection: d3.geoMercator()
+					.center([15, 52])
+					.scale(580)
+					.translate([width / 2, height / 2]),
+				countries: europeanCountryCodes,
+				viewBox: "100 80 600 400"
+			},
+			world: {
+				projection: d3.geoNaturalEarth1()
+					.scale(178)
+					.translate([width / 2, height / 2]),
+				countries: null,
+				viewBox: "0 0 800 500"
+			}
+		};
+
+		const loadMap = (mapType) => {
+			currentMap = mapType;
+			const config = mapConfigs[mapType];
+			const path = d3.geoPath().projection(config.projection);
+
+			svg.transition().duration(500).attr("viewBox", config.viewBox);
+			d3.json("https://unpkg.com/world-atlas@2/countries-50m.json").then(worldData => {
+				let countries = topojson.feature(worldData, worldData.objects.countries).features;
+				if (config.countries) {
+					countries = countries.filter(d => config.countries.includes(d.id));
+				}
+
+				svg.selectAll("path").remove();
+				svg.selectAll("path")
+					.data(countries)
+					.enter()
+					.append("path")
+					.attr("d", path)
+					.attr("fill", "#0C5477")
+					.attr("stroke", "#333")
+					.attr("stroke-width", 0.5)
+					.attr("class", "country")
+					.attr("opacity", 0)
+					.transition()
+					.duration(500)
+					.attr("opacity", 1);
+
+				svg.selectAll("path")
+					.on("mouseover", function (event, d) {
+						const countryCode = d.id;
+
+						if (!allowedCountries.includes(countryCode)) return;
+						d3.select(this).transition().duration(200).attr("fill", "#9ED8FF");
+
+						const details = detailsCountry.find(country => country.countryCode === countryCode);
+						if (details) {
+							const container = document.querySelector('.map-compo__legend');
+							container.innerHTML = `
+								<p class="map-compo__legend__title">${details.detailTitle}</p>
+								<p class="map-compo__legend__address">${details.detailDescription}</p>
+							`;
+
+							const countryElement = document.querySelector(`.map-compo__countries li.code-${countryCode}`);
+							if (countryElement) countryElement.classList.add('active');
+						}
+					})
+					.on("mouseout", function (event, d) {
+						d3.select(this).transition().duration(200).attr("fill", "#0C5477");
+
+						const container = document.querySelector('.map-compo__legend');
+						container.innerHTML = '';
+
+						const countryCode = d.id;
+						const countryElement = document.querySelector(`.map-compo__countries li.code-${countryCode}`);
+						if (countryElement) countryElement.classList.remove('active');
+					});
+			});
+		};
+
+		const selectMap = () => {
+			const tabs = document.querySelectorAll('.map-compo__tabs li');
+			const europeList = document.querySelector('.europe-list-countries');
+			const worldList = document.querySelector('.world-list-countries');
+
+			tabs.forEach(tab => {
+				tab.addEventListener('click', () => {
+					tabs.forEach(t => t.classList.remove('active'));
+					tab.classList.add('active');
+
+					const mapType = tab.classList.contains('europe') ? 'europe' : 'world';
+					loadMap(mapType);
+
+					if (mapType === 'europe') {
+						if (europeList) europeList.classList.add('active');
+						if (worldList) worldList.classList.remove('active');
+					} else {
+						if (europeList) europeList.classList.remove('active');
+						if (worldList) worldList.classList.add('active');
+					}
+
+					document.querySelectorAll('.map-compo__countries li').forEach(c => c.classList.remove('active'));
+					document.querySelector('.map-compo__legend').innerHTML = '';
+				});
+			});
+		};
+
+		const selectCountry = () => {
+			const countries = document.querySelectorAll('.map-compo__countries li');
+			countries.forEach(country => {
+				country.addEventListener('click', () => {
+					countries.forEach(c => c.classList.remove('active'));
+					country.classList.add('active');
+
+					const countryCode = country.getAttribute('code');
+					svg.selectAll("path")
+						.transition()
+						.duration(200)
+						.attr("fill", "#0C5477");
+
+					svg.selectAll("path")
+						.filter(d => d.id === countryCode)
+						.transition()
+						.duration(200)
+						.attr("fill", "#9ED8FF");
+
+					const details = detailsCountry.find(c => c.countryCode === countryCode);
+					if (details) {
+						const container = document.querySelector('.map-compo__legend');
+						container.innerHTML = `
+							<p class="map-compo__legend__title">${details.detailTitle}</p>
+							<p class="map-compo__legend__address">${details.detailDescription}</p>
+						`;
+					}
+				});
+			});
+		}
+
+		selectCountry();
+		selectMap();
+
+
+		{% if europe | length > 0 %}
+			loadMap('europe');
+		{% else %}
+			loadMap('world');
+		{% endif %}
+	</script>
+{% endif %}

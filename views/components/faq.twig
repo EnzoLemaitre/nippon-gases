@@ -1,0 +1,77 @@
+{% set faq = post.meta('faq') %}
+{% if faq %}
+	<section class="faq container section">
+		{% if faq.title %}
+			<h2 class="subtitle">{{ faq.title }}</h2>
+		{% endif %}
+		{% if faq.description %}
+			<div class="faq__description content">{{ faq.description }}</div>
+		{% endif %}
+
+		{% if faq.content %}
+			<ul class="faq__list">
+				{% for faq in faq.content %}
+					{% if faq.title or faq.description or faq.link or faq.prefix %}
+						<li{% if faq.prefix %} class="faq__list__withPrefix"{% endif %}>
+							<p class="faq__list__title">
+								{% if faq.prefix %}<span class="faq__list__title__prefix">{{ faq.prefix }}</span>{% endif %}
+								<span class="faq__list__title__text">{{ faq.title }}</span>
+								<span class="faq__list__title__symbol">+</span>
+							</p>
+							<div class="faq__list__description">
+								<div class="faq__list__description__inner">
+									<div class="content">{{ faq.description }}</div>
+									{% if faq.link %}{{ link(faq.link, 'btn') }}{% endif %}
+								</div>
+							</div>
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</section>
+{% endif %}
+
+{% block javascripts %}
+<script defer>
+	const faqToggle = () => {
+		document.querySelectorAll('.faq__list .faq__list__title').forEach((question) => {
+			question.addEventListener('click', () => {
+				const item = question.closest('.faq__list li');
+				const answer = item.querySelector('.faq__list__description');
+				const content = item.querySelector('.faq__list__description__inner');
+				const { animate } = Motion;
+
+				const isOpen = question.classList.contains('active');
+
+				if (isOpen) {
+					const currentHeight = answer.scrollHeight;
+					answer.style.height = `${currentHeight}px`;
+					void answer.offsetHeight;
+
+					animate(answer, { height: 0 }, { duration: .3, easing: 'ease-in-out' })
+						.finished.then(() => {
+							answer.style.height = '0';
+						});
+
+					question.querySelector('span:last-child').textContent = '+';
+					question.classList.remove('active');
+				} else {
+					const targetHeight = content.scrollHeight;
+
+					animate(answer, { height: targetHeight }, { duration: .3, easing: 'ease-in-out' })
+						.finished.then(() => {
+							answer.style.height = 'auto';
+						});
+
+					question.querySelector('span:last-child').textContent = '-';
+					question.classList.add('active');
+				}
+			});
+		});
+	};
+
+	faqToggle();
+</script>
+{% endblock %}
+

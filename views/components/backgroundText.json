@@ -1,0 +1,113 @@
+{
+    "title": "Background Image and Text",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-green.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-europe.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-about.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-innovation.php"
+            }
+        ],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-solution-electronics.php"
+            }
+		],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-safety.php"
+            }
+		],
+		[
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "solutions"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-solution-usage.php"
+            },
+			{
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-solution-electronics.php"
+            },
+			{
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-solutions-diving.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "backgroundText",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "key": "image_691657546ed69"
+                },
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_691657546ed6a"
+                },
+				{
+                    "label": "Subtitle",
+                    "name": "subtitle",
+                    "type": "text",
+                    "key": "subtitle_6916575e46ed6a"
+                },
+                {
+                    "label": "Description",
+                    "name": "decription",
+                    "type": "textarea",
+                    "new_lines": "wpautop",
+                    "key": "decription_691657546ed6b"
+                },
+				{
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
+                    "key": "link_690b635a1cddd05"
+                }
+            ],
+            "key": "backgroundText_691657546ed67"
+        }
+    ],
+    "key": "group_691657546ecb2"
+}

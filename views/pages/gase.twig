@@ -1,0 +1,14 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="gase" class="gase-single">
+		{% include 'components/heroBanner.twig' %}
+		{% include 'components/textCols.twig' %}
+		{% include 'components/textCols2.twig' with { center: true } %}
+		{% include 'components/gasesNumber.twig' %}
+		{% include 'components/supplyGases.twig' %}
+		{% include 'components/textsImages.twig' %}
+		{% include 'components/gasesRelated.twig' %}
+		{% include 'components/contactAlert.twig' %}
+	</main>
+{% endblock %}

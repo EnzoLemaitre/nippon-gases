@@ -1,0 +1,6 @@
+{% set thumbnail = fn('get_field', 'thumbnailSolution', solution.ID) %}
+<article class="solutions-list__item swiper-slide" style="background-image: url({{ thumbnail.image.url }})">
+	<a class="solutions-list__item__link" href="{{ fn ('get_permalink', solution.ID) }}">
+		<h3 class="solutions-list__item__title">{{ solution.post_title }}</h3>
+	</a>
+</article>

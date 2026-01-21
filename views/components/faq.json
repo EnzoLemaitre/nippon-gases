@@ -1,0 +1,109 @@
+{
+    "title": "Faq",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "solutions"
+            },
+			{
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-solution-usage.php"
+            },
+			{
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-solutions-diving.php"
+            },
+			{
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-solution-electronics.php"
+            }
+        ],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-green.php"
+            }
+		],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-need-help.php"
+            }
+		],
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-why.php"
+			}
+		]
+    ],
+    "fields": [
+        {
+            "name": "faq",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_6908b7bf01cd5"
+                },
+				{
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+					"new_lines": "wpautop",
+					"key": "description_6908b7bf01cd11"
+                },
+                {
+                    "label": "Content",
+                    "name": "content",
+                    "type": "repeater",
+					"layout": "block",
+					"collapsed": "title_6908b7bf01cd7",
+                    "sub_fields": [
+						{
+							"label": "Prefix",
+							"name": "prefix",
+							"type": "text",
+							"key": "prefix_6908b7bf01cd10"
+						},
+                        {
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+							"required": 1,
+                            "key": "title_6908b7bf01cd7"
+                        },
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "textarea",
+							"required": 1,
+							"new_lines": "wpautop",
+                            "key": "description_6908b7bf01cd8"
+                        },
+                        {
+                            "label": "Link",
+                            "name": "link",
+                            "type": "link",
+                            "key": "link_6908b7bf01cd9"
+                        }
+                    ],
+                    "key": "content_6908b7bf01cd6"
+                }
+            ],
+            "key": "faq_6908b7bf01cd3"
+        }
+    ],
+    "key": "group_6908b7bf01ab7"
+}

@@ -1,0 +1,16 @@
+{% extends 'layout/base.twig' %}
+
+{% block body_class %}green-body{% endblock %}
+
+{% block body %}
+	<main id="green" class="green">
+		{% include 'components/heroBanner.twig' %}
+		{% include 'components/textCols.twig' %}
+		{% include 'components/green.twig' %}
+		{% include 'components/slider.twig' %}
+		{% include 'components/gasesNumber.twig' %}
+		{% include 'components/greenFor.twig' %}
+		{% include 'components/faq.twig' %}
+		{% include 'components/backgroundText.twig' %}
+	</main>
+{% endblock %}

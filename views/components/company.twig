@@ -1,0 +1,14 @@
+{% set company = post.meta('company') %}
+{% if company.title or company.description or company.subtitle %}
+	<section class="container section company">
+		{% if company.title or company.subtitle %}
+			<div class="company__text{% if not company.description %} company__full{% endif %}">
+				{% if company.title %}<h2 class="company__title">{{ company.title }}</h2>{% endif %}
+				{% if company.subtitle %}<p class="company__subtitle">{{ company.subtitle }}</p>{% endif %}
+			</div>
+		{% endif %}
+		{% if company.description %}
+			<div class="company__description content{% if not company.title and not company.subtitle %} content__full{% endif %}">{{ company.description }}</div>
+		{% endif %}
+	</section>
+{% endif %}

@@ -1,0 +1,100 @@
+{
+    "title": "Image Text",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "solutions"
+            },
+			{
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-solutions-diving.php"
+			}
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-europe.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-diversity.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-about.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-iberia.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "imageText",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+					"preview_size": "thumbnail",
+                    "key": "image_690b635a1cd01"
+                },
+				{
+					"label": "Image position",
+					"name": "imagePosition",
+					"type": "select",
+					"choices": {
+						"left": "Left",
+						"right": "Right"
+					},
+					"default_value": "left",
+					"key": "imagePosition_690b635a1cd02"
+				},
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_690b635a1cd02"
+                },
+                {
+                    "label": "Subtitle",
+                    "name": "subtitle",
+                    "type": "text",
+                    "key": "subtitle_690b635a1cd03"
+                },
+                {
+                    "label": "Description",
+                    "name": "decription",
+                    "type": "textarea",
+                    "key": "description_690b635a1cd04",
+					"new_lines": "wpautop"
+                },
+                {
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
+                    "key": "link_690b635a1cd05"
+                }
+            ],
+            "key": "imageText_690b635a1ccff"
+        }
+    ],
+    "key": "group_690b635a1cc48"
+}

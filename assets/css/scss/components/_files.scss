@@ -1,0 +1,31 @@
+.files-compo {
+	ul {
+		li {
+			position: relative;
+			border-bottom: 1px solid var(--default-color);
+			line-height: var(--line-height);
+
+			&:first-child {
+				border-top: 1px solid var(--default-color);
+			}
+
+			a {
+				display: block;
+				padding: 25px 60px 25px 30px;
+				transition: .3s ease color;
+
+				&:hover,
+				&:focus {
+					color: var(--primary-color);
+				}
+
+				svg {
+					height: 30px;
+					position: absolute;
+					top: 18px;
+					right: 0;
+				}
+			}
+		}
+	}
+}

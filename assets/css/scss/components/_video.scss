@@ -1,0 +1,24 @@
+.video-compo {
+	&__inner {
+		position: relative;
+		width: 100%;
+		padding-bottom: 56.25%;
+		height: 0;
+		overflow: hidden;
+
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__container {
+		max-width: 1400px;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

@@ -1,0 +1,21 @@
+{% set gridImage = post.meta('gridImage') %}
+{% if gridImage.gridImage | length > 0 %}
+	<section class="section container grid-image">
+		{% if gridImage.title %}<h2 class="grid-image__title subtitle mb-40">{{ gridImage.title }}</h2>{% endif %}
+
+		<div class="grid-image__list">
+			{% for item in gridImage.gridImage %}
+				<article>
+					{% set img = get_image(item.image) %}
+					{% if img %}
+						<div class="grid-image__list__image">
+							<img src="{{ img.src|resize(444) }}" alt="{{ img.alt }}" loading="lazy" width="444">
+						</div>
+					{% endif %}
+					{% if item.title %}<p class="grid-image__list__title">{{ item.title }}</p>{% endif %}
+					{% if item.description %}<p class="grid-image__list__description">{{ item.description }}</p>{% endif %}
+				</article>
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

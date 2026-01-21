@@ -1,0 +1,37 @@
+.category-filters {
+	.filter-pills {
+		.filter-pill {
+			width: fit-content;
+			padding: 5px 20px;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 5px;
+			transition: all 0.4s ease;
+			border-radius: 50px;
+			border: 1px solid var(--default-color);
+
+
+			&.active {
+				background-color: var(--default-color);
+				color: var(--background-color);
+
+				img {
+					filter: invert(100%);
+					-webkit-filter: invert(100%);
+				}
+			}
+
+			&:hover,
+			&:focus {
+				background-color: var(--default-color);
+				color: #fff;
+
+				img {
+					filter: invert(100%);
+					-webkit-filter: invert(100%);
+				}
+			}
+		}
+	}
+}

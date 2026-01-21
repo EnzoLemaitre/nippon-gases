@@ -1,0 +1,20 @@
+{% set contactAlert = (contactAlert) ? contactAlert : post.meta('contactAlert') %}
+{% if contactAlert.title or contactAlert.description or contactAlert.link %}
+	<section class="contact-alert{% if noSection != true %} section{% endif %}">
+		<div class="container{% if contactAlert.description == false and contactAlert.link == false or contactAlert.title == false %} contact-alert__full{% endif %}">
+			{% if contactAlert.title %}
+				<h2 class="subtitle contact-alert__subtitle">{{ contactAlert.title }}</h2>
+			{% endif %}
+			{% if contactAlert.description or contactAlert.link %}
+				<div class="contact-alert__text">
+					{% if contactAlert.description %}
+						<div class="content">{{ contactAlert.description }}</div>
+					{% endif %}
+					{% if contactAlert.link %}
+						{{ link(contactAlert.link, 'btn btn__light') }}
+					{% endif %}
+				</div>
+			{% endif %}
+		</div>
+	</section>
+{% endif %}

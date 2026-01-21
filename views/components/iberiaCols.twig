@@ -1,0 +1,18 @@
+{% set iberiaCols = post.meta('iberiaCols') %}
+
+{% if iberiaCols.title or iberiaCols.description or iberiaCols.description2 or iberiaCols.link %}
+	<section class="section container iberia-cols">
+		{% if iberiaCols.title %}<h2 class="iberia-cols__title mb-40 subtitle">{{ iberiaCols.title }}</h2>{% endif %}
+		{% if iberiaCols.description or iberiaCols.description2 or iberiaCols.link %}
+			<div class="iberia-cols__list">
+				{% if iberiaCols.description %}<div class="iberia-cols__list__description content">{{ iberiaCols.description }}</div>{% endif %}
+				{% if iberiaCols.description2 or iberiaCols.link %}
+					<div class="iberia-cols__list__description2">
+						{% if iberiaCols.description2 %}<div class="content">{{ iberiaCols.description2 }}</div>{% endif %}
+						{{ link(iberiaCols.link, 'btn-more') }}
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+	</section>
+{% endif %}

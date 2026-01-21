@@ -1,0 +1,23 @@
+{% set iberiaNumber = post.meta('iberiaNumber') %}
+{% if iberiaNumber.cards | length > 0 %}
+	<div class="container section nippon-gases iberia-number__cards">
+		{% for card in iberiaNumber.cards %}
+			<div class="nippon-gases__number__card color-{{ card.color }}">
+				<div class="nippon-gases__number__card__content">
+					{% set img = get_image(card.image) %}
+					{% if card.number or card.description %}
+						<div class="nippon-gases__number__card__number{{ not img ? ' no-image' : '' }}">
+							{% if card.number %}<p class="nippon-gases__number__card__number__title">{{ card.number }}</p>{% endif %}
+							{% if card.description %}<p class="nippon-gases__number__card__number__description">{{ card.description }}</p>{% endif %}
+						</div>
+					{% endif %}
+					{% if img %}
+						<div class="nippon-gases__number__card__image">
+							<img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" width="{{ img.width }}" height="{{ img.height }}">
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endif %}

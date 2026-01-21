@@ -1,0 +1,22 @@
+{% set customer = post.meta('customerPortal') %}
+
+{% if customer.description %}<div class="customer-portal__description content">{{ customer.description }}</div>{% endif %}
+{% if customer.subtitle %}<h2 class="customer-portal__subtitle">{{ customer.subtitle }}</h2>{% endif %}
+{% if customer.description2 %}<div class="customer-portal__description2 content">{{ customer.description2 }}</div>{% endif %}
+
+{% if customer.linkLogin or customer.linkRegister %}
+	<ul class="customer-portal__links">
+		{% if customer.linkLogin %}
+			<li>
+				<p class="customer-portal__links__title">{{ customer.titleLogin }}</p>
+				{{ link(customer.linkLogin, 'btn customer-portal__link') }}
+			</li>
+		{% endif %}
+		{% if customer.linkRegister %}
+			<li>
+				<p class="customer-portal__links__title">{{ customer.titleRegister }}</p>
+				{{ link(customer.linkRegister, 'btn customer-portal__link') }}
+			</li>
+		{% endif %}
+	</ul>
+{% endif %}

@@ -1,0 +1,18 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="why-nippon">
+		{% include 'components/heroBanner.twig' %}
+		{% include 'components/textColsLink.twig' %}
+		{% include 'components/company.twig' %}
+		{% include 'components/slider.twig' %}
+		{% include 'components/faq.twig' %}
+		{% include 'components/textCols2.twig' with { bgColor: true } %}
+		{% include 'components/whyNumbers.twig' %}
+		{% include 'components/video.twig' %}
+		{% include 'components/textCols.twig' %}
+		{% include 'components/quote.twig' %}
+		{% include 'components/teams.twig' %}
+		{% include 'components/gridImage.twig' %}
+	</main>
+{% endblock %}

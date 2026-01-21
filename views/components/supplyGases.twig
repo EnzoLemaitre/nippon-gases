@@ -1,0 +1,33 @@
+{% set supplyGases = post.meta('supplyGases') %}
+{% if supplyGases.supply | length > 0 %}
+	<section class="supply-gases section container">
+		{% if supplyGases.title %}<h2 class="supply-gases__title subtitle">{{ supplyGases.title }}</h2>{% endif %}
+
+		<div class="swiper supply-gases__list">
+			<div class="swiper-button-prev">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67 67" fill="none"><path d="M23.0469 45.5723L35.7422 33.3327L23.0469 21.0931L26.9531 17.3171L43.6198 33.3327L26.9531 49.3483L23.0469 45.5723Z" fill="currentColor"/></svg>
+			</div>
+			<div class="swiper-button-next">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67 67" fill="none"><path d="M23.0469 45.5723L35.7422 33.3327L23.0469 21.0931L26.9531 17.3171L43.6198 33.3327L26.9531 49.3483L23.0469 45.5723Z" fill="currentColor"/></svg>
+			</div>
+
+			<ul class="swiper-wrapper">
+				{% for supply in supplyGases.supply %}
+					<li class="swiper-slide">
+						{% if supply.title or supply.subtitle %}
+							<div class="supply-gases__text">
+								{% if supply.title %}<p class="supply-gases__text__title">{{ supply.title }}</p>{% endif %}
+								{% if supply.subtitle %}<p class="supply-gases__text__subtitle">{{ supply.subtitle }}</p>{% endif %}
+							</div>
+						{% endif %}
+						<div class="supply-gases__image">
+							{% set img = get_image(supply.image) %}
+							<img src="{{ img.src }}" alt="{{ supply.subtitle }}" loading="lazy" height="110">
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</section>
+	<script src="{{site.theme.uri}}/dist/supplyGases.js" defer></script>
+{% endif %}

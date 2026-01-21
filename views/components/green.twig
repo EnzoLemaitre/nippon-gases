@@ -1,0 +1,26 @@
+{% set green = post.meta('green') %}
+
+{% if green.item | length > 0 %}
+	<section class="container green-compo">
+		{% if green.title %}<h2 class="green-compo__title subtitle">{{ green.title }}</h2>{% endif %}
+		{% if green.subtitle %}<p class="green-compo__subtitle">{{ green.subtitle }}</p>{% endif %}
+
+		<div class="green-compo__list swiper">
+			<ul class="swiper-wrapper">
+				{% for item in green.item %}
+					{% if item.title or item.image %}
+						<li class="swiper-slide">
+							{% set img = get_image(item.image) %}
+							{% if img %}
+								<img src="{{ img.src|resize(75) }}" alt="{{ img.alt }}" loading="lazy" width="75">
+							{% endif %}
+							{% if item.title %}<p class="green-compo__list__title">{{ item.title }}</p>{% endif %}
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="swiper-pagination-green-compo"></div>
+	</section>
+	<script src="{{site.theme.uri}}/dist/greenCompo.js" defer></script>
+{% endif %}

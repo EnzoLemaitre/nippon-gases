@@ -1,0 +1,25 @@
+.iberia-number__cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+
+	.nippon-gases__number__card {
+		width: calc((100% - (24px * 3)) / 4);
+
+		 &:nth-child(3n + 1) {
+			width: calc((100% - (24px * 1)) / 2);
+		}
+
+		@media (max-width: 768px) {
+			width: calc((100% - (24px * 1)) / 2);
+		}
+
+		@media (max-width: 550px) {
+			width: 100%;
+
+			&:nth-child(3n + 1) {
+				width: 100%;
+			}
+		}
+	}
+}

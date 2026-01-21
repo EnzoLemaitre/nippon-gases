@@ -1,0 +1,52 @@
+{
+    "title": "Nippon card",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-about.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "nipponCard",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_6928640ab9f60"
+                },
+                {
+                    "label": "Card",
+                    "name": "card",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "key": "title_6928640ab9f62"
+                        },
+                        {
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "key": "image_6928640ab9f63"
+                        }
+                    ],
+                    "key": "card_6928640ab9f61"
+                }
+            ],
+            "key": "nipponCard_6928640ab9f5e"
+        }
+    ],
+    "key": "group_6928640ab9d34"
+}

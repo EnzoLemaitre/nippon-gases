@@ -1,0 +1,16 @@
+<article class="card-news">
+	<a href="{{ fn ('get_permalink', post.ID) }}" class="card-news__link">
+		<div class="card-news__image">
+			{% set thumbnail = fn('get_the_post_thumbnail_url', post.ID) %}
+			{% if thumbnail %}
+				<img src="{{ thumbnail|resize(444, 223) }}" loading="lazy" alt="{{ post.post_title }}" width="444" height="223" />
+			{% endif %}
+		</div>
+		<div class="card-news__text">
+			<p class="card-news__text__date">{{ post.post_date | date('d.m.Y') }}</p>
+			<h2 class="card-news__text__title">{{ post.post_title }}</h2>
+			{% set excerpt = fn ('get_the_excerpt', post.ID) %}
+			<p class="card-news__text__description">{{ excerpt|split(' ')|slice(0, 20)|join(' ') ~ '…' }}</p>
+		</div>
+	</a>
+</article>

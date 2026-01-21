@@ -1,0 +1,7 @@
+{% set textButton = post.meta('textButton') %}
+{% if textButton.title or textButton.link %}
+	<section class="container section text-button">
+		{% if textButton.title %}<h2 class="text-button__title">{{ textButton.title }}</h2>{% endif %}
+		{{ link(textButton.link, 'btn') }}
+	</section>
+{% endif %}

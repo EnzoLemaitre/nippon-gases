@@ -1,0 +1,14 @@
+{% set numbers = post.meta('gasesNumber') %}
+
+{% if numbers.card | length > 0 %}
+	{% set image = (numbers.image) ? ' style="background-image: url(' ~ numbers.image ~ ')"' : '' %}
+
+	<ul class="section gases-number container"{{ image }}>
+		{% for number in numbers.card %}
+			<li>
+				{% if number.number %}<p class="gases-number__number">{{ number.number }}</p>{% endif %}
+				{% if number.description %}<p class="gases-number__description">{{ number.description }}</p>{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+{% endif %}

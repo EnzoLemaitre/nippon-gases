@@ -1,0 +1,67 @@
+{
+    "title": "Related News",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-europe.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-diversity.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-about.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-innovation.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "relatedNews",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_692073fa99cd85"
+                },
+                {
+                    "label": "Related News",
+                    "name": "relatedNews",
+                    "type": "relationship",
+                    "post_type": [
+                        "post"
+                    ],
+                    "post_status": [
+                        "publish"
+                    ],
+                    "taxonomy": "",
+                    "filters": "",
+                    "return_format": "object",
+                    "min": 0,
+                    "max": 3,
+                    "key": "relatedNews_692073fa99c85"
+                }
+            ],
+            "key": "relatedNews_692073fa99c83"
+        }
+    ],
+    "key": "group_692073fa99bb1"
+}

@@ -1,0 +1,17 @@
+{% set sidebar = post.meta('sidebar') %}
+
+{% if sidebar.elements | length > 0 %}
+	<aside class="sidebar">
+		{% if sidebar.title %}<h2 class="sidebar__title subtitle mb-40">{{ sidebar.title }}</h2>{% endif %}
+
+		<div class="sidebar__elements">
+			{% for element in sidebar.elements %}
+				<article>
+					{% if element.title %}<h3 class="sidebar__elements__title">{{ element.title }}</h3>{% endif %}
+					{% if element.description %}<div class="content sidebar__elements__description">{{ element.description }}</div>{% endif %}
+					{{ link(element.link, 'btn sidebar__elements__link') }}
+				</article>
+			{% endfor %}
+		</div>
+	</aside>
+{% endif %}

@@ -1,0 +1,41 @@
+.grid-image {
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 30px;
+
+		article {
+			width: calc((100% - (30px * 2)) / 3);
+
+			@media (max-width: 768px) {
+				width: calc((100% - (30px * 1)) / 2);
+			}
+
+			@media (max-width: 410px) {
+				width: 100%;
+			}
+		}
+
+		&__image {
+			margin-bottom: 20px;
+
+			img {
+				width: 100%;
+				overflow: hidden;
+				display: block;
+				border-radius: var(--border-radius);
+			}
+		}
+
+		&__title {
+			font-weight: 500;
+			line-height: var(--line-height);
+			font-size: var(--fs-m);
+		}
+
+		&__description {
+			line-height: var(--line-height);
+			margin-top: 5px;
+		}
+	}
+}

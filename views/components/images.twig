@@ -1,0 +1,11 @@
+{% set images = post.meta('images') %}
+{% if images.images | length > 0 %}
+	<ul class="images-compo section container">
+		{% for image in images.images %}
+			<li>
+				{% set img = get_image(image.image) %}
+				<img src="{{ img.src }}" alt="{{ image.alt }}" loading="lazy" width="{{ img.width }}" height="{{ img.height }}">
+			</li>
+		{% endfor %}
+	</ul>
+{% endif %}

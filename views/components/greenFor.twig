@@ -1,0 +1,32 @@
+{% set greenFor = post.meta('greenFor') %}
+
+{% if greenFor.item | length > 0 %}
+	<section class="container green-for section">
+		{% if greenFor.title %}<h2 class="green-for__title subtitle">{{ greenFor.title }}</h2>{% endif %}
+		{% if greenFor.subtitle %}<p class="green-for__subtitle">{{ greenFor.subtitle }}</p>{% endif %}
+
+		<div class="green-for__list swiper">
+			<ul class="swiper-wrapper">
+				{% for item in greenFor.item %}
+					{% if item.title or item.image %}
+						<li class="swiper-slide">
+							{% set img = get_image(item.image) %}
+							{% if img %}
+								<div class="green-for__list__img">
+									<img src="{{ img.src|resize(87, 87) }}" alt="{{ img.alt }}" loading="lazy" width="87" height="87">
+								</div>
+							{% endif %}
+							{% if item.title %}
+								<div>
+									<p class="green-for__list__title">{{ item.title }}</p>
+								</div>
+							{% endif %}
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="swiper-pagination-green-for"></div>
+	</section>
+	<script src="{{site.theme.uri}}/dist/greenFor.js" defer></script>
+{% endif %}

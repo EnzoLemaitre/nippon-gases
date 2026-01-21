@@ -1,0 +1,15 @@
+{% set steps = post.meta('stepsSafety') %}
+
+{% if steps.elements | length > 0 %}
+	<section class="container steps-safety section">
+		{% if steps.title %}<h2 class="subtitle  steps-safety__title mb-40">{{ steps.title }}</h2>{% endif %}
+		<ul class="steps-safety__list">
+			{% for key, el in steps.elements %}
+				<li class="steps-safety__item">
+					<span class="steps-safety__item__number">{{ key + 1 }}.</span>
+					{% if el.description %}<p class="steps-safety__item__description">{{ el.description }}</p>{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	</section>
+{% endif %}

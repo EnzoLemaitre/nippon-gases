@@ -1,0 +1,86 @@
+{
+    "title": "Texts images",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-innovation.php"
+            }
+        ],
+		[
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "solutions"
+            }
+        ],
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "gases"
+			}
+		],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-solution-electronics.php"
+            }
+		]
+    ],
+    "fields": [
+        {
+            "name": "imagesTexts",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Elements",
+                    "name": "elements",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "key": "title_69297b45905e7"
+                        },
+                        {
+                            "label": "Subtitle",
+                            "name": "subtitle",
+                            "type": "text",
+                            "key": "subtitle_69297b45905e9"
+                        },
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "textarea",
+                            "new_lines": "wpautop",
+                            "key": "description_69297b45905ea"
+                        },
+                        {
+                            "label": "Link",
+                            "name": "link",
+                            "type": "link",
+                            "key": "link_69297b45905eb"
+                        },
+                        {
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "key": "image_69297b45905ec"
+                        }
+                    ],
+                    "key": "elements_69297b45905e6"
+                }
+            ],
+            "key": "Textsimages_69297b45905e1"
+        }
+    ],
+    "key": "group_69297b458afaf"
+}

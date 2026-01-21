@@ -1,0 +1,17 @@
+{% set posts = get_posts({ 'posts_per_page': 3, 'post_type': 'post', 'order': 'DESC', 'orderby': 'date' }) %}
+{% if posts.found_posts > 0 %}
+	<section class="last-news container section">
+		<header class="last-news__header">
+			<h2 class="last-news__header__title subtitle">{{ __('Latest Company News', 'ng') }}</h2>
+			<div class="last-news__header__link">
+				<a href="{{ fn('get_post_type_archive_link', 'post') }}">{{ __('See all', 'ng') }}</a>
+			</div>
+		</header>
+
+		<div class="last-news__list">
+			{% for post in posts %}
+				{% include 'components/newsCard.twig' %}
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

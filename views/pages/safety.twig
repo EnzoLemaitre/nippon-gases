@@ -1,0 +1,14 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="safety">
+		{% include 'components/heroBanner.twig' %}
+		{% include 'components/textCols.twig' %}
+		{% include 'components/textColsBlue.twig' %}
+		{% include 'components/stepsSafety.twig' %}
+		{% include 'components/backgroundText.twig' with { cols: true } %}
+		{% include 'components/gridImage.twig' %}
+		{% include 'components/contactAlert.twig' %}
+		{% include 'components/lastNews.twig' %}
+	</main>
+{% endblock %}

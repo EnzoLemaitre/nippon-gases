@@ -1,0 +1,72 @@
+.green {
+	.btn__light,
+	.btn {
+		&:hover,
+		&:focus {
+			background-color: var(--dark-green-color);
+		}
+	}
+
+	.faq__list__title {
+		&:hover,
+		&:focus {
+			color: var(--dark-green-color);
+		}
+	}
+
+	.hero-banner {
+		background-color: var(--dark-green-color);
+	}
+
+	.gases-number {
+		margin-bottom: 0;
+		color: var(--hard-green-color);
+	}
+
+	.background-text {
+		background-color: var(--dark-green-color);
+
+		.background-text__description__link {
+			background-color: var(--background-color);
+			color: var(--default-color);
+
+			&:hover,
+			&:focus {
+				color: var(--background-color);
+				background-color: var(--dark-green-color);
+			}
+		}
+	}
+
+	.slider {
+		background-color: var(--light-green-color);
+		color: var(--dark-green-color);
+		margin-bottom: 0;
+
+		body & .swiper-button-prev,
+		body & .swiper-button-next {
+			&:hover,
+			&:focus {
+				color: var(--dark-green-color);
+			}
+		}
+
+		.swiper-pagination-slider {
+			.swiper-pagination-bullets,
+			.swiper-pagination-bullet-active {
+				background-color: var(--dark-green-color);
+			}
+		}
+	}
+}
+
+.green-body {
+	::selection {
+		color: var(--background-color);
+		background-color: var(--dark-green-color);
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background-color: var(--dark-green-color);
+	}
+}

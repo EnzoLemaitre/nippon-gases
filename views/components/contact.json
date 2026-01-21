@@ -1,0 +1,36 @@
+{
+	"title": "Contact",
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-contact.php"
+			}
+		]
+	],
+	"fields": [
+		{
+			"name": "contact",
+			"type": "group",
+			"layout": "row",
+			"sub_fields": [
+				{
+					"label": "Title",
+					"name": "title",
+					"type": "text"
+				},
+				{
+					"label": "Description",
+					"name": "description",
+					"type": "wysiwyg",
+					"tabs": "all",
+					"toolbar": "full",
+					"media_upload": 0,
+					"default_value": "",
+					"delay": 0
+				}
+			]
+		}
+	]
+}

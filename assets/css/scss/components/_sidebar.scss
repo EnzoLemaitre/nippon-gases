@@ -1,0 +1,29 @@
+.sidebar {
+	padding: 30px;
+	background-color: var(--grey-color);
+
+	&__elements {
+		article {
+			margin-bottom: 30px;
+			padding-bottom: 30px;
+			border-bottom: 1px solid var(--default-color);
+
+			&:last-child {
+				margin-bottom: 0;
+				padding-bottom: 0;
+				border: none;
+			}
+		}
+
+		&__link {
+			margin-top: 20px;
+		}
+
+		&__title {
+			margin-bottom: 20px;
+			line-height: var(--line-height);
+			font-weight: 600;
+			font-size: var(--fs-m);
+		}
+	}
+}

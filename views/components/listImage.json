@@ -1,0 +1,63 @@
+{
+    "title": "List with image",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-diversity.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "listImage",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_692825bd05145"
+                },
+                {
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "key": "image_692825bd05146"
+                },
+                {
+                    "label": "Image position",
+                    "name": "imagePosition",
+                    "type": "select",
+                    "choices": {
+                        "left": "Left",
+                        "right": "Right"
+                    },
+                    "default_value": "left",
+                    "key": "imagePosition_692825bd05147"
+                },
+                {
+                    "label": "List",
+                    "name": "list",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Text",
+                            "name": "text",
+                            "type": "text",
+                            "key": "text_692825bd05149"
+                        }
+                    ],
+                    "key": "list_692825bd05148"
+                }
+            ],
+            "key": "listImage_692825bd05143"
+        }
+    ],
+    "key": "group_692825bd0508c"
+}

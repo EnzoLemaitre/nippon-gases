@@ -1,0 +1,21 @@
+{% set cardMore = post.meta('cardMore') %}
+{% if cardMore %}
+	<section class="card-more container section">
+		{% if cardMore.title %}<h2 class="subtitle">{{ cardMore.title }}</h2>{% endif %}
+
+		<div class="card-more__list">
+			{% for card in cardMore.card %}
+				<article{% if not card.link %} class="card-more__no-link"{% endif %}>
+					{% if card.link %}<a href="{{ card.link }}">{% endif %}
+						{% if card.link %}
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M25 13H1.1M13 1.1V25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.1px"/></svg>
+						{% endif %}
+
+						{% if card.title %}<h2 class="card-more__title">{{ card.title }}</h2>{% endif %}
+						{% if card.description %}<p class="card-more__description">{{ card.description }}</p>{% endif %}
+					{% if card.link %}</a>{% endif %}
+				</article>
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

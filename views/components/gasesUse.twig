@@ -1,0 +1,24 @@
+{% set gasesUse = post.meta('gasesUse') %}
+{% if gasesUse.lines | length > 0 %}
+	<section class="section container gases-use">
+		{% if gasesUse.title %}<h2 class="gases-use__title subtitle mb-40">{{ gasesUse.title }}</h2>{% endif %}
+		{% if gasesUse.description %}<div class="gases-use__description content mb-40">{{ gasesUse.description }}</div>{% endif %}
+
+		<div class="gases-use__lines">
+			{% for line in gasesUse.lines %}
+				<div class="gases-use__line">
+					{% for el in line.blocks %}
+						<article class="gases-use__line__element{% if not el.link %} no-link{% endif %}">
+							{% if el.link %}<a href="{{ el.link }}">{% endif %}
+								{% if el.link %}
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M25 13H1.1M13 1.1V25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.1px"/></svg>
+								{% endif %}
+								<p class="gases-use__line__element__title">{{ el.title }}</p>
+							{% if el.link %}</a>{% endif %}
+						</article>
+					{% endfor %}
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

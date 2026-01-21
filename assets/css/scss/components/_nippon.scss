@@ -1,0 +1,113 @@
+.nippon-gases {
+	.no-number {
+		width: 100%;
+	}
+
+	&__title {
+		margin-bottom: 40px;
+	}
+
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 30px 4%;
+	}
+
+	&__text {
+		width: 48%;
+
+		@media (max-width: 768px) {
+			width: 100%;
+		}
+
+		.btn {
+			margin-top: 20px;
+		}
+	}
+
+	&__number {
+		width: 48%;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+
+		@media (max-width: 768px) {
+			width: 100%;
+		}
+
+		&__card {
+			border-radius: var(--border-radius);
+			padding: 20px;
+			width: calc((100% - (10px * 1)) / 2);
+
+			@media (max-width: 500px) {
+				width: 100%;
+			}
+
+			&.color-grey {
+				background-color: var(--grey-color);
+			}
+
+			&.color-darkBlue {
+				background-color: var(--dark-blue-color);
+			}
+
+			&.color-lightBlue {
+				background-color: #659FC8;
+			}
+
+			&.color-blue {
+				background-color: var(--primary-color);
+			}
+
+			&.color-darkBlue,
+			&.color-lightBlue,
+			&.color-blue {
+				color: var(--background-color);
+			}
+
+			&__content {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 4%;
+			}
+
+			&__number {
+				width: 48%;
+
+				&.no-image {
+					width: 100%;
+				}
+
+				&__title {
+					font-size: var(--fs-xl);
+					font-weight: 500;
+					line-height: var(--line-height);
+					overflow-wrap: break-word;
+				}
+
+				&__description {
+					font-weight: 300;
+					line-height: var(--line-height);
+					overflow-wrap: break-word;
+				}
+			}
+
+			&__image {
+				width: 48%;
+				text-align: right;
+
+				img {
+					max-height: 30px;
+					width: auto;
+				}
+			}
+		}
+	}
+
+	&__description {
+		line-height: var(--line-height);
+		font-size: var(--fs-l);
+		font-weight: 400;
+	}
+}

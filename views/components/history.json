@@ -1,0 +1,67 @@
+{
+    "title": "Our history",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-europe.php"
+            }
+        ],
+		 [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-iberia.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "history",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+				{
+					"label": "Title",
+					"name": "title",
+					"type": "text",
+					"key": "title_691f4670a504b2",
+					"required": 1
+				},
+                {
+                    "label": "Date",
+                    "name": "date",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Year",
+                            "name": "year",
+                            "type": "number",
+                            "key": "year_691f4670a04b2",
+							"required": 1
+                        },
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "text",
+                            "key": "description_691f4670a04b3"
+                        },
+                        {
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "key": "image_691f4670a04b4"
+                        }
+                    ],
+                    "key": "date_691f4670a04b1"
+                }
+            ],
+            "key": "history_691f4670a04af"
+        }
+    ],
+    "key": "group_691f4670a03d9"
+}

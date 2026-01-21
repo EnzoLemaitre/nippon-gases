@@ -1,0 +1,13 @@
+{% set image = post.meta('image') %}
+{% if image.image or image.title %}
+	<section class="image-compo section container">
+		{% if image.title %}<h2 class="image-compo__title subtitle mb-40">{{ image.title }}</h2>{% endif %}
+
+		{% set img = get_image(image.image) %}
+		{% if img %}
+			<div class="image-compo__img">
+				<img src="{{ img.src }}" alt="{{ image.alt }}" loading="lazy" width="{{ img.width }}" height="{{ img.height }}">
+			</div>
+		{% endif %}
+	</section>
+{% endif %}

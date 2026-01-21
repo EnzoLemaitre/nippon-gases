@@ -1,0 +1,12 @@
+{% set textCols = post.meta('textColsLink') %}
+{% if textCols %}
+	<section class="section text-cols container{% if not textCols.title or not textCols.description %} text-cols__full{% endif %}">
+		{% if textCols.title %}<h2 class="text-cols__title subtitle">{{ textCols.title }}</h2>{% endif %}
+		{% if textCols.description or textCols.link %}
+			<div class="text-cols__description">
+				{% if textCols.description %}<div class="content">{{ textCols.description }}</div>{% endif %}
+				{{ link(textCols.link, 'btn') }}
+			</div>
+		{% endif %}
+	</section>
+{% endif %}

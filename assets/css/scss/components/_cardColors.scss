@@ -1,0 +1,87 @@
+.card-colors {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px 1%;
+
+	@media (max-width: 768px) {
+		gap: 15px 2%;
+	}
+
+	article {
+		width: calc((100% - (1% * 2)) / 3);
+		background-color: var(--grey-color);
+		overflow: hidden;
+		border-radius: var(--border-radius);
+
+		@media (max-width: 768px) {
+			width: calc((100% - (2% * 1)) / 2);
+		}
+
+		@media (max-width: 500px) {
+			width: 100%;
+		}
+
+		&.color-blue {
+			color: var(--background-color);
+			background-color: var(--blue-color);
+
+			a {
+				background-color: var(--blue-color);
+
+				&:hover,
+				&:focus {
+					background-color: var(--primary-color);
+					color: var(--background-color);
+				}
+
+			}
+		}
+	}
+
+	&__no-link {
+		padding: 30px;
+	}
+
+	&__title {
+		line-height: var(--line-height);
+		font-weight: 500;
+		font-size: var(--fs-m);
+
+	}
+
+	&__description {
+		line-height: var(--line-height);
+		margin-top: 15px;
+	}
+
+	a {
+		display: block;
+		background-color: var(--grey-color);
+		transition: .3s ease background-color, .3s ease color;
+		height: 100%;
+		padding: 30px;
+		position: relative;
+
+		&:hover,
+		&:focus {
+			background-color: var(--primary-color);
+			color: var(--background-color);
+		}
+
+		svg {
+			position: absolute;
+			top: 30px;
+			right: 30px;
+			height: 30px;
+			transition: .3s ease stroke;
+
+			@media (max-width: 768px) {
+				height: 20px;
+			}
+		}
+
+		.card-more__title {
+			padding-right: 40px;
+		}
+	}
+}

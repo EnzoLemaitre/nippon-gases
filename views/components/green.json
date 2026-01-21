@@ -1,0 +1,58 @@
+{
+    "title": "Green",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-green.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "green",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_691ae5598463e"
+                },
+                {
+                    "label": "Subtitle",
+                    "name": "subtitle",
+                    "type": "text",
+                    "key": "subtitle_691ae5598463f"
+                },
+                {
+                    "label": "Item",
+                    "name": "item",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "key": "title_691ae55984641"
+                        },
+                        {
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "key": "image_691ae55984642"
+                        }
+                    ],
+                    "key": "item_691ae55984640"
+                }
+            ],
+            "key": "green_691ae5598463c"
+        }
+    ],
+    "key": "group_691ae55984596"
+}

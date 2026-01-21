@@ -1,0 +1,11 @@
+{% set gaseCard = fn('get_field', 'cardGases', gase.ID) %}
+<article class="card-gases swiper-slide">
+	<a href="{{ fn ('get_permalink', gase.ID) }}">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M25 13H1.1M13 1.1V25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.1px"/></svg>
+
+		<div class="card-gases__text">
+			<h2 class="card-gases__title">{{ gaseCard.title }}</h2>
+			<p class="card-gases__subtitle">{{ gaseCard.subtitle }}</p>
+		</div>
+	</a>
+</article>

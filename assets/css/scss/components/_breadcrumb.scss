@@ -1,0 +1,44 @@
+.breadcrumb {
+	ol {
+		display: flex;
+		flex-wrap: wrap;
+		text-transform: uppercase;
+		font-weight: 300;
+
+		li {
+			line-height: var(--line-height);
+			
+			&::after {
+				content: '|';
+				margin-right: 10px;
+				margin-left: 10px;
+			}
+
+			&:last-child {
+				&::after {
+					display: none;
+				}
+			}
+		}
+
+		a {
+			display: inline-block;
+
+			&::after {
+				content: '';
+				display: block;
+				width: 0;
+				height: 1px;
+				background-color: var(--background-color);
+				transition: width .3s ease;
+			}
+
+			&:hover,
+			&:focus {
+				&::after {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

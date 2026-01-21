@@ -1,0 +1,87 @@
+{
+    "title": "Options",
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "options",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Social Network",
+                    "name": "socialNetworks",
+                    "type": "group",
+                    "sub_fields": [
+                        {
+                            "label": "Linkedin",
+                            "name": "linkedin",
+                            "type": "url",
+                            "key": "linkedin_6911fb9c46ba4"
+                        },
+                        {
+                            "label": "X",
+                            "name": "x",
+                            "type": "url",
+                            "key": "x_6911fb9c46ba5"
+                        },
+                        {
+                            "label": "Youtube",
+                            "name": "youtube",
+                            "type": "url",
+                            "key": "youtube_6911fb9c46ba6"
+                        }
+                    ],
+                    "key": "socialNetworks_6911fb9c46ba3"
+                },
+				{
+                    "label": "Title Footer",
+                    "name": "titleFooter",
+                    "type": "group",
+                    "sub_fields": [
+                        {
+                            "label": "Nippon Gases",
+                            "name": "nipponGasesTitle",
+                            "type": "text",
+                            "key": "nipponGasesTitle_691201dc1caa0"
+                        },
+                        {
+                            "label": "Need Help",
+                            "name": "needHelpTitle",
+                            "type": "text",
+                            "key": "needHelpTitle_691201dc1caa1"
+                        },
+                        {
+                            "label": "Solutions",
+                            "name": "solutionsTitle",
+                            "type": "text",
+                            "key": "solutionsTitle_691201dc1caa2"
+                        },
+                        {
+                            "label": "Subsidiaries",
+                            "name": "subsidiariesTitle",
+                            "type": "text",
+                            "key": "subsidiariesTitle_691201dc1caa3"
+                        }
+                    ],
+                    "key": "titleFooter_691201dc1ca9e"
+                },
+				{
+					"label": "Need Help",
+					"name": "contactLink",
+					"type": "url",
+					"key": "contactLink_6e91201dc1caa1"
+				}
+            ],
+            "key": "options_6911fb9c46ba1"
+        }
+    ],
+    "key": "group_6911fb9c469a2"
+}

@@ -1,0 +1,51 @@
+{
+    "title": "Distributor",
+    "fields": [
+        {
+            "key": "field_distributor_address",
+            "label": "Address",
+            "name": "distributor_address",
+            "type": "textarea",
+            "instructions": "Enter the complete address of the distributor",
+            "required": 0,
+            "rows": 3,
+            "placeholder": "Street number and name\nPostal code City\nCountry"
+        },
+        {
+            "key": "field_distributor_phone",
+            "label": "Phone",
+            "name": "distributor_phone",
+            "type": "text",
+            "instructions": "Distributor's phone number",
+            "required": 0,
+            "placeholder": "+33 1 23 45 67 89"
+        },
+        {
+            "key": "field_distributor_email",
+            "label": "Email",
+            "name": "distributor_email",
+            "type": "email",
+            "instructions": "Distributor's email address",
+            "required": 0,
+            "placeholder": "contact@example.com"
+        },
+        {
+            "key": "field_distributor_fax",
+            "label": "Fax",
+            "name": "distributor_fax",
+            "type": "text",
+            "instructions": "Distributor's fax number",
+            "required": 0,
+            "placeholder": "+33 1 23 45 67 90"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "distributors"
+            }
+        ]
+    ]
+}

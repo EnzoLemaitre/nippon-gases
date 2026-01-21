@@ -1,0 +1,12 @@
+{% set related = post.meta('gasesRelated') %}
+{% if related.relations | length > 0 %}
+	<section class="section gases-related container">
+		{% if related.title %}<h2 class="subtitle gases-related__title">{{ related.title }}</h2>{% endif %}
+
+		<div class="gases-related__list">
+			{% for related in related.relations %}
+				{% include 'components/cardGasesRelated.twig' with { gas: related } %}
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

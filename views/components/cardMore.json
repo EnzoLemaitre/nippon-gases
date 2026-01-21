@@ -1,0 +1,73 @@
+{
+    "title": "Card more",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "solutions"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-solution-usage.php"
+            },
+			{
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-solution-electronics.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-europe.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "cardMore",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+				{
+					"label": "Title",
+					"name": "title",
+					"type": "text",
+					"key": "titleMain_690b4b1e4359f"
+				},
+                {
+                    "label": "Card",
+                    "name": "card",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "key": "title_690b4b1e4359f"
+                        },
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "text",
+                            "key": "description_690b4b1e435a0"
+                        },
+                        {
+                            "label": "Link",
+                            "name": "link",
+                            "type": "url",
+                            "key": "link_690b4b1e435a1"
+                        }
+                    ],
+                    "key": "card_690b4b1e4359e"
+                }
+            ],
+            "key": "cardMore_690b4b1e4359c"
+        }
+    ],
+    "key": "group_690b4b1e433d2"
+}

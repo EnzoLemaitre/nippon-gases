@@ -1,0 +1,12 @@
+@use "sass:math";
+
+/** Font size convert **/
+@function calculateRem($size) {
+	$remSize: math.div($size, 16px);
+	@return #{$remSize}rem;
+}
+
+@mixin fontSize($size) {
+	font-size: $size;
+	font-size: calculateRem($size);
+}

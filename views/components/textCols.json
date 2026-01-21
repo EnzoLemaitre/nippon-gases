@@ -1,0 +1,97 @@
+{
+    "title": "Text cols",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "solutions"
+            },
+			{
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-solutions-diving.php"
+			}
+        ],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-about.php"
+            }
+		],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-safety.php"
+            }
+		],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-iberia.php"
+            }
+		],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-green.php"
+            }
+		],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-why.php"
+            }
+		],
+		[
+			{
+                "param": "post_type",
+                "operator": "==",
+                "value": "gases"
+            }
+		],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-diversity.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-innovation.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "textCols",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_690c61caba5b7"
+                },
+                {
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "new_lines": "wpautop",
+                    "key": "description_690c61caba5b8"
+                }
+            ],
+            "key": "textCols_690c61caba5b5"
+        }
+    ],
+    "key": "group_690c61caba4c8"
+}

@@ -1,0 +1,93 @@
+{% set download = post.meta('download') %}
+
+{% if download %}
+	<section class="download section">
+		{% if download.title %}
+			<h2 class="subtitle">{{ download.title }}</h2>
+		{% endif %}
+
+		<div class="download__wrapper">
+			<div class="download__wrapper__left">
+				<div class="download__wrapper__left__item">
+					<h3>{{ __('Choose a document type', 'ng') }}</h3>
+					<div class="sub-choices">
+						<ul>
+							{% for key, choice in choices.carburant %}
+								<li @click="toggleFilter('carburant.{{ key }}')" :class="(checkActive('carburant.{{ key }}')) ? 'active' : ''">
+									<span class="check-li"></span>
+									<span class="name">{{ choice }}</span>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+
+				<div class="download__wrapper__left__item">
+					<h3>{{ __('Choose a company', 'ng') }}</h3>
+					<div class="sub-choices">
+						<ul>
+							{% for key, choice in choices.carburant %}
+								<li @click="toggleFilter('carburant.{{ key }}')" :class="(checkActive('carburant.{{ key }}')) ? 'active' : ''">
+									<span class="check-li"></span>
+									<span class="name">{{ choice }}</span>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+
+				<div class="download__wrapper__left__item">
+					<h3>{{ __('Choose a language', 'ng') }}</h3>
+					<div class="sub-choices">
+						<ul>
+							{% for key, choice in choices.carburant %}
+								<li @click="toggleFilter('carburant.{{ key }}')" :class="(checkActive('carburant.{{ key }}')) ? 'active' : ''">
+									<span class="check-li"></span>
+									<span class="name">{{ choice }}</span>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+
+				<div class="download__wrapper__left__item">
+					<h3>{{ __('Choose a category', 'ng') }}</h3>
+					<div class="sub-choices">
+						<ul>
+							{% for key, choice in choices.carburant %}
+								<li @click="toggleFilter('carburant.{{ key }}')" :class="(checkActive('carburant.{{ key }}')) ? 'active' : ''">
+									<span class="check-li"></span>
+									<span class="name">{{ choice }}</span>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="download__wrapper__right">
+				<div class="search">
+					<input id="searchInput" type="text" v-model="searchQuery" placeholder="{{ __('Search a document, a solution category…', 'ng') }}" @keyup.enter="searchDownload"/>
+					<svg class="icon-search" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.0031 17.0938L22.9596 22.0501C23.2106 22.3012 23.2106 22.7084 22.9596 22.9596C22.7084 23.2106 22.3013 23.2106 22.0501 22.9596L17.0938 18.0031C15.2801 19.6043 12.8975 20.5758 10.2879 20.5758C4.60605 20.5758 0 15.9698 0 10.2879C0 4.60605 4.60605 0 10.2879 0C15.9698 0 20.5759 4.60605 20.5759 10.2879C20.5759 12.8974 19.6043 15.2801 18.0031 17.0938ZM10.2879 19.2898C15.2596 19.2898 19.2898 15.2595 19.2898 10.2879C19.2898 5.31628 15.2596 1.28597 10.2879 1.28597C5.31634 1.28597 1.28603 5.31628 1.28603 10.2879C1.28603 15.2595 5.31634 19.2898 10.2879 19.2898Z" fill="currentColor"/>
+					</svg>
+				</div>
+				<h3>{{ __('All results','ng') }}</h3>
+				<div class="download__wrapper__right__list">
+					{% for download in downloads %}
+						<div class="download__right__list__item" key="{{ download.id }}" data-id="{{ download.id }}">
+							<div class="date">
+								<p>{{ download.date }}</p>
+							</div>
+							<h4>{{ download.title }}</h4>
+							<svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 35.372 36.662">
+								<g transform="translate(-3.11 -3)">
+									<path d="M26.284,31.846c.006.006.014.008.021.014a.614.614,0,0,0,.188.125.62.62,0,0,0,.239.048.432.432,0,0,0,.313-.1.59.59,0,0,0,.125-.081l7.037-7.036a.626.626,0,1,0-.886-.886L27.358,29.9V3.626a.626.626,0,1,0-1.253,0V29.871l-5.731-5.857a.627.627,0,1,0-.9.877Z" transform="translate(-6.049)"/>
+									<path d="M3.736,54.775h34.12a.626.626,0,0,0,.626-.626V44.075a.626.626,0,1,0-1.253,0v9.447H4.363V44.075a.626.626,0,1,0-1.253,0V54.149a.626.626,0,0,0,.626.626Z" transform="translate(0 -15.113)"/>
+								</g>
+							</svg>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}

@@ -1,0 +1,44 @@
+{
+    "title": "Table",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-about.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "table",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Rows",
+                    "name": "rows",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "key": "title_692859c6bd8b2"
+                        },
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "text",
+                            "key": "description_692859c6bd8b3"
+                        }
+                    ],
+                    "key": "rows_692859c6bd8a7"
+                }
+            ],
+            "key": "table_692859c6bd8a5"
+        }
+    ],
+    "key": "group_692859c6bd6bb"
+}

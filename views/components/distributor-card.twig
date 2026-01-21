@@ -1,0 +1,52 @@
+<div class="result-card" data-distributor-id="{{ distributor.id }}" data-title="{{ distributor.title|lower }}" data-address="{{ distributor.address|lower }}" data-categories="{{ distributor.category_slugs|join(',') }}">
+	<div class="result-header">
+		<h3 class="result-title">{{ distributor.title }}</h3>
+		{% if distributor.categories %}
+			<div class="result-tags">
+				{% for cat in distributor.categories %}
+					<div class="icon">
+						<img src="{{ cat.category_icon.url }}" alt="{{ cat.category_icon.alt }}" loading="lazy" width="{{ cat.category_icon.width }}" height="{{ cat.category_icon.height }}">
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+
+	{% if distributor.phone or distributor.email %}
+		<div class="result-info">
+			{% if distributor.phone %}
+				<div class="info-row">
+					<p class="info-label">{{ __('Phone', 'ng') }}</p>
+					<p class="info-value">{{ distributor.phone }}</p>
+				</div>
+			{% endif %}
+
+			{% if distributor.email %}
+				<div class="info-row">
+					<p class="info-label">{{ __('Email', 'ng') }}</p>
+					<p class="info-value">{{ distributor.email }}</p>
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
+
+	<button class="show-details-btn btn btn__light" onclick="toggleDetails({{ distributor.id }})">
+		{{ __('Show details', 'ng') }}
+	</button>
+
+	<div class="result-details" id="details-{{ distributor.id }}" style="display: none;">
+		{% if distributor.address %}
+			<div class="detail-section">
+				<strong>{{ __('Address', 'ng') }}:</strong>
+				<p>{{ distributor.address|nl2br }}</p>
+			</div>
+		{% endif %}
+
+		{% if distributor.fax %}
+			<div class="detail-section">
+				<strong>{{ __('Fax', 'ng') }}:</strong>
+				<p>{{ distributor.fax }}</p>
+			</div>
+		{% endif %}
+	</div>
+</div>

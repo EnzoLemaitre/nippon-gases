@@ -1,0 +1,23 @@
+{% set quote = post.meta('quote') %}
+
+{% if quote.title or quote.description or quote.image or quote.name or quote.position or quote.country %}
+	<section class="section container quote">
+		<div class="quote__inner">
+			{% set img = get_image(quote.image) %}
+			{% if quote.title or quote.description or quote.name or quote.position or quote.country %}
+				<div class="quote__text{% if not img %} quote__full{% endif %}">
+					{% if quote.title %}<h2 class="quote__title">{{ quote.title }}</h2>{% endif %}
+					{% if quote.description %}<div class="quote__description content">{{ quote.description }}</div>{% endif %}
+					{% if quote.name %}<p class="quote__name">{{ quote.name }}</p>{% endif %}
+					{% if quote.position %}<p class="quote__position">{{ quote.position }}</p>{% endif %}
+					{% if quote.country %}<p class="quote__country">{{ quote.country }}</p>{% endif %}
+				</div>
+			{% endif %}
+			{% if img %}
+				<div class="quote__image">
+					<img src="{{ img.src|resize(366, 366) }}" alt="{{ img.alt }}" loading="lazy" width="366" height="366">
+				</div>
+			{% endif %}
+		</div>
+	</section>
+{% endif %}

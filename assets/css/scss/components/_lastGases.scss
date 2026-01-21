@@ -1,0 +1,58 @@
+.last-gases {
+	&__header {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 40px;
+		margin-bottom: 40px;
+
+		@media (max-width: 530px) {
+			gap: 20px;
+		}
+
+		&__title {
+			flex: 0 0 70%;
+
+			@media (max-width: 530px) {
+				width: 100%;
+				flex: auto;
+			}
+		}
+
+		&__link {
+			text-align: right;
+			flex: 1;
+
+			@media (max-width: 530px) {
+				width: 100%;
+				flex: auto;
+			}
+
+			a {
+				display: inline-block;
+				line-height: var(--line-height);
+
+				&::after {
+					content: '';
+					display: block;
+					width: 100%;
+					height: 1px;
+					background-color: var(--default-color);
+					transition: .3s ease width;
+				}
+
+				&:hover,
+				&:focus {
+					&::after {
+						width: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.swiper-slide {
+		height: auto;
+	}
+}

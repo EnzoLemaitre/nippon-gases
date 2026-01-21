@@ -1,0 +1,69 @@
+{
+    "title": "Customer Portal",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-customer-portal.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "customerPortal",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "new_lines": "wpautop",
+                    "key": "description_692816a5e6101"
+                },
+                {
+                    "label": "Subtitle",
+                    "name": "subtitle",
+                    "type": "text",
+                    "key": "subtitle_692816a5e6102"
+                },
+                {
+                    "label": "Description 2",
+                    "name": "description2",
+                    "type": "textarea",
+                    "new_lines": "wpautop",
+                    "key": "description2_692816a5e6103"
+                },
+                {
+                    "label": "Title log in",
+                    "name": "titleLogin",
+                    "type": "text",
+                    "key": "titleLogin_692816a5e6104"
+                },
+                {
+                    "label": "Link log in",
+                    "name": "linkLogin",
+                    "type": "link",
+                    "required": 1,
+                    "key": "linkLogin_692816a5e6105"
+                },
+                {
+                    "label": "Title register",
+                    "name": "titleRegister",
+                    "type": "text",
+                    "key": "titleRegister_692816a5e6106"
+                },
+                {
+                    "label": "Link register",
+                    "name": "linkRegister",
+                    "type": "link",
+                    "required": 1,
+                    "key": "linkRegister_692816a5e6107"
+                }
+            ],
+            "key": "customerPortal_692816a5e60ff"
+        }
+    ],
+    "key": "group_692816a5e6037"
+}

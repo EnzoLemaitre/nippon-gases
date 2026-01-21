@@ -1,0 +1,18 @@
+{% set buttons = post.meta('buttons') %}
+{% if buttons.buttons | length > 0 %}
+	<ul class="buttons-compo section container">
+		{% for button in buttons.buttons %}
+			{% if button.link %}
+				<li>
+					<a href="{{ button.link.url }}">
+						{% if button.image %}
+							{% set img = get_image(button.image) %}
+							<img src="{{ img.src|resize(30) }}" alt="{{ img.alt }}" loading="lazy" width="{{ img.width }}" height="{{ img.height }}">
+						{% endif %}
+						<span>{{ button.link.title }}</span>
+					</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+{% endif %}

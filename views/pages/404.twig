@@ -1,0 +1,19 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="not-found" class="container not-found">
+		<div class="not-found__text">
+			<p class="not-found__text__title">{{ __('Oops!', 'ng') }}</p>
+			<h1 class="not-found__text__subtitle">{{ __("It seems you can't find what you're looking for, but maybe...", 'ng') }}</h1>
+
+			<div class="not-found__text__links">
+				{% if contactUrl %}<a href="{{ contactUrl }}">{{ __('Do you need help?', 'ng') }}</a>{% endif %}
+				{% if solutionsUrl %}<a href="{{ solutionsUrl }}">{{ __('Are you looking for a solution?', 'ng') }}</a>{% endif %}
+			</div>
+		</div>
+		<div class="not-found__image">
+			<img src="{{site.theme.uri}}/assets/img/404.png" alt="{{ __('Oops!', 'ng') }}">
+		</div>
+	</main>
+	{% include 'components/contactAlert.twig' with { contactAlert: contactAlert, noSection: true } %}
+{% endblock %}

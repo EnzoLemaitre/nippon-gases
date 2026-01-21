@@ -1,0 +1,32 @@
+{% set slider = post.meta('slider') %}
+
+{% if slider.slider | length > 0 %}
+	<div class="container section slider">
+		<div class="swiper slider__list">
+			<div class="swiper-wrapper">
+				{% for item in slider.slider %}
+					<article class="slider__item swiper-slide position-{{ slider.imagePosition }}">
+						{% set image = (item.image) ? ' style="background-image: url(' ~ get_image(item.image).src ~ ')"' : '' %}						
+						{% if item.image %}
+							<div class="el slider__item__image"{{ image }}>
+								{% set img = get_image(item.image) %}
+								<img src="{{ img.src }}" alt="{{ item.title }}" loading="lazy" width="{{ img.width }}" height="{{ img.height }}">
+							</div>
+						{% endif %}
+						<div class="el slider__item__text{% if item.image == null %} slider__item__text-no-image{% endif %}">
+							<div>
+								{% if item.title %}<h2 class="slider__item__text__title subtitle">{{ item.title }}</h2>{% endif %}
+							</div>
+							<div>
+								{% if item.subtitle %}<p class="slider__item__text__subtitle">{{ item.subtitle }}</p>{% endif %}
+								{% if item.description %}<div class="content slider__item__text__description">{{ item.description }}</div>{% endif %}
+							</div>
+						</div>
+					</article>
+				{% endfor %}
+			</div>
+			<div class="swiper-pagination-slider"></div>
+		</div>
+	</div>
+	<script src="{{site.theme.uri}}/dist/slider.js" defer></script>
+{% endif %}

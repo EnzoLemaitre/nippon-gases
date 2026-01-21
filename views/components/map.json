@@ -1,0 +1,102 @@
+{
+    "title": "Map",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-need-help.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-europe.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "map",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Europe",
+                    "name": "europe",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Country",
+                            "name": "country",
+                            "type": "text",
+                            "key": "country_691f1fa1a8ef7",
+							"required": 1
+                        },
+						{
+                            "label": "Country Code",
+                            "name": "countryCode",
+                            "type": "text",
+                            "key": "countryCode_691f1fa1a8ef7",
+							"instructions": "Enter country iso num (Example France = 250) : https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes",
+							"required": 1
+                        },
+						{
+                            "label": "Detail title",
+                            "name": "detailTitle",
+                            "type": "text",
+                            "key": "detailTitle_691f1fa1a8ef7"
+                        },
+						{
+                            "label": "Detail description",
+                            "name": "detailDescription",
+                            "type": "text",
+                            "key": "detailDescription_691f1fa1a8ef7"
+                        }
+                    ],
+                    "key": "europe_691f1fa1a8ef6"
+                },
+				{
+                    "label": "World",
+                    "name": "world",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Country",
+                            "name": "country",
+                            "type": "text",
+                            "key": "country_691f1fa1a8ef79",
+							"required": 1
+                        },
+						{
+                            "label": "Country Code",
+                            "name": "countryCode",
+                            "type": "text",
+                            "key": "countryCode_691f1fa1a8ef75",
+							"instructions": "Enter country iso num (Example France = 250) : https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes",
+							"required": 1
+                        },
+						{
+                            "label": "Detail title",
+                            "name": "detailTitle",
+                            "type": "text",
+                            "key": "detailTitle_691f1fa1a8ef76"
+                        },
+						{
+                            "label": "Detail description",
+                            "name": "detailDescription",
+                            "type": "text",
+                            "key": "detailDescription_691f1fa1a8ef78"
+                        }
+                    ],
+                    "key": "world_691f1fa1a8ef6"
+                }
+            ],
+            "key": "map_691f1fa1a8ef4"
+        }
+    ],
+    "key": "group_691f1fa1a8e31"
+}

@@ -1,0 +1,23 @@
+{% set numbers = post.meta('numberDiversity') %}
+{% if numbers.card | length > 0 %}
+	<ul class="container section number-diversity">
+		{% for number in numbers.card %}
+			{% set img = get_image(number.image) %}
+			{% if number.number or img or number.title %}
+				<li>
+					{% if number.number or img %}
+						<div class="number-diversity__header">
+							{% if number.number %}<p class="number-diversity__number">{{ number.number }}</p>{% endif %}
+							{% if img %}
+								<div class="number-diversity__image">
+									<img src="{{ img.src|resize(0, 35) }}" alt="{{ img.alt }}" loading="lazy" height="45">
+								</div>
+							{% endif %}
+						</div>
+					{% endif %}
+					{% if number.title %}<h2 class="number-diversity__title">{{ number.title }}</h2>{% endif %}
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+{% endif %}

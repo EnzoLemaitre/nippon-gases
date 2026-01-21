@@ -1,0 +1,62 @@
+.card-gases {
+	width: calc((100% - (20px * 4)) / 5);
+
+	@media (max-width: 900px) {
+		width: calc((100% - (20px * 3)) / 4);
+	}
+
+	@media (max-width: 768px) {
+		width: calc((100% - (20px * 2)) / 3);
+	}
+
+	@media (max-width: 600px) {
+		width: calc((100% - (20px * 1)) / 2);
+	}
+
+	@media (max-width: 350px) {
+		width: 100%;
+	}
+
+	a {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		height: 100%;
+		border-radius: var(--border-radius);
+		padding: 100px 20px 20px;
+		background-color: var(--light-blue-color);
+		color: var(--primary-color);
+		transition: background-color .3s ease, color .3s ease;
+
+		&:hover,
+		&:focus {
+			background-color: var(--primary-color);
+			color: var(--background-color);
+		}
+
+		svg {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			height: 17px;
+		}
+	}
+
+	&__title {
+		line-height: var(--line-height);
+		font-weight: 500;
+		font-size: var(--fs-m);
+		margin-bottom: 5px;
+	}
+
+	&__subtitle {
+		line-height: var(--line-height);
+		font-weight: 300;
+	}
+}
+
+.gases-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}

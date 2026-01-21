@@ -1,0 +1,57 @@
+{
+    "title": "Sidebar",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-customer-portal.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "sidebar",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_692810638fa6c"
+                },
+                {
+                    "label": "Elements",
+                    "name": "elements",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "key": "title_692810638fa6e"
+                        },
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "textarea",
+							"new_lines": "wpautop",
+                            "key": "description_692810638fa6f"
+                        },
+                        {
+                            "label": "Link",
+                            "name": "link",
+                            "type": "link",
+                            "key": "link_692810638fa70"
+                        }
+                    ],
+                    "key": "card_692810638fa6d"
+                }
+            ],
+            "key": "sidebar_692810638fa6a"
+        }
+    ],
+    "key": "group_692810638f9bb"
+}

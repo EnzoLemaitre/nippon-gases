@@ -1,0 +1,44 @@
+{
+    "title": "Steps safety",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-safety.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "stepsSafety",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_6931658680236"
+                },
+                {
+                    "label": "Elements",
+                    "name": "elements",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "text",
+                            "key": "description_6931658680238"
+                        }
+                    ],
+                    "key": "elements_6931658680237"
+                }
+            ],
+            "key": "stepsSafety_6931658680234"
+        }
+    ],
+    "key": "group_693165867ffb9"
+}

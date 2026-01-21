@@ -1,0 +1,12 @@
+{% set video = post.meta('video') %}
+{% if video.video %}
+	<section class="video-compo container section">
+		{% if video.title %}<h2 class="mb-40 subtitle">{{ video.title }}</h2>{% endif %}
+
+		<div class="video-compo__container">
+			<div class="video-compo__inner">
+				<iframe src="https://www.youtube-nocookie.com/embed/{{ video.video }}?si=suqata2Ded0KXDCm" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
+{% endif %}

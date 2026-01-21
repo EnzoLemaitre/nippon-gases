@@ -1,0 +1,21 @@
+#contact {
+	.contact-us {
+		h1 {
+			line-height: var(--line-height);
+			font-size: var(--fs-xxl);
+		}
+
+		.content {
+			h2,
+			h3 {
+				margin-bottom: 0;
+			}
+
+			h2 {
+				line-height: var(--line-height);
+				font-size: var(--fs-l);
+			}
+
+		}
+	}
+}

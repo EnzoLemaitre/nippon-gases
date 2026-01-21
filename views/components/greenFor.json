@@ -1,0 +1,58 @@
+{
+    "title": "Green For",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-green.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "greenFor",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_691af363f330a"
+                },
+                {
+                    "label": "Subtitle",
+                    "name": "subtitle",
+                    "type": "text",
+                    "key": "subtitle_691af363f330b"
+                },
+                {
+                    "label": "Item",
+                    "name": "item",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "key": "title_691af363f330d"
+                        },
+                        {
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "key": "image_691af363f330e"
+                        }
+                    ],
+                    "key": "item_691af363f330c"
+                }
+            ],
+            "key": "greenFor_691af363f3308"
+        }
+    ],
+    "key": "group_691af363f3257"
+}

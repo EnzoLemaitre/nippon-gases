@@ -1,0 +1,66 @@
+{
+    "title": "Iberia Number",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-iberia.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "iberiaNumber",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Numbers",
+                    "name": "cards",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Color",
+                            "name": "color",
+                            "type": "select",
+                            "choices": {
+                                "grey": "Grey",
+                                "darkBlue": "Dark blue",
+                                "blue": "Blue",
+                                "lightBlue": "Light blue"
+                            },
+                            "required": 1,
+                            "default_value": "grey",
+                            "key": "color_693188e728f90"
+                        },
+                        {
+                            "label": "Number",
+                            "name": "number",
+                            "type": "text",
+                            "key": "number_693188e728f91"
+                        },
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "text",
+                            "key": "description_693188e728f92"
+                        },
+                        {
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "key": "image_693188e728f93"
+                        }
+                    ],
+                    "key": "cards_693188e728f8f"
+                }
+            ],
+            "key": "iberiaNumber_693188e728f8d"
+        }
+    ],
+    "key": "group_693188e728ec1"
+}

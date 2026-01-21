@@ -1,0 +1,77 @@
+{
+    "title": "Slider",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-green.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-why.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "slider",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Slider",
+                    "name": "slider",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "key": "title_6917368785b53"
+                        },
+                        {
+                            "label": "Subtitle",
+                            "name": "subtitle",
+                            "type": "text",
+                            "key": "subtitle_6917368785b54"
+                        },
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "textarea",
+							"new_lines": "wpautop",
+                            "key": "description_6917368785b55"
+                        },
+                        {
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "key": "image_6917368785b56"
+                        }
+                    ],
+                    "key": "slider_6917368785b52"
+                },
+                {
+                    "label": "Image position",
+                    "name": "imagePosition",
+                    "type": "select",
+                    "choices": {
+                        "left": "Left",
+                        "right": "Right"
+                    },
+                    "default_value": "left",
+                    "key": "imagePosition_6917368785b57"
+                }
+            ],
+            "key": "slider_6917368785b4f"
+        }
+    ],
+    "key": "group_69173687859a7"
+}

@@ -1,0 +1,20 @@
+.images-compo {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px 4%;
+
+	li {
+		width: 48%;
+
+		@media (max-width: 530px) {
+			width: 100%;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			overflow: hidden;
+			border-radius: var(--border-radius);
+		}
+	}
+}

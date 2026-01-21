@@ -1,0 +1,16 @@
+{% set relatedNews = post.meta('relatedNews') %}
+{% if relatedNews.relatedNews | length > 0 %}
+	<section class="last-news container section">
+		<header class="last-news__header">
+			{% if relatedNews.title %}<h2 class="subtitle mb-40">{{ relatedNews.title }}</h2>{% endif %}
+			<div class="last-news__header__link">
+				<a href="{{ fn('get_post_type_archive_link', 'post') }}">{{ __('See all', 'ng') }}</a>
+			</div>
+		</header>
+		<div class="last-news__list">
+			{% for post in relatedNews.relatedNews %}
+				{% include 'components/newsCard.twig' with { post: post } %}
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

@@ -1,0 +1,28 @@
+{% set history = post.meta('history') %}
+
+{% if history.date | length > 0 %}
+	<section class="history container section">
+		{% if history.title %}<h2 class="subtitle mb-40">{{ history.title }}</h2>{% endif %}
+
+		{% set sorted = history.date|sort((a, b) => a.year <=> b.year) %}
+		<div class="history__slider">
+			{% for item in sorted %}
+				<div data-label="{{ item.year }}">
+					<div class="history__content">
+						{% if item.image %}
+							<div class="history__content__image">
+								<img src="{{ get_image(item.image).src|resize(468) }}" alt="{{ item.year }}" width="468">
+							</div>
+						{% endif %}
+						<div class="history__content__text {{ (not item.image) ? 'history__content__text__no-image' : '' }}">
+							<p class="history__content__year">{{ item.year }}</p>
+							{% if item.description %}<p class="history__content__description">{{ item.description }}</p>{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+
+	<script src="{{site.theme.uri}}/dist/history.js" defer></script>
+{% endif %}

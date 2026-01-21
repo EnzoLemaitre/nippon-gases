@@ -1,0 +1,11 @@
+{% set contact = post.meta('contact') %}
+{% if contact.title or contact.description %}
+	<div class="contact-us">
+		{% if contact.title %}
+			<h1 class="contact__title">{{ contact.title }}</h1>
+		{% endif %}
+		{% if contact.description %}
+			<div class="content">{{ contact.description }}</div>
+		{% endif %}
+	</div>
+{% endif %}

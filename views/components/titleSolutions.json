@@ -1,0 +1,29 @@
+{
+    "title": "Title solutions",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-solutions.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "titleSolutions",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_690c7e97365ca"
+                }
+            ],
+            "key": "titleSolutions_690c7e97365c7"
+        }
+    ],
+    "key": "group_690c7e97364c2"
+}

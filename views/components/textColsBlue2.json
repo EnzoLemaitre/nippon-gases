@@ -1,0 +1,36 @@
+{
+    "title": "Text cols blue 2",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-innovation.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "textColsBlue2",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_6928793621012"
+                },
+                {
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "new_lines": "wpautop",
+                    "key": "description_6928793621013"
+                }
+            ],
+            "key": "textColsBlue2_692879362100f"
+        }
+    ],
+    "key": "group_6928793620e2e"
+}

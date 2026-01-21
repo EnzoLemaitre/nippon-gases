@@ -1,0 +1,26 @@
+{% set cardImages = post.meta('cardImages') %}
+{% if cardImages %}
+	<section class="card-images container section">
+		{% if cardImages.title %}<h2 class="card-images__title subtitle">{{ cardImages.title }}</h2>{% endif %}
+		{% if cardImages.description %}<div class="card-images__description content">{{ cardImages.description }}</div>{% endif %}
+		{% if cardImages.card %}
+			<div class="card-images__list">
+				{% for card in cardImages.card %}
+					<article class="card-images__card">
+						{% if card.link %}<a href="{{ card.link }}" class="card-images__link">{% endif %}
+						{% if card.image %}
+							<div class="card-images__image">
+								<img src="{{ card.image.url|resize(350) }}" alt="{{ card.title }}" loading="lasy">
+							</div>
+						{% endif %}
+						<div class="card-images__text">
+							{% if card.title %}<h3 class="card-images__text__title">{{ card.title }}</h3>{% endif %}
+							{% if card.description %}<div class="card-images__text__description content">{{ card.description }}</div>{% endif %}
+						</div>
+						{% if card.link %}</a>{% endif %}
+					</article>
+				{% endfor %}
+			</div>
+		{% endif %}	
+	</section>
+{% endif %}

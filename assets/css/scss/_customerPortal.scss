@@ -1,0 +1,30 @@
+.customer-portal {
+	&__content {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		&__main {
+			width: 60%;
+
+			@media (max-width: 768px) {
+				width: 100%;
+			}
+		}
+
+		&__aside {
+			width: 35%;
+
+			@media (max-width: 768px) {
+				width: 100%;
+				margin-top: 50px;
+			}
+		}
+
+		&__full {
+			.customer-portal__main {
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+<div class="category-filters">
+	<p class="category-label">{{ __('Refine your search by choosing gas or service', 'ng') }}</p>
+
+	<div class="filter-pills">
+		{% for category in categories %}
+			{% include 'components/distributor-filter-pill.twig' with {
+                label: category.name,
+                slug: category.slug,
+                icon: category.category_icon
+            } %}
+		{% endfor %}
+	</div>
+</div>

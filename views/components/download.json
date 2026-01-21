@@ -1,0 +1,30 @@
+{
+    "key": "group_download_6908b7bf01ab7",
+    "title": "Download",
+    "fields": [
+        {
+            "key": "field_download_group",
+            "label": "Download",
+            "name": "download",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_download_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-download.php"
+            }
+        ]
+    ]
+}

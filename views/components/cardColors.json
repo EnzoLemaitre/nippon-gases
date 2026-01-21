@@ -1,0 +1,65 @@
+{
+    "title": "Card Colors",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "solutions"
+            },
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-solution-usage.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "cardColors",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Card",
+                    "name": "card",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "key": "title_6914a57f99471"
+                        },
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "text",
+                            "key": "description_6914a57f99472"
+                        },
+                        {
+                            "label": "Link",
+                            "name": "link",
+                            "type": "url",
+                            "key": "link_6914a57f99473"
+                        },
+                        {
+                            "label": "Color",
+                            "name": "color",
+                            "type": "select",
+                            "choices": {
+                                "blue": "Blue",
+                                "grey": "Grey"
+                            },
+                            "key": "color_6914a57f99474"
+                        }
+                    ],
+                    "key": "card_6914a57f99470"
+                }
+            ],
+            "key": "cardColors_6914a57f9946e"
+        }
+    ],
+    "key": "group_6914a57f993b2"
+}

@@ -1,0 +1,7 @@
+{% set textCols = post.meta('textColsBlue2') %}
+{% if textCols.title or textCols.description %}
+	<section class="section text-cols text-cols-blue{% if bgGrey %} bg-grey{% endif %} container{% if not textCols.title or not textCols.description %} text-cols__full{% endif %}">
+		{% if textCols.title %}<h2 class="text-cols__title subtitle">{{ textCols.title }}</h2>{% endif %}
+		{% if textCols.description %}<div class="text-cols__description content">{{ textCols.description }}</div>{% endif %}
+	</section>
+{% endif %}

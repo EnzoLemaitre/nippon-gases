@@ -1,0 +1,279 @@
+.footer {
+	&__top {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		border-top: 1px solid var(--default-color);
+		padding-top: 50px;
+		padding-bottom: 50px;
+
+		@media (max-width: 400px) {
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+
+		&__cols {
+			width: 18%;
+
+			@media (max-width: 900px) {
+				width: 30%;
+			}
+
+			@media (max-width: 768px) {
+				width: 48%;
+			}
+
+			@media (max-width: 400px) {
+				text-align: center;
+				width: 100%;
+			}
+
+			.title-footer {
+				line-height: var(--line-height);
+				margin-bottom: 5px;
+				font-weight: 500;
+			}
+
+			nav li {
+				line-height: var(--line-height);
+				padding-bottom: 5px;
+
+				&:last-child {
+					padding-bottom: 0;
+				}
+
+				a {
+					display: inline-block;
+					transition: .3s ease color;
+
+					&:hover,
+					&:focus {
+						color: var(--primary-color);
+					}
+				}
+			}
+		}
+
+		&__logo {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+
+			@media (max-width: 768px) {
+				width: 100%;
+				margin-bottom: 30px;
+				text-align: center;
+			}
+
+			&__logo {
+				display: inline-block;
+
+				svg {
+					height: 64px;
+					transition: .3s ease fill;
+				}
+
+				&:hover,
+				&:focus {
+					svg {
+						fill: var(--primary-color);
+					}
+				}
+			}
+
+			&__change-country {
+				a {
+					display: inline-block;
+					margin-top: 20px;
+					border: 1px solid var(--default-color);
+					padding: 10px;
+					transition: .3s ease background-color, .3s ease color;
+					line-height: var(--line-height);
+
+					svg {
+						transition: .3s ease fill;
+						height: 20px;
+						margin-right: 5px;
+					}
+
+					span,
+					svg {
+						display: inline-block;
+						vertical-align: middle;
+					}
+
+					&:hover,
+					&:focus {
+						background-color: var(--default-color);
+						color: var(--background-color);
+					}
+				}
+			}
+		}
+
+		&__social {
+			display: flex;
+			gap: 60px;
+			margin-top: auto;
+
+			@media (max-width: 900px) {
+				margin-top: 0;
+				margin-top: 30px;
+			}
+
+			@media (max-width: 768px) {
+				justify-content: center;
+			}
+
+			a {
+				svg {
+					height: 22px;
+					transition: .3s ease fill;
+				}
+
+				&:hover,
+				&:focus {
+					svg {
+						fill: var(--primary-color);
+					}
+				}
+			}
+		}
+
+		&__nippon {
+			width: 15%;
+
+			@media (max-width: 900px) {
+				width: 30%;
+			}
+
+			@media (max-width: 768px) {
+				width: 48%;
+			}
+
+			@media (max-width: 400px) {
+				width: 100%;
+				text-align: center;
+			}
+
+			ul {
+				margin-bottom: 40px;
+
+				&:last-child-of-type {
+					margin-bottom: 0;
+				}
+
+				@media (max-width: 768px) {
+					margin-bottom: 30px;
+				}
+			}
+		}
+
+		&__careers {
+			li {
+				font-weight: 500;
+			}
+
+			ul {
+				margin-bottom: 0;
+
+				@media (max-width: 400px) {
+					margin-bottom: 30px;
+				}
+			}
+		}
+
+		&__solutions {
+			width: 36%;
+			order: 9;
+
+			@media (max-width: 900px) {
+				width: 100%;
+				margin-top: 30px;
+			}
+
+			@media (max-width: 400px) {
+				text-align: center;
+			}
+
+			ul {
+				column-count: 2;
+				column-gap: 30px;
+
+				@media (max-width: 400px) {
+					column-count: 1;
+				}
+
+				li {
+					break-inside: avoid;
+				}
+			}
+		}
+	}
+
+	&__bottom {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 20px 50px;
+		justify-content: space-between;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		border-top: 1px solid var(--default-color);
+		font-size: var(--fs-xxs);
+		text-transform: uppercase;
+
+		@media (max-width: 768px) {
+			text-align: center;
+			gap: 20px 0;
+
+			nav {
+				width: 100%;
+			}
+		}
+
+		p {
+			line-height: var(--line-height);
+
+			@media (max-width: 768px) {
+				width: 100%;
+				order: 2;
+			}
+		}
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 20px;
+
+			@media (max-width: 768px) {
+				justify-content: center;
+			}
+
+			li {
+				line-height: var(--line-height);
+
+				a {
+					display: inline-block;
+
+					&::after {
+						content: '';
+						display: block;
+						width: 0;
+						height: 1px;
+						background-color: var(--default-color);
+						transition: width .3s ease;
+					}
+
+					&:hover,
+					&:focus {
+						&::after {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}

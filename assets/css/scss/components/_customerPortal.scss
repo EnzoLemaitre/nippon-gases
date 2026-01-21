@@ -1,0 +1,37 @@
+.customer-portal {
+	&__links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 30px 0;
+		margin-top: 45px;
+		padding-top: 45px;
+		border-top: 1px solid var(--default-color);
+
+		li {
+			width: 48%;
+			text-align: center;
+
+			@media (max-width: 500px) {
+				width: 100%;
+			}
+		}
+
+		&__title {
+			line-height: var(--line-height);
+			margin-bottom: 20px;
+			font-weight: 600;
+		}
+	}
+
+	&__description {
+		padding-bottom: 45px;
+		margin-bottom: 45px;
+		border-bottom: 1px solid var(--default-color);
+	}
+
+	&__subtitle {
+		font-weight: 600;
+		line-height: var(--line-height);
+		margin-bottom: 20px;
+	}
+}

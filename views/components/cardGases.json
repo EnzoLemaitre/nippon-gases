@@ -1,0 +1,46 @@
+{
+    "title": "Card gases",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "gases"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "cardGases",
+            "type": "group",
+            "layout": "row",
+            "instructions": "Display on listing page",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_6915b7caac88d",
+					"required": 1
+                },
+                {
+                    "label": "Subtitle",
+                    "name": "subtitle",
+                    "type": "text",
+                    "key": "subtitle_6915b7caac88e"
+                },
+				{
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+					"preview_size": "thumbnail",
+	    	   		"key": "image_6915b7caac88z",
+					"instructions": "Use for related gases"
+                }
+            ],
+            "key": "cardGases_6915b7caac88b"
+        }
+    ],
+    "key": "group_6915b7caac7d0"
+}

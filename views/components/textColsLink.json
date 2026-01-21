@@ -1,0 +1,49 @@
+{
+    "title": "Text cols Link",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-why.php"
+            }
+        ],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-solution-electronics.php"
+            }
+		]
+    ],
+    "fields": [
+        {
+            "name": "textColsLink",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_69247c6259a6f"
+                },
+                {
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "new_lines": "wpautop",
+                    "key": "description_69247c6259a71"
+                },
+                {
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
+                    "key": "link_69247c6259a72"
+                }
+            ],
+            "key": "textColsLink_69247c6259a6d"
+        }
+    ],
+    "key": "group_69247c62599b3"
+}

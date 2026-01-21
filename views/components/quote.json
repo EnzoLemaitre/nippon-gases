@@ -1,0 +1,63 @@
+{
+    "title": "Quote",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-why.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "quote",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_6924509e6f7b5"
+                },
+                {
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "new_lines": "wpautop",
+                    "key": "description_6924509e6f7b6"
+                },
+                {
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "key": "name_6924509e6f7b7"
+                },
+                {
+                    "label": "Position",
+                    "name": "position",
+                    "type": "text",
+                    "key": "position_6924509e6f7b8"
+                },
+                {
+                    "label": "Country",
+                    "name": "country",
+                    "type": "text",
+                    "key": "country_6924509e6f7b9"
+                },
+                {
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "Instruction": "Please upload a square image.",
+                    "key": "image_6924509e6f7ba"
+                }
+            ],
+            "key": "quote_6924509e6f7b3"
+        }
+    ],
+    "key": "group_6924509e6f6d8"
+}

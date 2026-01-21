@@ -1,0 +1,27 @@
+.btn {
+	display: inline-block;
+	line-height: var(--line-height);
+	transition: .3s ease background-color, .3s ease color;
+	background-color: var(--default-color);
+	color: var(--background-color);
+	cursor: pointer;
+	padding: 16px 48px;
+	font-weight: 500;
+	font-size: var(--fs-xs);
+
+	&__light {
+		background-color: var(--background-color);
+		color: var(--default-color);
+
+		&:hover,
+		&:focus {
+			background-color: var(--default-color);
+			color: var(--background-color);
+		}
+	}
+
+	&:hover,
+	&:focus {
+		background-color: var(--primary-color);
+	}
+}

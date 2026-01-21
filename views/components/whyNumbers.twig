@@ -1,0 +1,25 @@
+{% set whyNumbers = post.meta('whyNumbers') %}
+{% if whyNumbers.numbers | length > 0 %}
+<section class="container section why-numbers">
+	{% if whyNumbers.title %}<h2 class="whyNumbers__title subtitle mb-40">{{ whyNumbers.title }}</h2>{% endif %}
+
+	<div class="why-numbers__list">
+		{% for item in whyNumbers.numbers %}
+			<article>
+				{% set img = get_image(item.image) %}
+				<div class="why-numbers__list__header{% if not img %} why-numbers__list__header__full{% endif %}">
+					<p class="why-numbers__list__header__number">{{ item.number }}</p>
+					{% if img %}
+						<div class="why-numbers__list__header__image">
+							<img src="{{ img.src|resize(35, 0) }}" alt="{{ img.alt }}" loading="lazy" width="35">
+						</div>
+					{% endif %}
+				</div>
+				{% if item.description %}<p class="why-numbers__list__description">{{ item.description }}</p>{% endif %}
+			</article>
+		{% endfor %}
+	</div>
+
+	{% if whyNumbers.legend %}<p class="why-numbers__legend">{{ whyNumbers.legend }}</p>{% endif %}
+</section>
+{% endif %}

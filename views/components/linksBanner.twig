@@ -1,0 +1,8 @@
+{% set linksBanner = post.meta('linksBanner') %}
+{% if linksBanner.links %}
+	<ul class="links-banner">
+		{% for link in linksBanner.links %}
+			<li class="links-banner__item">{{ link(link.link, 'external-link', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.9 10.9"><path d="m.4 10.5 10-10M.4.5h10v10" fill="none" stroke="currentColor" stroke-linejoin="round"/></svg>') }}</li>
+		{% endfor %}
+	</ul>
+{% endif %}

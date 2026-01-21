@@ -1,0 +1,8 @@
+<button type="button" class="filter-pill" data-category="{{ slug }}">
+	{% if icon %}
+		<img src="{{ icon.url }}" alt="{{ icon.alt }}" loading="lazy" width="{{ icon.width }}" height="{{ icon.height }}">
+	{% endif %}
+	<span>
+		{{ label }}
+	</span>
+</button>

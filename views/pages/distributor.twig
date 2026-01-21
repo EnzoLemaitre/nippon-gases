@@ -1,0 +1,28 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="distributor" class="container">
+		<section class="distributor section">
+			<h1 class="page-title">{{ __('Find here your nearest delivery point', 'ng') }}</h1>
+
+			{% include 'components/distributor-cat-button.twig' %}
+			{% include 'components/distributor-search.twig' %}
+
+			<div class="distributor__map">
+				<div class="distributor__map__left">
+					{% include 'components/distributor-results.twig' %}
+				</div>
+
+				<div id="distributor-map"></div>
+			</div>
+
+
+		</section>
+	</main>
+{% endblock %}
+
+
+{% block javascripts %} <script src="{{site.theme.uri}}/dist/distributor.js" defer></script>
+	 <script src="{{site.theme.uri}}/assets/js/map.js" defer></script>
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ8Kreenw5NbFLeJc8gf66IaSn7_dWfyg&callback=initMap" async defer></script>
+{% endblock %}

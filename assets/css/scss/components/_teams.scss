@@ -1,0 +1,45 @@
+.teams {
+	&__description {
+		margin-top: 20px;
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 30px;
+
+		article {
+			width: calc((100% - (30px * 3)) / 4);
+
+			@media (max-width: 768px) {
+				width: calc((100% - (30px * 2)) / 3);
+			}
+
+			@media (max-width: 520px) {
+				width: calc((100% - (30px * 1)) / 2);
+			}
+		}
+
+		&__image {
+			margin-bottom: 10px;
+
+			img {
+				overflow: hidden;
+				display: block;
+				width: 100%;
+				border-radius: var(--border-radius);
+			}
+		}
+
+		&__name {
+			line-height: var(--line-height);
+			font-weight: 500;
+		}
+
+		&__position {
+			line-height: var(--line-height);
+			font-weight: 300;
+			font-size: var(--fs-xs);
+		}
+	}
+}

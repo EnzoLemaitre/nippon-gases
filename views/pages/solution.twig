@@ -1,0 +1,14 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="solution">
+		{% include 'components/heroBanner.twig' %}
+		{% include 'components/textCols.twig' %}
+		{% include 'components/cardMore.twig' %}
+		{% include 'components/backgroundText.twig' with { cols: true } %}
+		{# {% include 'components/imageText.twig' %} #}
+		{% include 'components/textsImages.twig' %}
+		{% include 'components/faq.twig' %}
+		{% include 'components/contactAlert.twig' %}
+	</main>
+{% endblock %}

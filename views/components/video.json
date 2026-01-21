@@ -1,0 +1,57 @@
+{
+    "title": "Video",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-europe.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-why.php"
+            }
+        ],
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-innovation.php"
+            }
+        ],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-iberia.php"
+            }
+		]
+    ],
+    "fields": [
+        {
+            "name": "video",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+				{
+					"label": "Title",
+					"name": "title",
+					"type": "text",
+					"key": "title_69206f3c127d5b"
+				},
+                {
+                    "label": "Video Youtube",
+                    "name": "video",
+                    "type": "text",
+					"instructions": "Add id of Youtube video. Example: https://www.youtube.com/watch?v=6As5qedVlh4 id = 6As5qedVlh4",
+                    "key": "video_69206f3c1275a"
+                }
+            ],
+            "key": "video_69206f3c12758"
+        }
+    ],
+    "key": "group_69206f3c12491"
+}

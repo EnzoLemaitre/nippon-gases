@@ -1,0 +1,46 @@
+{
+    "title": "Buttons",
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "buttons",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Buttons",
+                    "name": "buttons",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Link",
+                            "name": "link",
+                            "type": "link",
+                            "key": "link_691b1b332b937"
+                        },
+                        {
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "key": "image_691b1b332b938"
+                        }
+                    ],
+                    "key": "card_691b1b332b936"
+                }
+            ],
+            "key": "buttons_691b1b332b933"
+        }
+    ],
+    "key": "group_691b1b332b747"
+}

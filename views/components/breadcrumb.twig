@@ -1,0 +1,4 @@
+{% if not fn('is_front_page') %}
+	{% set breadcrumbTitle = post.meta('breadcrumb') %}
+	{{ breadcrumb(breadcrumbTitle) }}
+{% endif %}

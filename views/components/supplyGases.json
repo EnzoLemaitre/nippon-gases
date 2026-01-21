@@ -1,0 +1,59 @@
+{
+    "title": "Supply Gases",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "gases"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "supplyGases",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_6916021ae79a3"
+                },
+                {
+                    "label": "Supply",
+                    "name": "supply",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "key": "title_6916021ae79a5"
+                        },
+                        {
+                            "label": "Title",
+                            "name": "subtitle",
+                            "type": "text",
+                            "key": "subtitle_6916021ae79a6"
+                        },
+                        {
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+							"required": 1,
+                            "key": "image_6916021ae79a7"
+                        }
+                    ],
+                    "key": "supply_6916021ae79a4"
+                }
+            ],
+            "key": "supplyGases_6916021ae79a0"
+        }
+    ],
+    "key": "group_6916021ae77b2"
+}

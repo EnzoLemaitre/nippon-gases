@@ -1,0 +1,26 @@
+{% set teams = post.meta('teams') %}
+{% if teams.teams | length > 0 %}
+	<section class="teams container section">
+		{% if teams.title or teams.description %}
+			<header class="mb-40">
+				{% if teams.title %}<h2 class="teams__title subtitle">{{ teams.title }}</h2>{% endif %}
+				{% if teams.description %}<div class="content teams__description">{{ teams.description }}</div>{% endif %}
+			</header>
+		{% endif %}
+
+		<div class="teams__list">
+			{% for team in teams.teams %}
+				<article>
+					{% set img = get_image(team.image) %}
+					{% if img %}
+						<div class="teams__list__image">
+							<img src="{{ img.src|resize(330) }}" alt="{{ img.alt }}" loading="lazy" width="330">
+						</div>
+					{% endif %}
+					{% if team.title %}<p class="teams__list__name">{{ team.title }}</p>{% endif %}
+					{% if team.position %}<p class="teams__list__position">{{ team.position }}</p>{% endif %}
+				</article>
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

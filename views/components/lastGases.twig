@@ -1,0 +1,24 @@
+{% set pages = fn ('get_pages', {'meta_key': '_wp_page_template', 'meta_value': 'template-gases.php'}) %}
+{% set gasesUrl = pages is not empty ? fn('get_permalink', pages[0].ID) : null %}
+
+{% set gases = get_posts({'posts_per_page': 10, 'post_type': 'gases', 'order': 'DESC', 'orderby': 'date'}) %}
+{% if gases.found_posts > 0 %}
+	<section class="last-gases container section">
+		<header class="last-gases__header">
+			<h2 class="last-gases__header__title subtitle">{{ __('Our gases', 'ng') }}</h2>
+			<div class="last-gases__header__link">
+				<a href="{{ gasesUrl }}">{{ __('See all', 'ng') }}</a>
+			</div>
+		</header>
+
+		<div class="swiper last-gases__list">
+			<div class="swiper-wrapper">
+				{% for gase in gases %}
+					{% include 'components/cardGases.twig' with { gase } %}
+				{% endfor %}
+			</div>
+		</div>
+		<div class="swiper-pagination-last-gases"></div>
+	</section>
+	<script src="{{site.theme.uri}}/dist/lastGases.js" defer></script>
+{% endif %}

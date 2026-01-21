@@ -1,0 +1,35 @@
+{
+    "title": "News header",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "newsHeader",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "City",
+                    "name": "city",
+                    "type": "text",
+                    "key": "city_690cba8b216ac"
+                },
+                {
+                    "label": "Tag",
+                    "name": "tag",
+                    "type": "text",
+                    "key": "tag_690cba8b216ad"
+                }
+            ],
+            "key": "newsHeader_690cba8b216aa"
+        }
+    ],
+    "key": "group_690cba8b215f5"
+}

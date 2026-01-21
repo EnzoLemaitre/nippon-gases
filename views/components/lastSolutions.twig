@@ -1,0 +1,32 @@
+{% set pages = fn ('get_pages', {'meta_key': '_wp_page_template', 'meta_value': 'template-solutions.php'}) %}
+{% set solutionsUrl = pages is not empty ? fn('get_permalink', pages[0].ID) : null %}
+
+{% set allSolutions = get_posts({'posts_per_page': -1, 'post_type': 'solutions', 'order': 'DESC', 'orderby': 'date' }) %}
+{% set solutions = [] %}
+{% for solution in allSolutions %}
+    {% if fn ('get_post_meta', solution.ID, '_wp_page_template', true) != 'template-solution-usage.php' %}
+        {% set solutions = solutions|merge([solution]) %}
+    {% endif %}
+{% endfor %}
+{% set solutions = solutions|slice(0, 10) %}
+
+{% if solutions > 0 %}
+	<section class="last-solutions container section">
+		<header class="last-solutions__header">
+			<h2 class="last-solutions__header__title subtitle">{{ __('Our solutions', 'ng') }}</h2>
+			<div class="last-solutions__header__link">
+				<a href="{{ solutionsUrl }}">{{ __('See all', 'ng') }}</a>
+			</div>
+		</header>
+
+		<div class="swiper last-solutions__list">
+			<div class="swiper-wrapper">
+				{% for solution in solutions %}
+					{% include 'components/cardSolution.twig' with { solution } %}
+				{% endfor %}
+			</div>
+		</div>
+		<div class="swiper-pagination-last-solutions"></div>
+	</section>
+	<script src="{{site.theme.uri}}/dist/lastSolutions.js" defer></script>
+{% endif %}

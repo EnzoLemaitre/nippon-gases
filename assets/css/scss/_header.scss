@@ -1,0 +1,535 @@
+.header {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	position: relative;
+
+	&__right {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 0 36px;
+		width: 48%;
+
+		@media (max-width: 1200px) {
+			gap: 0 20px;
+		}
+
+		&__menu {
+			// width: calc(75% - 18px);
+			flex: 1 1 auto;
+  			min-width: 0;
+
+			@media (max-width: 1085px) {
+				display: none;
+			}
+
+			ul {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: flex-end;
+				gap: 0 35px;
+
+				@media (max-width: 1200px) {
+					gap: 0 20px;
+				}
+
+				a {
+					display: inline-block;
+					line-height: var(--line-height);
+
+					&::after {
+						content: '';
+						display: block;
+						width: 0;
+						height: 1px;
+						background-color: var(--default-color);
+						transition: width .3s ease;
+						margin-top: 1px;
+					}
+
+					&:hover,
+					&:focus {
+						&::after {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+
+		&__icons {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 0 36px;
+			min-width: 178px;
+			width: calc(20% - 18px);
+
+			@media (max-width: 1200px) {
+				gap: 0 20px;
+				width: calc(20% - 10px);
+				min-width: 130px;
+			}
+
+			@media (max-width: 1085px) {
+				min-width: 100%;
+				justify-content: flex-end;
+			}
+
+			&::before {
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+				width: 1px;
+				height: 40px;
+				background-color: var(--default-color);
+
+				@media (max-width: 1085px) {
+					display: none;
+				}
+			}
+
+			svg {
+				width: 23px;
+			}
+
+			a {
+				transition: .3s ease color;
+
+				&:hover,
+				&:focus {
+					color: var(--primary-color);
+				}
+			}
+
+			&__links {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 0 36px;
+
+				@media (max-width: 1200px) {
+					gap: 0 20px;
+				}
+
+				@media (max-width: 1085px) {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&__logo {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		gap: 0 50px;
+		width: 48%;
+
+		@media (max-width: 1200px) {
+			gap: 0 30px;
+		}
+
+		@media (max-width: 1085px) {
+			gap: 0 0;
+			width: 100%;
+			justify-content: center;
+		}
+
+		&__logo {
+			width: calc(20% - 25px);
+			min-width: 186px;
+
+			@media (max-width: 350px) {
+				min-width: 100%;
+			}
+		}
+
+		&__menu {
+			flex: 1 1 auto;
+  			min-width: 0;
+
+			@media (max-width: 1085px) {
+				display: none;
+			}
+		}
+
+		a {
+			display: inline-block;
+
+			&:hover,
+			&:focus {
+				svg {
+					fill: var(--primary-color);
+				}
+			}
+
+			svg {
+				height: 57px;
+				transition: fill .3s ease;
+			}
+		}
+
+		&__menu {
+			ul {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 0 35px;
+
+				@media (max-width: 1200px) {
+					gap: 0 20px;
+				}
+
+				a {
+					display: inline-block;
+					line-height: var(--line-height);
+
+					&::after {
+						content: '';
+						display: block;
+						width: 0;
+						height: 1px;
+						background-color: var(--default-color);
+						transition: width .3s ease;
+						margin-top: 1px;
+					}
+
+					&:hover,
+					&:focus {
+						&::after {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__lang-selector {
+		position: relative;
+
+		@media (max-width: 1085px) {
+			display: none;
+		}
+		
+		&__button {
+			width: 23px;
+			transition: .3s ease color;
+			cursor: pointer;
+			display: flex;
+			
+			&:hover,
+			&:focus {
+				color: var(--primary-color);
+			}
+		}
+		
+		&__list {
+			position: absolute;
+			right: 0;
+			display: none;
+			padding-top: 48px;
+			z-index: 9999;
+
+			li {
+				display: flex;
+				flex-wrap: wrap;
+				width: 100%;
+				min-width: 120px;
+
+				a {
+					display: block;
+					width: 100%;
+					padding: 5px 10px;
+					line-height: var(--line-height);
+					background-color: var(--default-color);
+					color: var(--background-color);
+					transition: .3s ease color;
+
+					span::after {
+						content: '';
+						display: block;
+						width: 0;
+						height: 1px;
+						background-color: var(--background-color);
+						transition: width .3s ease;
+						margin-top: 1px;
+					}
+
+					&:hover,
+					&:focus {
+						color: var(--background-color);
+
+						span::after {
+							width: 100%;
+						}
+					}
+
+					span,
+					img {
+						display: inline-block;
+						vertical-align: middle;
+					}
+
+					img {
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+
+		&:hover,
+		&:focus {
+			.header__lang-selector__list {
+				display: block;
+			}
+		}
+	}
+
+	.sub-menu {
+		display: none;
+	}
+
+	.menu {
+		li {
+			position: static;
+
+			&.hovered {
+				.sub-menu {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 0 30px;
+					position: absolute;
+					z-index: 99999;
+					left: 0;
+					right: 0;
+					// padding-top: 46px;
+					width: var(--container-width);
+					padding-left: 13vw;
+					padding-right: 13vw;
+					top: 117px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+
+					@media (max-width: calc(#{$containerWidth} + 40px)) {
+						padding-left: var(--padding-responsive);
+						padding-right: var(--padding-responsive);
+					}
+
+					&::before {
+						content: '';
+						position: absolute;
+						display: block;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						background-color: var(--default-color);
+						z-index: -1;
+					}
+
+					li {
+						padding: 10px 0;
+						width: calc((100% - (30px * 2)) / 3);
+						background-color: var(--default-color);
+					}
+
+					a {
+						color: var(--background-color);
+						line-height: var(--line-height);
+
+						&::after {
+							content: '';
+							display: block;
+							width: 0;
+							height: 1px;
+							background-color: var(--background-color);
+							transition: width .3s ease;
+							margin-top: 1px;
+						}
+
+						&:hover,
+						&:focus {
+							&::after {
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#button-menu {
+		display: none;
+
+		@media (max-width: 1085px) {
+			display: flex;
+			flex-wrap: wrap;
+			position: absolute;
+			top: 50%;
+			right: var(--padding-responsive);;
+			transform: translateY(-50%);
+
+			&:hover,
+			&:focus {
+				color: var(--primary-color);
+			}
+
+			svg {
+				width: 30px;
+			}
+		}
+	}
+}
+
+.menu-responsive {
+	display: none;
+
+	@media (max-width: 1085px) {
+		display: block;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		right: -100%;
+		z-index: 9999;
+		background-color: var(--default-color);
+		overflow: hidden;
+		height: 100vh;
+		width: 100%;
+		transition: .3s ease right;
+		padding: 0 20px;
+		color: var(--background-color);
+
+		.admin-bar & {
+			padding-top: 32px;
+		}
+	}
+
+	&.open-menu {
+		right: 0;
+	}
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		overflow-y: auto;
+
+		&__logo {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: 0 50px;
+			align-items: center;
+			margin-bottom: 50px;
+
+			svg {
+				height: 57px;
+			}
+
+			a {
+				transition: .3s ease opacity;
+
+				&:hover,
+				&:focus {
+					opacity: .7;
+				}
+			}
+
+			#close-button {
+				display: flex;
+				flex-wrap: wrap;
+				color: var(--background-color);
+				transition: .3s ease opacity;
+
+				&:hover,
+				&:focus {
+					opacity: .7;
+				}
+
+				svg {
+					height: 22px;
+				}
+			}
+		}
+
+		&__nav {
+			.submenu {
+				display: none;
+
+				&.active {
+					display: block;
+				}
+			}
+
+			li {
+				line-height: var(--line-height);
+				margin-bottom: 15px;
+				text-align: center;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				&.hovered {
+					.submenu {
+						display: block;
+						margin-top: 15px;
+					}
+				}
+			}
+
+			&__parent-item {
+				font-size: var(--fs-m);
+			}
+		}
+
+		&__bottom {
+			margin-top: 50px;
+		}
+	}
+
+	.header__right__icons__links {
+		display: flex;
+		justify-content: center;
+		gap: 0 30px;
+		margin-bottom: 30px;
+
+		svg {
+			width: 23px;
+		}
+	}
+
+	.header__lang-selector {
+		display: block;
+
+		button {
+			display: none;
+		}
+
+		.header__lang-selector__list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 0 30px;
+			position: static;
+			padding-top: 0;
+
+			li {
+				min-width: auto;
+				width: auto;
+			}
+		}
+	}
+}

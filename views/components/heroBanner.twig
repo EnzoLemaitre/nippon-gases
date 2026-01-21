@@ -1,0 +1,33 @@
+{% set getObject = fn ('get_queried_object') %}
+{% set heroBanner = (getObject.term_id) ? fn ('get_field', 'herobanner', 'category_' ~ getObject.term_id) : post.meta('herobanner') %}
+{% set imageHeroBanner = heroBanner.image ? 'style="background-image: url(' ~ heroBanner.image ~ ')"' : '' %}
+{% set title = (getObject.name) ? getObject.name : post.title %}
+
+<header class="hero-banner" {{ imageHeroBanner }}>
+	{% if heroBanner.video %}
+		<div class="hero-banner__video">
+			<video autoplay muted loop playsinline preload="none" poster="{{ heroBanner.image }}">
+				<source src="{{ heroBanner.video.url }}" type="video/mp4">
+			</video>
+		</div>
+	{% endif %}
+	<div class="container">
+		<div class="hero-banner__content">
+			<div>
+				{% include 'components/breadcrumb.twig' %}
+			</div>
+			<div class="hero-banner__content__text">
+				<h1 class="hero-banner__title">{{ title }}</h1>
+
+				{% if heroBanner.subtitle %}
+					<p class="hero-banner__subtitle">{{ heroBanner.subtitle }}</p>
+				{% endif %}
+
+				{{ link(heroBanner.link, 'btn btn__light hero-banner__btn') }}
+			</div>
+			<div>
+				{% include 'components/linksBanner.twig' %}
+			</div>
+		</div>
+	</div>
+</header>

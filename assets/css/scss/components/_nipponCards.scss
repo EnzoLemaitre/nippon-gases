@@ -1,0 +1,55 @@
+.nippon-cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px 5%;
+
+	&__title {
+		width: 35%;
+
+		@media (max-width: 950px) {
+			width: 100%;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px 2%;
+		width: 60%;
+
+		@media (max-width: 950px) {
+			width: 100%;
+		}
+
+		&__img {
+			margin-bottom: 50px;
+		}
+
+		li {
+			display: flex;
+			flex-direction: column;
+			background-color: var(--grey-color);
+			border-radius: var(--border-radius);
+			width: calc((100% - (2% * 3)) / 4);
+			padding: 20px;
+
+			@media (max-width: 768px) {
+				width: calc((100% - (2% * 2)) / 3);
+			}
+
+			@media (max-width: 540px) {
+				width: calc((100% - (2% * 1)) / 2);
+			}
+
+			@media (max-width: 400px) {
+				width: 100%;
+			}
+
+			p {
+				line-height: var(--line-height);
+				font-size: var(--fs-xxs);
+				margin-top: auto;
+			}
+		}
+	}
+}

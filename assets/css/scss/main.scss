@@ -1,0 +1,107 @@
+$containerWidth: 1400px;
+
+:root {
+	// Colors
+	--primary-color: #0c5477;
+	--blue-color: #659fc8;
+	--light-blue-color: #e0ecf4;
+	--default-color: #1a1b1c;
+	--grey-color: #ededed;
+	--background-color: #fff;
+	--error-color: #ff8382;
+	--dark-green-color: #035846;
+	--dark-blue-color: #053d59;
+	--light-green-color: #c8e9e2;
+	--hard-green-color: #003529;
+	--grey-light-color: #bec1c4;
+	--result-background-icon-color: #63666A;
+
+	// Sizes
+	--container-width: 100%;
+	--padding-responsive: 4%;
+
+	// Fonts sizes
+	--fs-xxs: clamp(0.8125rem, 1vw, 0.875rem); /* 13–14px */
+	--fs-xs: clamp(1rem, 1.2vw, 1.125rem); /* 16–18px */
+	--fs-s: clamp(1.125rem, 1.5vw, 1.25rem); /* 18–20px */
+	--fs-m: clamp(1.25rem, 2vw, 1.5rem); /* 20–24px */
+	--fs-l: clamp(1.5rem, 3vw, 2rem); /* 28–32px */
+	--fs-xl: clamp(2rem, 3.5vw, 2.5rem); /* 32–40px */
+	--fs-xxl: clamp(2.5rem, 4vw, 3rem); /* 40–48px */
+	--fs-xxxl: clamp(3rem, 5vw, 3.75rem); /* 48–60px */
+	--fs-xxxxl: clamp(3.75rem, 6vw, 4.5rem); /* 60–72px */
+
+	--line-height: 1.35em;
+	--border-radius: 16px;
+}
+
+// Imports
+@import "reset";
+@import "fonts";
+@import "mixins";
+@import "default";
+@import "components/themeMode";
+@import "content";
+@import "header";
+@import "footer";
+@import "home";
+@import "contact";
+@import "solutions";
+@import "news";
+@import "404";
+@import "green";
+@import "needHelp";
+@import "customerPortal";
+@import 'contact';
+@import 'distributor';
+
+@import "components/heroBanner";
+@import "components/btn";
+@import "components/breadcrumb";
+@import "components/faq";
+@import "components/contactAlert";
+@import "components/cardMore";
+@import "components/imageText";
+@import "components/textCols";
+@import "components/newsCard";
+@import "components/lastNews";
+@import "components/cardColors";
+@import "components/cardImages";
+@import "components/lastSolutions";
+@import "components/swiper";
+@import "components/cardGases";
+@import "components/gasesNumber";
+@import "components/gasesRelated";
+@import "components/supplyGases";
+@import "components/lastGases";
+@import "components/backgroundText";
+@import "components/slider";
+@import "components/green";
+@import "components/greenFor";
+@import "components/linksBanner";
+@import "components/buttons";
+@import "components/nippon";
+@import "components/map";
+@import "components/textButton";
+@import "components/history";
+@import "components/video";
+@import "components/teams";
+@import "components/gridImage";
+@import "components/quote";
+@import "components/whyNumbers";
+@import "components/company";
+@import "components/sidebar";
+@import "components/customerPortal";
+@import "components/numberDiversity";
+@import "components/table";
+@import "components/nipponCards";
+@import "components/textsImages";
+@import "components/gasesUse";
+@import "components/files";
+@import "components/imagesCompo";
+@import "components/stepsSafety";
+@import "components/image";
+@import "components/iberiaNumber";
+@import "components/iberiaCols";
+@import "components/download";
+@import "components/distributor-cat-button";

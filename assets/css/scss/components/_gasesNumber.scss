@@ -1,0 +1,49 @@
+.gases-number {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 120px 50px;
+	padding-top: 120px;
+	padding-bottom: 120px;
+	background-color: var(--grey-color);
+	text-align: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	@media (max-width: 800px) {
+		gap: 100px 30px;
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+
+	@media (max-width: 570px) {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		gap: 50px;
+	}
+
+	&__number {
+		line-height: var(--line-height);
+		margin-bottom: 20px;
+		font-size: var(--fs-xxl);
+		font-weight: 500;
+	}
+
+	&__description {
+		line-height: var(--line-height);
+		font-weight: 300;
+		font-size: var(--fs-m);
+	}
+
+	li {
+		width: calc((100% - (50px * 2)) / 3);
+
+		@media (max-width: 800px) {
+			width: calc((100% - (30px * 1)) / 2);
+		}
+
+		@media (max-width: 570px) {
+			width: 100%;
+		}
+	}
+}

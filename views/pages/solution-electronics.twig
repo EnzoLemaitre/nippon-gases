@@ -1,0 +1,19 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="solution-electronics" class="solution-electronics">
+		{% include 'components/heroBanner.twig' %}
+		{% include 'components/textCols.twig' %}
+		{% include 'components/textsImages.twig' %}
+		{% include 'components/nippon.twig' %}
+		{% include 'components/cardImages.twig' %}
+		{% include 'components/textCols2.twig' %}
+		{% include 'components/images.twig' %}
+		{% include 'components/files.twig' %}
+		{% include 'components/textColsLink.twig' %}
+		{% include 'components/backgroundText.twig' with { cols: true } %}
+		{% include 'components/imageText.twig' %}
+		{% include 'components/textColsBlue.twig' with { noSection: true } %}
+		{% include 'components/contactAlert.twig' %}
+	</main>
+{% endblock %}

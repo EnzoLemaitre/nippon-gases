@@ -1,0 +1,24 @@
+{% set textsImages = post.meta('imagesTexts') %}
+
+{% if textsImages.elements | length > 0 %}
+	<div class="texts-images container section">
+		{% for element in textsImages.elements %}
+			{% set img = get_image(element.image) %}
+			<article{% if (not element.title and not element.subtitle and not element.description and not element.link) or not img %} class="full"{% endif %}>
+				{% if element.title or element.subtitle or element.description or element.link %}
+					<div class="texts-images__text">
+						<h2 class="texts-images__text__title subtitle mb-40">{{ element.title }}</h2>
+						<h3 class="texts-images__text__subtitle">{{ element.subtitle }}</h3>
+						<div class="texts-images__text__description content">{{ element.description }}</div>
+						{{ link(element.link, 'btn') }}
+					</div>
+				{% endif %}
+				{% if img %}
+					<div class="texts-images__image">
+						<img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" width="{{ img.width }}" height="{{ img.height }}">
+					</div>
+				{% endif %}
+			</article>
+		{% endfor %}
+	</div>
+{% endif %}

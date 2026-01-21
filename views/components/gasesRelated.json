@@ -1,0 +1,45 @@
+{
+    "title": "Gases related",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "gases"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "gasesRelated",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_6915ef74c9b5d"
+                },
+                {
+                    "label": "Relations",
+                    "name": "relations",
+                    "type": "relationship",
+                    "post_type": [
+                        "gases"
+                    ],
+                    "post_status": [
+                        "publish"
+                    ],
+                    "max": 4,
+                    "return_format": "object",
+					"taxonomy": "",
+					"filters": "",
+                    "key": "relations_6915ef74c9b5e"
+                }
+            ],
+            "key": "gasesRelated_6915ef74c9b5b"
+        }
+    ],
+    "key": "group_6915ef74c9aa7"
+}

@@ -1,0 +1,122 @@
+.download {
+	.subtitle {
+		margin-top: 30px;
+	}
+
+	&__wrapper {
+		margin-top: 30px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		&__left {
+			width: 30%;
+			padding: 30px;
+			background-color: var(--grey-color);
+
+			&__item {
+				position: relative;
+
+				h3 {
+					font-size: var(--fs-m);
+					line-height: var(--line-height);
+				}
+
+				.check-li {
+					position: absolute;
+					top: 6px;
+					left: 0;
+
+					&::after {
+						content: "";
+						display: block;
+						width: 12px;
+						height: 12px;
+						border-radius: 50%;
+						border: 1px solid var(--default-color);
+					}
+				}
+
+				&:not(:last-child) {
+					padding-bottom: 30px;
+					margin-bottom: 30px;
+					border-bottom: 1px solid var(--default-color);
+				}
+			}
+		}
+
+		&__right {
+			width: 65%;
+
+			.search {
+				padding: 20px;
+				background-color: var(--grey-color);
+				display: flex;
+				flex-wrap: wrap;
+				gap: 5px;
+				position: relative;
+				margin-bottom: 40px;
+
+				.icon-search {
+					width: 24px;
+					height: 24px;
+				}
+
+				input {
+					flex: 1;
+					background-color: transparent;
+					border: none;
+					outline: none;
+					border-radius: 0;
+					cursor: pointer;
+					margin: 0;
+					width: 100%;
+					appearance: none;
+					border: none;
+					padding-bottom: 10px;
+				}
+
+				&::after {
+					position: absolute;
+					content: "";
+					bottom: 20px;
+					left: 20px;
+					right: 20px;
+					border-bottom: 1px solid var(--default-color);
+				}
+			}
+
+			h3 {
+				font-size: var(--fs-xl);
+				line-height: var(--line-height);
+			}
+
+			&__list {
+				&__item {
+					padding-bottom: 30px;
+					margin-bottom: 30px;
+					border-bottom: 1px solid var(--default-color);
+					display: flex;
+					flex-wrap: wrap;
+					gap: 8%;
+
+					.date {
+						font-size: var(--fs-xl);
+						line-height: var(--line-height);
+						font-weight: 500;
+					}
+
+					h4 {
+						flex: 1;
+						font-size: var(--fs-xl);
+						line-height: var(--line-height);
+					}
+
+					.download-icon {
+						width: 35px;
+					}
+				}
+			}
+		}
+	}
+}

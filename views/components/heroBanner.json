@@ -1,0 +1,91 @@
+{
+	"title": "Banner",
+	"location": [
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "page"
+			},
+			{
+				"param": "page_template",
+				"operator": "!=",
+				"value": "template-gases.php"
+			},
+			{
+				"param": "page_template",
+				"operator": "!=",
+				"value": "template-customer-portal.php"
+			},
+			{
+				"param": "page_template",
+				"operator": "!=",
+				"value": "template-download.php"
+			},
+			{
+				"param": "page_template",
+				"operator": "!=",
+				"value": "template-contact.php"
+			}
+		],
+		[
+			{
+				"param": "taxonomy",
+				"operator": "==",
+				"value": "category"
+			}
+		],
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "solutions"
+			}
+		],
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "gases"
+			}
+		]
+	],
+	"fields": [
+		{
+			"name": "herobanner",
+			"type": "group",
+			"layout": "row",
+			"sub_fields": [
+				{
+					"label": "Image",
+					"name": "image",
+					"type": "image",
+					"return_format": "url",
+					"key": "image_690491b164ef8"
+				},
+				{
+					"label": "Subtitle",
+					"name": "subtitle",
+					"type": "text",
+					"key": "subtitle_690491b164ef9"
+				},
+				{
+					"label": "Link",
+					"name": "link",
+					"type": "link",
+					"key": "link_690491b164efa"
+				},
+				{
+					"label": "Video",
+					"name": "video",
+					"type": "file",
+					"return_format": "array",
+					"key": "video_690491b164eef8",
+					"mime_types": "mp4"
+				}
+			],
+			"key": "herobanner_690491b164ef6"
+		}
+	],
+	"key": "group_690491b164e2b"
+}

@@ -1,0 +1,33 @@
+{% set listImage = post.meta('listImage') %}
+
+{% set noText = false %}
+{% if not listImage.title and listImage.list | length == 0 %}
+	{% set noText = true %}
+{% endif %}
+
+{% if listImage %}
+	<section class="section container image-text image-text__position-{{ listImage.imagePosition }}{{ noText ? ' image-text__no-text' : '' }}{{ not listImage.image ? ' image-text__no-image' : '' }}">
+		{% if listImage.title or listImage.list | length > 0 %}
+			<div class="image-text__content">
+				{% if listImage.title %}<h2 class="image-text__content__title">{{ listImage.title }}</h2>{% endif %}
+
+				{% if listImage.list | length > 0 %}
+					<ul class="image-text__content__list">
+						{% for item in listImage.list %}
+							<li class="image-text__content__list__item">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37"><path d="M18.5.5c9.9 0 18 8.1 18 18s-8.1 18-18 18-18-8.1-18-18 8.1-18 18-18Z" fill="none" stroke="currentColor"/><path d="m9 19.3 5.7 5.6 13.2-12.8" stroke="currentColor" stroke-linecap="round" stroke-width="1.2px" fill="none"/></svg>
+								<span>{{ item.text }}</span>
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+		{% endif %}
+		{% if listImage.image %}
+			<div class="image-text__image">
+				{% set img = get_image(listImage.image) %}
+				<img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" width="{{ img.width }}" height="{{ img.height }}">
+			</div>
+		{% endif %}
+	</section>
+{% endif %}

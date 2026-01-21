@@ -1,0 +1,20 @@
+{% set backgroundText = post.meta('backgroundText') %}
+{% set image = (backgroundText.image ? ' style="background-image: url(' ~ backgroundText.image ~ ')"' : null) %}
+{% set full = (not backgroundText.decription or not backgroundText.title and not backgroundText.subtitle) ? ' full' : '' %}
+
+{% if backgroundText.title or backgroundText.decription or backgroundText.subtitle or backgroundText.link %}
+	<section class="{{ cols ? 'background-text-cols' : '' }} background-text{{ full }}{% if not backgroundText.image %} no-image {% endif %} container section"{{image}}>
+		{% if backgroundText.title or backgroundText.subtitle %}
+			<div class="background-text__title">
+				{% if backgroundText.title %}<h2 class="subtitle">{{ backgroundText.title }}</h2>{% endif %}
+				{% if backgroundText.subtitle %}<h3 class="background-text__title__subtitle">{{ backgroundText.subtitle }}</h3>{% endif %}
+			</div>
+		{% endif %}
+		{% if backgroundText.decription or backgroundText.link %}
+			<div class="background-text__description">
+				{% if backgroundText.decription %}<div class="content">{{ backgroundText.decription }}</div>{% endif %}
+				{{ link(backgroundText.link, 'btn background-text__description__link') }}
+			</div>
+		{% endif %}
+	</section>
+{% endif %}

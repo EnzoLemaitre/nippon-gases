@@ -1,0 +1,31 @@
+#theme-toggle {
+	cursor: pointer;
+	background-color: transparent;
+	outline: none;
+	border: none;
+
+	&:hover,
+	&:focus {
+		&.light path {
+			stroke: var(--primary-color);
+		}
+
+		&.dark path {
+			fill: var(--primary-color);
+		}
+	}
+
+	svg {
+		height: 20px;
+	}
+
+	&.dark path {
+		fill: var(--default-color);
+		transition: .3s ease fill;
+	}
+
+	&.light path {
+		stroke: var(--default-color);
+		transition: .3s ease stroke;
+	}
+}

@@ -1,0 +1,21 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="gases">
+		<div class="container header-page">
+			{% include 'components/breadcrumb.twig' %}
+			<h1 class="title-page">{{ post.title }}</h1>
+		</div>
+
+		{% if gases %}
+			<div class="gases-list container section">
+				{% for gase in gases %}
+					{% include 'components/cardGases.twig' with { gase } %}
+				{% endfor %}
+			</div>
+		{% else %}
+			<p class="empty-content container section">{{ __('No gases found.', 'ng') }}</p>
+		{% endif %}
+
+	</main>
+{% endblock %}

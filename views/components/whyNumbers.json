@@ -1,0 +1,64 @@
+{
+    "title": "Why numbers",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-why.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "whyNumbers",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_6924673ebc340"
+                },
+                {
+                    "label": "Legend",
+                    "name": "legend",
+                    "type": "text",
+                    "key": "legend_6924673ebc341"
+                },
+                {
+                    "label": "Numbers",
+                    "name": "numbers",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Number",
+                            "name": "number",
+                            "type": "text",
+                            "key": "number_6924673ebc343"
+                        },
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "text",
+                            "key": "description_6924673ebc344"
+                        },
+                        {
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "key": "image_6924673ebc345"
+                        }
+                    ],
+                    "key": "card_6924673ebc342"
+                }
+            ],
+            "key": "whyNumbers_6924673ebc33e"
+        }
+    ],
+    "key": "group_6924673ebc134"
+}

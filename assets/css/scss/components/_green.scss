@@ -1,0 +1,40 @@
+.green-compo {
+	background-color: var(--dark-green-color);
+	color: var(--light-green-color);
+	padding-top: 100px;
+	padding-bottom: 100px;
+
+	@media (max-width: 550px) {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+
+	&__title {
+		margin-bottom: 40px;
+	}
+
+	&__subtitle {
+		margin-bottom: 40px;
+		line-height: var(--line-height);
+	}
+
+	&__list {
+		&__title {
+			line-height: var(--line-height);
+		}
+	
+		li {
+			text-align: center;
+		}
+
+		img {
+			margin-bottom: 20px;
+		}
+	}
+
+	.swiper-pagination-green-compo.swiper-pagination-bullets {
+		.swiper-pagination-bullet-active {
+			background-color: var(--light-green-color);
+		}
+	}
+}

@@ -1,0 +1,31 @@
+.iberia-cols {
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		@media (max-width: 768px) {
+			gap: 20px;
+		}
+
+		&__description2,
+		&__description {
+			width: 45%;
+
+			@media (max-width: 768px) {
+				width: 100%;
+			}
+		}
+
+		.btn-more {
+			display: inline-block;
+			margin-top: 20px;
+			text-decoration: underline;
+			color: var(--primary-color);
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}

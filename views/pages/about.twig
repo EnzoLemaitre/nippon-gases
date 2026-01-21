@@ -1,0 +1,17 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="about">
+		{% include 'components/heroBanner.twig' %}
+		{% include 'components/textCols.twig' %}
+		{% include 'components/nippon.twig' %}
+		{% include 'components/imageText.twig' %}
+		{% include 'components/table.twig' %}
+		{% include 'components/nipponCard.twig' %}
+		{% include 'components/imageText2.twig' %}
+		{% include 'components/backgroundText.twig' with { cols: true } %}
+		{% include 'components/imageText3.twig' %}
+		{% include 'components/relatedNews.twig' %}
+		{% include 'components/contactAlert.twig' %}
+	</main>
+{% endblock %}

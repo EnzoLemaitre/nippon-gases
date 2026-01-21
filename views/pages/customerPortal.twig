@@ -1,0 +1,20 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	{% set sidebar = post.meta('sidebar') %}
+
+	<main id="customer-portal" class="section">
+		<div class="container header-page mb-40">
+			{% include 'components/breadcrumb.twig' %}
+		</div>
+		<div class="container customer-portal__content{% if sidebar.elements | length == 0 %} customer-portal__content__full{% endif %}">
+			<div class="customer-portal__content__main">
+				<h1 class="subtitle mb-40">{{ post.title }}</h1>
+				{% include 'components/customerPortal.twig' %}
+			</div>
+			<div class="customer-portal__content__aside">
+				{% include 'components/sidebar.twig' %}
+			</div>
+		</div>
+	</main>
+{% endblock %}

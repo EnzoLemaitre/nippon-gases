@@ -1,0 +1,22 @@
+{% set nipponCard = post.meta('nipponCard') %}
+
+{% if nipponCard.card | length > 0 %}
+	<section class="container section nippon-cards">
+		{% if nipponCard.title %}<h2 class="nippon-cards__title subtitle">{{ nipponCard.title }}</h2>{% endif %}
+		<ul class="nippon-cards__list">
+			{% for card in nipponCard.card %}
+				{% set img = get_image(card.image) %}
+				{% if card.title or img %}
+					<li>
+						{% if img %}
+							<div class="nippon-cards__list__img">
+								<img src="{{ img.src | resize(0, 30) }}" alt="{{ img.alt }}" loading="lazy" height="30">
+							</div>
+						{% endif %}
+						{% if card.title %}<p class="nippon-cards__list__title">{{ card.title }}</p>{% endif %}
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</section>
+{% endif %}

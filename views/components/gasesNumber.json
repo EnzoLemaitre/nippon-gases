@@ -1,0 +1,58 @@
+{
+    "title": "Gases numbers",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "gases"
+            }
+        ],
+		[
+			{
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-green.php"
+            }
+		]
+    ],
+    "fields": [
+        {
+            "name": "gasesNumber",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Card",
+                    "name": "card",
+                    "type": "repeater",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "label": "Number",
+                            "name": "number",
+                            "type": "text",
+                            "key": "number_6915e008a146d"
+                        },
+                        {
+                            "label": "Description",
+                            "name": "description",
+                            "type": "text",
+                            "key": "description_6915e008a146e"
+                        }
+                    ],
+                    "key": "card_6915e008a146c"
+                },
+				{
+                    "label": "Background Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "url",
+                    "key": "bgimage_690491b164ef8"
+                }
+            ],
+            "key": "gasesNumber_6915e008a1469"
+        }
+    ],
+    "key": "group_6915e008a13a1"
+}

@@ -1,0 +1,47 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="index">
+		{% include 'components/heroBanner.twig' %}
+
+		<div class="container">
+			<div class="filters-news">
+				{% set current_cat = fn('get_query_var', 'cat') %}
+				<ul class="filters-news__list">
+					<li><a class="{{ current_cat ? '' : 'active' }}" href="{{ fn ('get_permalink', (fn ('get_option', 'page_for_posts'))) }}">{{ __('All', 'ng') }}</a></li>
+					{% for category in categories %}
+						{% if category.count > 0 %}
+							<li><a class="{{ category.term_id == current_cat ? 'active' : '' }}" href="{{ fn ('get_category_link', category.term_id) }}">{{ category.name }}</a></li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+				<form action="" method="get" onchange="this.submit()" class="filters-news__form">
+					<div>
+						{% set current_cat = fn('get_query_var', 'cat') %}
+						{% if current_cat %}
+							<input type="hidden" name="cat" value="{{ current_cat }}">
+						{% endif %}
+
+						{% set current_year = fn('get_query_var', 'year') %}
+						<select name="year" id="years-news" aria-label="{{ __('Year', 'ng') }}">
+							<option value="">{{ __('Year', 'ng') }}</option>
+							{% for year in years %}
+								<option value="{{ year }}" {% if current_year == year %}selected{% endif %}>{{ year }}</option>
+							{% endfor %}
+						</select>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="news-list container">
+				{% for post in posts %}
+					{% include 'components/newsCard.twig' with { post: post } %}
+				{% endfor %}
+			</div>
+
+			{% include 'components/pagination.twig' with { posts: posts } %}
+		</div>
+	</main>
+{% endblock %}
