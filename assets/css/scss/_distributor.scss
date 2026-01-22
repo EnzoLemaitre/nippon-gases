@@ -185,12 +185,12 @@
 						&-info {
 							display: flex;
 							flex-wrap: wrap;
-							gap: 7%;
+							justify-content: space-between;
 							margin-bottom: 20px;
 
 							.info {
 								&-row {
-									flex: auto;
+									width: 47%;
 								}
 
 								&-label,
