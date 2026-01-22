@@ -33,20 +33,4 @@
 	<button class="show-details-btn btn btn__light" onclick="toggleDetails({{ distributor.id }})">
 		{{ __('Show details', 'ng') }}
 	</button>
-
-	<div class="result-details" id="details-{{ distributor.id }}" style="display: none;">
-		{% if distributor.address %}
-			<div class="detail-section">
-				<strong>{{ __('Address', 'ng') }}:</strong>
-				<p>{{ distributor.address|nl2br }}</p>
-			</div>
-		{% endif %}
-
-		{% if distributor.fax %}
-			<div class="detail-section">
-				<strong>{{ __('Fax', 'ng') }}:</strong>
-				<p>{{ distributor.fax }}</p>
-			</div>
-		{% endif %}
-	</div>
 </div>

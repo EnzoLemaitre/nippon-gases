@@ -1,6 +1,8 @@
 <div class="category-filters">
-	<p class="category-label">{{ __('Refine your search by choosing gas or service', 'ng') }}</p>
-
+	{% if search.filter_cat %}
+		<div class="content">{{ search.filter_cat }}</div>
+	{% endif %}
+	
 	<div class="filter-pills">
 		{% for category in categories %}
 			{% include 'components/distributor-filter-pill.twig' with {

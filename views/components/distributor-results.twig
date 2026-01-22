@@ -1,5 +1,20 @@
 <div class="results-panel">
 	<div class="results-header">
+		<button class="modal-close" onclick="closeDistributorModal()">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 33.138 33.138">
+				<defs>
+					<clipPath id="clip-path">
+						<rect width="28.821" height="18.043" fill="currentColor"></rect>
+					</clipPath>
+				</defs>
+				<g transform="translate(0 20.38) rotate(-45)">
+					<g transform="translate(0 0)" clip-path="url(#clip-path)">
+						<path d="M19.883,16.9,26.59,9.7H.672a.676.676,0,0,1,0-1.352H26.59l-6.708-7.2a.675.675,0,0,1,.98-.929l7.772,8.347a.654.654,0,0,1-.034.946l-7.738,8.313a.675.675,0,0,1-.98-.929" transform="translate(0 0)" fill="currentColor" fill-rule="evenodd"></path>
+					</g>
+				</g>
+			</svg>
+		</button>
+
 		<h2 class="results-title">
 			{{ __('Results', 'ng') }}
 			(<span id="results-count">{{ distributors|length }}</span>)
@@ -17,4 +32,6 @@
 	<p class="no-results" id="no-results" style="display: none;">
 		{{ __('No distributors found.', 'ng') }}
 	</p>
+
+	{% include 'components/distributor-modal.twig' %}
 </div>

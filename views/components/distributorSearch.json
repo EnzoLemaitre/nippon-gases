@@ -1,0 +1,42 @@
+{
+	"title": "Distributor Search",
+	"fields": [
+		{
+			"label": "Distributor Search",
+			"name": "search",
+			"type": "group",
+			"layout": "row",
+			"sub_fields": [
+				{
+					"label": "Title",
+					"name": "title",
+					"type": "text"
+				},
+				{
+					"label": "Filter title by categories",
+					"name": "filter_cat",
+					"type": "text"
+				},
+				{
+					"label": "Input label: search by company name",
+					"name": "input_company",
+					"type": "text"
+				},
+				{
+					"label": "Input label: search by city",
+					"name": "input_city",
+					"type": "text"
+				}
+			]
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-distributor.php"
+			}
+		]
+	]
+}

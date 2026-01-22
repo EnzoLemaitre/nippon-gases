@@ -1,9 +1,16 @@
 {% extends 'layout/base.twig' %}
+{% set search = post.meta('search') %}
 
 {% block body %}
 	<main id="distributor" class="container">
+		<div class="header-page">
+			{% include 'components/breadcrumb.twig' %}
+		</div>
+
 		<section class="distributor section">
-			<h1 class="page-title">{{ __('Find here your nearest delivery point', 'ng') }}</h1>
+			{% if search.title %}
+				<h1 class="page-title">{{ search.title }}</h1>
+			{% endif %}
 
 			{% include 'components/distributor-cat-button.twig' %}
 			{% include 'components/distributor-search.twig' %}
@@ -22,7 +29,7 @@
 {% endblock %}
 
 
-{% block javascripts %} <script src="{{site.theme.uri}}/dist/distributor.js" defer></script>
+{% block javascripts %} <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ8Kreenw5NbFLeJc8gf66IaSn7_dWfyg&callback=initMap" defer></script>
 	 <script src="{{site.theme.uri}}/assets/js/map.js" defer></script>
-	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ8Kreenw5NbFLeJc8gf66IaSn7_dWfyg&callback=initMap" async defer></script>
+	 <script src="{{site.theme.uri}}/dist/distributor.js" defer></script>
 {% endblock %}

@@ -1,0 +1,49 @@
+<div class="distributor-modal" id="distributor-modal" style="display: none;">
+	<div class="modal-container">
+		<div class="modal-content">
+			<h3 class="modal-title" id="modal-title"></h3>
+			<div class="modal-categories" id="modal-categories" style="display: none;"></div>
+			
+			<div class="modal-info">
+				<div class="modal-info-item" id="modal-address-section" style="display: none;">
+					<div class="modal-info-content">
+						<h4>{{ __('Address', 'ng') }}</h4>
+						<p id="modal-address"></p>
+					</div>
+				</div>
+				
+				<div class="modal-info-item" id="modal-phone-section" style="display: none;">
+					<div class="modal-info-content">
+						<h4>{{ __('Phone', 'ng') }}</h4>
+						<p id="modal-phone"></p>
+					</div>
+				</div>
+				
+				<div class="modal-info-item" id="modal-email-section" style="display: none;">
+					<div class="modal-info-content">
+						<h4>{{ __('Email', 'ng') }}</h4>
+						<p id="modal-email"></p>
+					</div>
+				</div>
+				
+				<div class="modal-info-item" id="modal-fax-section" style="display: none;">
+					<div class="modal-info-content">
+						<h4>{{ __('Fax', 'ng') }}</h4>
+						<p id="modal-fax"></p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="modal-navigation">
+			<button class="modal-nav-btn modal-prev btn" onclick="navigateDistributor(-1)" id="modal-prev-btn">
+				{{ __('Previous', 'ng') }}
+			</button>
+			
+			<button class="modal-nav-btn modal-next btn btn__light" onclick="navigateDistributor(1)" id="modal-next-btn">
+				{{ __('Next', 'ng') }}
+			</button>
+		</div>
+	</div>
+</div>

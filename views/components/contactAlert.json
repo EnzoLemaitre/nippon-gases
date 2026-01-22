@@ -55,6 +55,11 @@
 				"param": "page_template",
 				"operator": "!=",
 				"value": "template-contact.php"
+			},
+			{
+				"param": "page_template",
+				"operator": "!=",
+				"value": "template-distributor.php"
 			}
 		]
 	],
