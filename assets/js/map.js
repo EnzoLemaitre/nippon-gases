@@ -79,6 +79,8 @@ function initMap() {
 	processNext();
 }
 
+initMap()
+
 function updateMapMarkers(visibleDistributorIds) {
 	if (!map || markers.length === 0) {
 		return;
@@ -108,29 +110,23 @@ function updateMapMarkers(visibleDistributorIds) {
 	}
 }
 
-window.zoomToMarker = function(distributorId) {
-	if (!map || markers.length === 0) {
-		return;
-	}
+window.zoomToMarker = function (distributorId) {
+	if (!map || markers.length === 0) return;
 
 	const marker = markers.find(m => m.distributorId === distributorId);
-	
-	if (marker && marker.getVisible()) {
-		map.setCenter(marker.getPosition());
-		map.setZoom(15);
-		
-		marker.setAnimation(google.maps.Animation.BOUNCE);
-		setTimeout(() => {
-			marker.setAnimation(null);
-		}, 1500);
-	}
+	if (!marker || !marker.getVisible()) return;
+
+	map.panTo(marker.getPosition());
+	map.setZoom(15);
+
+	marker.setAnimation(google.maps.Animation.BOUNCE);
+	setTimeout(() => marker.setAnimation(null), 1500);
 };
 
+
 window.resetMapZoom = function(visibleDistributorIds) {
-	console.log("resetMapZoom called with:", visibleDistributorIds);
 	
 	if (!map || markers.length === 0) {
-		console.log("No map or no markers");
 		return;
 	}
 
@@ -142,7 +138,6 @@ window.resetMapZoom = function(visibleDistributorIds) {
 			if (visibleDistributorIds.includes(marker.distributorId)) {
 				newBounds.extend(marker.getPosition());
 				hasVisibleMarkers = true;
-				console.log("Found marker for ID:", marker.distributorId);
 			}
 		});
 	} else {
@@ -153,20 +148,14 @@ window.resetMapZoom = function(visibleDistributorIds) {
 			}
 		});
 	}
-
-	console.log("hasVisibleMarkers:", hasVisibleMarkers);
-
+	
 	if (hasVisibleMarkers) {
-		setTimeout(() => {
-			map.fitBounds(newBounds);
-			
-			google.maps.event.addListenerOnce(map, "idle", function () {
-				if (map.getZoom() > 15) {
-					map.setZoom(15);
-				}
-			});
-		}, 100);
-	} else {
-		console.log("No visible markers to fit bounds to");
+		map.fitBounds(newBounds);
+		
+		google.maps.event.addListenerOnce(map, "bounds_changed", function () {
+			if (map.getZoom() > 15) {
+				map.setZoom(15);
+			}
+		});
 	}
 };

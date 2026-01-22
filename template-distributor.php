@@ -72,4 +72,7 @@
 </script>
 
 <?php
+
+$context['GOOGLE_MAPS_API'] = $_ENV['GOOGLE_MAPS_API'];
+
 Timber::render('pages/distributor.twig', $context);

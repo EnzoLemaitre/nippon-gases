@@ -2,17 +2,19 @@
 	.header-page {
 		margin-bottom: 40px;
 	}
-	
+
 	.distributor {
+		* {
+			overflow-wrap: break-word;
+		}
 
 		.search-actions {
 			margin-bottom: 70px;
-			
+
 			.btn__light {
 				border: 1px solid var(--default-color);
 
-				&:hover,
-				&:focus {
+				&:hover {
 					border: 1px solid transparent;
 				}
 			}
@@ -30,13 +32,13 @@
 		}
 
 		.page-title {
-			font-size: var(--fs-xxl);
+			font-size: var(--fs-xl);
 			line-height: var(--line-height);
 			margin-bottom: 1em;
 		}
 
 		.content {
-			font-size: var(--fs-m);
+			font-size: var(--fs-s);
 			line-height: var(--line-height);
 		}
 
@@ -72,6 +74,7 @@
 		&__map {
 			display: flex;
 			flex-wrap: wrap;
+			align-items: stretch;
 
 			&__left {
 				width: 30%;
@@ -85,12 +88,13 @@
 
 				.results-panel {
 					position: relative;
-					overflow-y: auto;
+					overflow: auto;
 					max-height: 100%;
 
 					.results {
 						&-header {
 							position: sticky;
+							min-height: 120px;
 							top: 0;
 							padding-top: 30px;
 							background-color: var(--default-color);
@@ -112,6 +116,7 @@
 							}
 
 							&.show-modal {
+								position: static;
 								display: flex;
 								flex-wrap: wrap;
 								align-items: center;
@@ -127,7 +132,7 @@
 						}
 
 						&-title {
-							font-size: var(--fs-xxl);
+							font-size: var(--fs-xl);
 							line-height: var(--line-height);
 						}
 
@@ -150,7 +155,7 @@
 						}
 
 						&-title {
-							font-size: var(--fs-m);
+							font-size: var(--fs-s);
 							line-height: var(--line-height);
 							font-weight: bold;
 						}
@@ -180,17 +185,17 @@
 						&-info {
 							display: flex;
 							flex-wrap: wrap;
-							gap: 10%;
+							gap: 7%;
 							margin-bottom: 20px;
 
 							.info {
 								&-row {
-									max-width: 45%;
+									flex: auto;
 								}
 
 								&-label,
 								&-value {
-									font-size: var(--fs-s);
+									font-size: var(--fs-xs);
 									line-height: var(--line-height);
 								}
 
@@ -203,6 +208,8 @@
 				}
 
 				.distributor-modal {
+					background-color: var(--default-color);
+
 					.modal-container {
 						h3,
 						h4 {
@@ -210,7 +217,7 @@
 						}
 
 						h3 {
-							font-size: var(--fs-m);
+							font-size: var(--fs-s);
 							line-height: var(--line-height);
 						}
 
@@ -219,7 +226,7 @@
 
 							h4,
 							p {
-								font-size: var(--fs-s);
+								font-size: var(--fs-xs);
 								line-height: var(--line-height);
 							}
 						}
@@ -250,8 +257,7 @@
 							border: 1px solid #fff;
 							transition: all 0.4s ease;
 
-							&:hover,
-							&:focus {
+							&:hover {
 								border: 1px solid transparent;
 							}
 						}

@@ -29,7 +29,7 @@
 {% endblock %}
 
 
-{% block javascripts %} <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ8Kreenw5NbFLeJc8gf66IaSn7_dWfyg&callback=initMap" defer></script>
+{% block javascripts %} <script src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API }}&callback=initMap" defer></script>
 	 <script src="{{site.theme.uri}}/assets/js/map.js" defer></script>
 	 <script src="{{site.theme.uri}}/dist/distributor.js" defer></script>
 {% endblock %}

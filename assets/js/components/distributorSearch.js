@@ -381,6 +381,11 @@
 		const modal = document.getElementById("distributor-modal");
 		if (modal) {
 			modal.style.display = "block";
+
+			setTimeout(() => {
+				google.maps.event.trigger(map, "resize");
+			}, 50);
+
 			updateModalContent();
 		}
 	};
@@ -490,14 +495,9 @@
 			resultsHeader.classList.remove("show-modal");
 		}
 
-		console.log("typeof resetMapZoom:", typeof window.resetMapZoom);
-
 		if (typeof resetMapZoom === "function") {
 			const visibleIds = visibleDistributors.map((d) => d.id);
-			console.log("Closing modal, visible IDs:", visibleIds);
 			resetMapZoom(visibleIds);
-		} else {
-			console.log("resetMapZoom is not a function!");
 		}
 	};
 
