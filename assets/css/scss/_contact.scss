@@ -1,5 +1,11 @@
 #contact {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
 	.contact-us {
+		width: 45%;
+
 		h1 {
 			line-height: var(--line-height);
 			font-size: var(--fs-xxl);
@@ -17,5 +23,11 @@
 			}
 
 		}
+	}
+
+	.contact {
+		width: 50%;
+		padding: 30px;
+		background-color: var(--grey-color);
 	}
 }
