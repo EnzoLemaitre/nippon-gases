@@ -7,13 +7,17 @@
 	padding-bottom: 30px;
 	position: relative;
 
+	a {
+		cursor: pointer;
+	}
+
 	&__right {
 		display: flex;
 		flex-wrap: nowrap;
 		align-items: center;
 		justify-content: flex-end;
 		gap: 0 2.5%;
-		width: 48%;
+		width: 49%;
 
 		&__menu {
 			// width: calc(75% - 18px);
@@ -31,7 +35,7 @@
 				justify-content: flex-end;
 				gap: 0 8%;
 
-				@media (max-width: 1200px) {
+				@media (max-width: 1400px) {
 					gap: 0 3.5%;
 				}
 
@@ -63,7 +67,7 @@
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
-			gap: 0 10%;
+			gap: 0 20px;
 			min-width: 178px;
 			width: calc(20% - 18px);
 
@@ -107,7 +111,8 @@
 				display: flex;
 				flex-wrap: wrap;
 				align-items: center;
-				gap: 0 2.5%;
+				gap: 0 20px;
+				width: calc(23px + 23px + 20px);
 
 				@media (max-width: 1085px) {
 					display: none;
@@ -121,7 +126,11 @@
 		flex-wrap: nowrap;
 		align-items: center;
 		gap: 0 7%;
-		width: 48%;
+		width: 49%;
+
+		@media (max-width: 1400px) {
+			gap: 0 3%;
+		}
 
 		@media (max-width: 1085px) {
 			gap: 0 0;
@@ -131,7 +140,11 @@
 
 		&__logo {
 			width: calc(20% - 25px);
-			min-width: 186px;
+			min-width: 150px;
+
+			@media (max-width: 1400px) {
+				width: calc(10% - 25px);
+			}
 
 			@media (max-width: 350px) {
 				min-width: 100%;
@@ -170,7 +183,7 @@
 				align-items: center;
 				gap: 0 8%;
 
-				@media (max-width: 1200px) {
+				@media (max-width: 1400px) {
 					gap: 0 3.5%;
 				}
 
