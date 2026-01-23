@@ -60,6 +60,11 @@
 				"param": "page_template",
 				"operator": "!=",
 				"value": "template-distributor.php"
+			},
+			{
+				"param": "page_template",
+				"operator": "!=",
+				"value": "template-sustainability.php"
 			}
 		]
 	],

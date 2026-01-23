@@ -1,0 +1,37 @@
+.image-text-background {
+	background-color: var(--light-primary-color);
+	color: #fff;
+	gap: 5.5%;
+
+	&.image-text {
+		&__position-left {
+			justify-content: start;
+		}
+
+		&__position-right {
+			justify-content: end;
+		}
+	}
+
+	.image-text {
+		&__image {
+			max-width: 35%;
+			height: -webkit-fill-available;
+
+			img {
+				border-radius: 0;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		&__content {
+			padding-top: 60px;
+			padding-bottom: 60px;
+			
+			&__subtitle {
+				margin-bottom: 200px;
+			}
+		}
+	}
+}

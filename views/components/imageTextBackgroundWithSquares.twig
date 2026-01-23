@@ -1,0 +1,47 @@
+{% set imageText = post.meta('imageTextBackgroundWithSquares') %}
+
+{% set noText = false %}
+{% if not imageText.title and not imageText.subtitle and not imageText.decription and not imageText.link %}
+	{% set noText = true %}
+{% endif %}
+
+{% if imageText.title or imageText.subtitle or imageText.decription or imageText.link or imageText.image %}
+	<section class="section image-text image-text-background-with-squares image-text__position-{{ imageText.imagePosition }}{{ noText ? ' image-text__no-text' : '' }}{{ not imageText.image ? ' image-text__no-image' : '' }}">
+		<div class="square square-"></div>
+		<div class="square square-"></div>
+		<div class="square square-"></div>
+		<div class="square square-"></div>
+		<div class="square square-"></div>
+		<div class="square square-"></div>
+
+		<div class="container image-text-background-with-squares__wrapper">
+			{% if imageText.title or imageText.subtitle or imageText.decription or imageText.link %}
+				<div class="image-text__content">
+					{% if imageText.title %}
+						<h2 class="image-text__content__title">{{ imageText.title }}</h2>
+					{% endif %}
+					{% if imageText.subtitle %}
+						<p class="image-text__content__subtitle">{{ imageText.subtitle }}</p>
+					{% endif %}
+					{% if imageText.decription %}
+						<div class="image-text__content__description content">{{ imageText.decription }}</div>
+					{% endif %}
+					{% if imageText.link %}
+						{{ link(imageText.link, 'btn') }}
+					{% endif %}
+				</div>
+			{% endif %}
+			{% if imageText.image %}
+				<div class="image-text__image">
+					{% set img = get_image(imageText.image) %}
+					<img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" width="{{ img.width }}" height="{{ img.height }}">
+				</div>
+			{% endif %}
+		</div>
+
+		<div class="square square-"></div>
+		<div class="square square-"></div>
+		<div class="square square-"></div>
+		<div class="square square-"></div>
+	</section>
+{% endif %}

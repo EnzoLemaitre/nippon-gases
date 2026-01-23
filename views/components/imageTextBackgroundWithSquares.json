@@ -1,0 +1,59 @@
+{
+    "title": "Image Text Background With Squares",
+    "location": [
+		[
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-sustainability.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "imageTextBackgroundWithSquares",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+					"preview_size": "thumbnail"
+                },
+				{
+					"label": "Image position",
+					"name": "imagePosition",
+					"type": "select",
+					"choices": {
+						"left": "Left",
+						"right": "Right"
+					},
+					"default_value": "left"
+				},
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "label": "Subtitle",
+                    "name": "subtitle",
+                    "type": "text"
+                },
+                {
+                    "label": "Description",
+                    "name": "decription",
+                    "type": "textarea",
+					"new_lines": "wpautop"
+                },
+                {
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link"
+                }
+            ]
+        }
+    ]
+}

@@ -3,6 +3,7 @@ $containerWidth: 1400px;
 :root {
 	// Colors
 	--primary-color: #0c5477;
+	--light-primary-color: #15668D;
 	--blue-color: #659fc8;
 	--light-blue-color: #e0ecf4;
 	--default-color: #1a1b1c;
@@ -55,6 +56,7 @@ $containerWidth: 1400px;
 @import 'contact';
 @import 'distributor';
 @import 'compliance';
+@import 'sustainability';
 
 @import "components/heroBanner";
 @import "components/btn";
@@ -63,6 +65,8 @@ $containerWidth: 1400px;
 @import "components/contactAlert";
 @import "components/cardMore";
 @import "components/imageText";
+@import "components/imageTextBackground";
+@import "components/imageTextBackgroundWithSquares";
 @import "components/imageTextDownload";
 @import "components/textCols";
 @import "components/newsCard";

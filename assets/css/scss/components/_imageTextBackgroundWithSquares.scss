@@ -1,0 +1,31 @@
+.image-text-background-with-squares {
+	position: relative;
+	background-color: var(--primary-color);
+	color: #fff;
+	display: block;
+	padding-top: 70px;
+	padding-bottom: 70px;
+	margin-bottom: 0;
+
+	.square {
+		position: absolute;
+		width: 44px;
+		height: 44px;
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 30px 4%;
+	}
+
+	.image-text {
+		&__image {
+			img {
+				border-radius: 0;
+			}
+		}
+	}
+}
