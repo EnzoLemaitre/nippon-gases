@@ -47,6 +47,13 @@
 				"operator": "==",
 				"value": "template-compliance.php"
 			}
+		],
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-sustainability.php"
+			}
 		]
     ],
     "fields": [

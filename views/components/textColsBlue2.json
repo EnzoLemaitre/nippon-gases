@@ -7,7 +7,14 @@
                 "operator": "==",
                 "value": "template-innovation.php"
             }
-        ]
+        ],
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-sustainability.php"
+			}
+		]
     ],
     "fields": [
         {
