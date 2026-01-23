@@ -11,7 +11,7 @@
 	],
 	"fields": [
 		{
-			"name": "Milestones",
+			"name": "ourMilestones",
 			"type": "group",
 			"layout": "row",
 			"sub_fields": [
@@ -22,7 +22,7 @@
 				},
 				{
 					"label": "Description",
-					"name": "decription",
+					"name": "description",
 					"type": "textarea",
 					"new_lines": "wpautop"
 				},

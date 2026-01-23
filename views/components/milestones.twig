@@ -1,21 +1,28 @@
-{% set numbers = post.meta('numberDiversity') %}
-{% if numbers.card | length > 0 %}
-	<ul class="container section number-diversity">
-		{% for number in numbers.card %}
-			{% set img = get_image(number.image) %}
-			{% if number.number or img or number.title %}
+{% if cards | length > 0 %}
+	<ul class="milestones">
+		{% for card in cards %}
+			{% set img = get_image(card.image) %}
+			{% if card.number or img or card.title %}
 				<li>
-					{% if number.number or img %}
-						<div class="number-diversity__header">
-							{% if number.number %}<p class="number-diversity__number">{{ number.number }}</p>{% endif %}
-							{% if img %}
-								<div class="number-diversity__image">
-									<img src="{{ img.src|resize(0, 35) }}" alt="{{ img.alt }}" loading="lazy" height="45">
-								</div>
-							{% endif %}
-						</div>
-					{% endif %}
-					{% if number.title %}<h2 class="number-diversity__title">{{ number.title }}</h2>{% endif %}
+					<div class="milestones__wrapper">
+						{% if card.number or img %}
+							<div class="milestones__header">
+								{% if img %}
+									<div class="milestones__image">
+										<img src="{{ img.src|resize(0, 35) }}" alt="{{ img.alt }}" loading="lazy" height="45">
+									</div>
+								{% endif %}
+								{% if card.number %}
+									<p class="milestones__number">{{ card.number }}</p>
+								{% endif %}
+							</div>
+						{% endif %}
+						{% if card.title %}
+							<h2 class="milestones__title">{{ card.title }}</h2>
+						{% endif %}
+					</div>
+
+					<span class="symbol">+</span>
 				</li>
 			{% endif %}
 		{% endfor %}

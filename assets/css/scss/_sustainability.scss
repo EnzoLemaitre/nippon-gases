@@ -2,8 +2,24 @@
 	.hero-banner {
 		margin-bottom: 0;
 	}
-	
+
 	.image-text-background {
 		margin-bottom: 0;
+	}
+
+	.our-milestones {
+		padding-left: var(--padding-responsive);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+
+		&__text {
+			width: 40%;
+		}
+
+		.milestones {
+			width: 40%;
+		}
 	}
 }
