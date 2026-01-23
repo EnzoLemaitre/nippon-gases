@@ -25,7 +25,8 @@
 				{
 					"label": "Title",
 					"name": "title",
-					"type": "text"
+					"type": "text",
+					"key": "title_6971c5a750d97"
 				},
 				{
 					"label": "Description",
@@ -35,9 +36,12 @@
 					"toolbar": "full",
 					"media_upload": 0,
 					"default_value": "",
-					"delay": 0
+					"delay": 0,
+					"key": "description_6971c5a750d98"
 				}
-			]
+			],
+			"key": "contact_6971c5a750d96"
 		}
-	]
+	],
+	"key": "group_6971c5a750d6b"
 }
