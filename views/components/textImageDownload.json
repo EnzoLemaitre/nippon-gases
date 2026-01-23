@@ -1,17 +1,17 @@
 {
-	"title": "Image Text 2",
+	"title": "Image Text Download",
 	"location": [
 		[
 			{
 				"param": "page_template",
 				"operator": "==",
-				"value": "template-about.php"
+				"value": "template-compliance.php"
 			}
 		]
 	],
 	"fields": [
 		{
-			"name": "imageText2",
+			"name": "imageTextDownload",
 			"type": "group",
 			"layout": "row",
 			"sub_fields": [
@@ -20,8 +20,7 @@
 					"name": "image",
 					"type": "image",
 					"return_format": "array",
-					"preview_size": "thumbnail",
-					"key": "image_692870968a537"
+					"preview_size": "thumbnail"
 				},
 				{
 					"label": "Image position",
@@ -31,37 +30,43 @@
 						"left": "Left",
 						"right": "Right"
 					},
-					"default_value": "left",
-					"key": "imagePosition_692870968a538"
+					"default_value": "left"
 				},
 				{
 					"label": "Title",
 					"name": "title",
-					"type": "text",
-					"key": "title_692870968a539"
+					"type": "text"
 				},
 				{
 					"label": "Subtitle",
 					"name": "subtitle",
-					"type": "text",
-					"key": "subtitle_692870968a53a"
+					"type": "text"
 				},
 				{
 					"label": "Description",
 					"name": "decription",
 					"type": "textarea",
-					"new_lines": "wpautop",
-					"key": "decription_692870968a53b"
+					"new_lines": "wpautop"
 				},
 				{
-					"label": "Link",
-					"name": "link",
-					"type": "link",
-					"key": "link_692870968a53c"
+					"label": "Button download",
+					"name": "download",
+					"type": "group",
+					"layout": "row",
+					"sub_fields": [
+						{
+							"label": "Label of the button",
+							"name": "label",
+							"type": "text"
+						},
+						{
+							"label": "File",
+							"name": "file",
+							"type": "file"
+						}
+					]
 				}
-			],
-			"key": "imageText2_692870968a536"
+			]
 		}
-	],
-	"key": "group_692870968a472"
+	]
 }

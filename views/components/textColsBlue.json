@@ -1,88 +1,95 @@
 {
-    "title": "Text cols blue",
-    "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "solutions"
-            },
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "template-solution-usage.php"
-            }
-        ],
-		[
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "solutions"
-            },
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "template-solutions-diving.php"
-            }
-        ],
-		[
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "template-europe.php"
-            }
-        ],
-		[
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "template-diversity.php"
-            }
-        ],
-		[
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "template-innovation.php"
-            }
-        ],
+	"title": "Text cols blue",
+	"location": [
 		[
 			{
-                "param": "page_template",
-                "operator": "==",
-                "value": "template-solution-electronics.php"
-            }
+				"param": "post_type",
+				"operator": "==",
+				"value": "solutions"
+			},
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-solution-usage.php"
+			}
 		],
 		[
 			{
-                "param": "page_template",
-                "operator": "==",
-                "value": "template-safety.php"
-            }
+				"param": "post_type",
+				"operator": "==",
+				"value": "solutions"
+			},
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-solutions-diving.php"
+			}
+		],
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-europe.php"
+			}
+		],
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-diversity.php"
+			}
+		],
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-innovation.php"
+			}
+		],
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-solution-electronics.php"
+			}
+		],
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-safety.php"
+			}
+		],
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-compliance.php"
+			}
 		]
-    ],
-    "fields": [
-        {
-            "name": "textColsBlue",
-            "type": "group",
-            "layout": "row",
-            "sub_fields": [
-                {
-                    "label": "Title",
-                    "name": "title",
-                    "type": "text",
-                    "key": "title_6914a1f80cc0b"
-                },
-                {
-                    "label": "Description",
-                    "name": "description",
-                    "type": "textarea",
-                    "new_lines": "wpautop",
-                    "key": "description_6914a1f80cc0c"
-                }
-            ],
-            "key": "textColsBlue_6914a1f80cc09"
-        }
-    ],
-    "key": "group_6914a1f80ca3c"
+	],
+	"fields": [
+		{
+			"name": "textColsBlue",
+			"type": "group",
+			"layout": "row",
+			"sub_fields": [
+				{
+					"label": "Title",
+					"name": "title",
+					"type": "text",
+					"key": "title_6914a1f80cc0b"
+				},
+				{
+					"label": "Description",
+					"name": "description",
+					"type": "textarea",
+					"new_lines": "wpautop",
+					"key": "description_6914a1f80cc0c"
+				}
+			],
+			"key": "textColsBlue_6914a1f80cc09"
+		}
+	],
+	"key": "group_6914a1f80ca3c"
 }

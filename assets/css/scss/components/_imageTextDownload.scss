@@ -1,0 +1,26 @@
+.image-text-download {
+	.btn-download {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 20px;
+
+		span {
+			flex: 1;
+		}
+
+		svg {
+			width: 32px;
+			height: 32px;
+
+			path {
+				fill: #fff;
+			}
+		}
+	}
+
+	.content {
+		line-height: var(--line-height);
+		font-size: var(--fs-xl);
+	}
+}

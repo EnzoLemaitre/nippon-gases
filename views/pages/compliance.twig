@@ -1,0 +1,14 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main id="compliance">
+		{% include 'components/heroBanner.twig' %}
+		{% include 'components/textCols.twig' %}
+		{% include 'components/textColsBlue.twig' with { bgGrey: true } %}
+		{% include 'components/slider.twig' %}
+		{% include 'components/textImageDownload.twig' %}
+		{% include 'components/imageText.twig' %}
+		{% include 'components/relatedNews.twig' %}
+		{% include 'components/contactAlert.twig' %}
+	</main>
+{% endblock %}

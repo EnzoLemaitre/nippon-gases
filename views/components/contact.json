@@ -7,6 +7,13 @@
 				"operator": "==",
 				"value": "template-contact.php"
 			}
+		],
+		[
+			{
+				"param": "page_type",
+				"operator": "==",
+				"value": "front_page"
+			}
 		]
 	],
 	"fields": [

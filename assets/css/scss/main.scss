@@ -54,6 +54,7 @@ $containerWidth: 1400px;
 @import "customerPortal";
 @import 'contact';
 @import 'distributor';
+@import 'compliance';
 
 @import "components/heroBanner";
 @import "components/btn";
@@ -62,6 +63,7 @@ $containerWidth: 1400px;
 @import "components/contactAlert";
 @import "components/cardMore";
 @import "components/imageText";
+@import "components/imageTextDownload";
 @import "components/textCols";
 @import "components/newsCard";
 @import "components/lastNews";

@@ -14,7 +14,14 @@
                 "operator": "==",
                 "value": "template-why.php"
             }
-        ]
+        ],
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-compliance.php"
+			}
+		]
     ],
     "fields": [
         {

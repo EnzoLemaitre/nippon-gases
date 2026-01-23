@@ -1,0 +1,41 @@
+{% set imageText = post.meta('imageTextDownload') %}
+
+{% set noText = false %}
+{% if not imageText.title and not imageText.subtitle and not imageText.decription and not imageText.link %}
+	{% set noText = true %}
+{% endif %}
+
+{% if imageText.title or imageText.subtitle or imageText.decription or imageText.link or imageText.image %}
+	<section class="section container image-text image-text-download image-text__position-{{ imageText.imagePosition }}{{ noText ? ' image-text__no-text' : '' }}{{ not imageText.image ? ' image-text__no-image' : '' }}">
+		{% if imageText.title or imageText.subtitle or imageText.decription or imageText.link %}
+			<div class="image-text__content">
+				{% if imageText.title %}
+					<h2 class="image-text__content__title">{{ imageText.title }}</h2>
+				{% endif %}
+				{% if imageText.subtitle %}
+					<p class="image-text__content__subtitle">{{ imageText.subtitle }}</p>
+				{% endif %}
+				{% if imageText.decription %}
+					<div class="image-text__content__description content">{{ imageText.decription }}</div>
+				{% endif %}
+				{% if imageText.download %}
+					<a href="#" class="btn btn-download" download="{{ imageText.download.file.filename }}">
+						<span>{{ imageText.download.label }}</span>
+						<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 35.372 36.662">
+							<g transform="translate(-3.11 -3)">
+								<path d="M26.284,31.846c.006.006.014.008.021.014a.614.614,0,0,0,.188.125.62.62,0,0,0,.239.048.432.432,0,0,0,.313-.1.59.59,0,0,0,.125-.081l7.037-7.036a.626.626,0,1,0-.886-.886L27.358,29.9V3.626a.626.626,0,1,0-1.253,0V29.871l-5.731-5.857a.627.627,0,1,0-.9.877Z" transform="translate(-6.049)"/>
+								<path d="M3.736,54.775h34.12a.626.626,0,0,0,.626-.626V44.075a.626.626,0,1,0-1.253,0v9.447H4.363V44.075a.626.626,0,1,0-1.253,0V54.149a.626.626,0,0,0,.626.626Z" transform="translate(0 -15.113)"/>
+							</g>
+						</svg>
+					</a>
+				{% endif %}
+			</div>
+		{% endif %}
+		{% if imageText.image %}
+			<div class="image-text__image">
+				{% set img = get_image(imageText.image) %}
+				<img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" width="{{ img.width }}" height="{{ img.height }}">
+			</div>
+		{% endif %}
+	</section>
+{% endif %}

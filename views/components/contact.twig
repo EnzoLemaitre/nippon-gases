@@ -2,7 +2,11 @@
 {% if contact.title or contact.description %}
 	<div class="contact-us">
 		{% if contact.title %}
-			<h1 class="contact__title">{{ contact.title }}</h1>
+			{% if first %}
+				<h1 class="contact__title">{{ contact.title }}</h1>
+			{% else %}
+				<h2>{{ contact.title }}</h2>
+			{% endif %}
 		{% endif %}
 		{% if contact.description %}
 			<div class="content">{{ contact.description }}</div>
