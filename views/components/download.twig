@@ -1,95 +1,142 @@
 {% set download = post.meta('download') %}
 
+<style>
+    .ng-loader-overlay {
+        display: none;
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(255, 255, 255, 0.7);
+        z-index: 50;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+    }
+    .ng-loader {
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #002d72;
+        border-radius: 50%;
+        width: 50px; height: 50px;
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    .ng-select-style {
+        width: 100%; padding: 10px; border: 1px solid #e0e0e0;
+        border-radius: 4px; background-color: white; margin-top: 5px;
+        font-size: 14px; color: #333; cursor: pointer;
+    }
+</style>
+
 {% if download %}
-	<section class="download section">
-		{% if download.title %}
-			<h2 class="subtitle">{{ download.title }}</h2>
-		{% endif %}
+    <section class="download section">
+        {% if download.title %}
+            <h2 class="subtitle">{{ download.title }}</h2>
+        {% endif %}
 
-		<div class="download__wrapper">
-			<div class="download__wrapper__left">
-				<div class="download__wrapper__left__item">
-					<h3>{{ __('Choose a document type', 'ng') }}</h3>
-					<div class="sub-choices">
-						<ul>
-							{% for key, choice in choices.carburant %}
-								<li @click="toggleFilter('carburant.{{ key }}')" :class="(checkActive('carburant.{{ key }}')) ? 'active' : ''">
-									<span class="check-li"></span>
-									<span class="name">{{ choice }}</span>
-								</li>
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
+        <form method="GET" action="{{ post.link }}" id="filterForm">
+            <div class="download__wrapper">
+                
+                <div class="download__wrapper__left">
+                    <div class="download__wrapper__left__item">
+                        <h3>{{ __('Type de document', 'ng') }}</h3>
+                        <div class="sub-choices">
+                            <select name="doc_type" class="ng-select-style" onchange="showLoader()">
+                                <option value="PDM - Policies" {{ filters.doc_type == 'PDM - Policies' ? 'selected' : '' }}>Politiques</option>
+                                <option value="PDM - Certifications" {{ filters.doc_type == 'PDM - Certifications' ? 'selected' : '' }}>Certifications</option>
+                                <option value="PDM - Safety Data Sheets" {{ filters.doc_type == 'PDM - Safety Data Sheets' ? 'selected' : '' }}>Fiches de Sécurité</option>
+                                <option value="PDM - Instructions For Use" {{ filters.doc_type == 'PDM - Instructions For Use' ? 'selected' : '' }}>Instructions</option>
+                            </select>
+                        </div>
+                    </div>
 
-				<div class="download__wrapper__left__item">
-					<h3>{{ __('Choose a company', 'ng') }}</h3>
-					<div class="sub-choices">
-						<ul>
-							{% for key, choice in choices.carburant %}
-								<li @click="toggleFilter('carburant.{{ key }}')" :class="(checkActive('carburant.{{ key }}')) ? 'active' : ''">
-									<span class="check-li"></span>
-									<span class="name">{{ choice }}</span>
-								</li>
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
+                    <div class="download__wrapper__left__item">
+                        <h3>{{ __('Compagnie', 'ng') }}</h3>
+                        <div class="sub-choices">
+                            <select name="company" class="ng-select-style" onchange="showLoader()">
+                                <option value="">-- Toutes --</option>
+                                <option value="Nippon Gases España SLU" {{ filters.company == 'Nippon Gases España SLU' ? 'selected' : '' }}>Nippon Gases España</option>
+                                <option value="Nippon Gases France" {{ filters.company == 'Nippon Gases France' ? 'selected' : '' }}>Nippon Gases France</option>
+                                <option value="Nippon Gases Belgium" {{ filters.company == 'Nippon Gases Belgium' ? 'selected' : '' }}>Nippon Gases Belgium</option>
+                            </select>
+                        </div>
+                    </div>
 
-				<div class="download__wrapper__left__item">
-					<h3>{{ __('Choose a language', 'ng') }}</h3>
-					<div class="sub-choices">
-						<ul>
-							{% for key, choice in choices.carburant %}
-								<li @click="toggleFilter('carburant.{{ key }}')" :class="(checkActive('carburant.{{ key }}')) ? 'active' : ''">
-									<span class="check-li"></span>
-									<span class="name">{{ choice }}</span>
-								</li>
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
+                    <div class="download__wrapper__left__item">
+                        <h3>{{ __('Langue', 'ng') }}</h3>
+                        <div class="sub-choices">
+                            <select name="lang_iso" class="ng-select-style" onchange="showLoader()">
+                                <option value="">-- Toutes --</option>
+                                <option value="es-ES" {{ filters.lang == 'es-ES' ? 'selected' : '' }}>Espagnol</option>
+                                <option value="en-GB" {{ filters.lang == 'en-GB' ? 'selected' : '' }}>Anglais</option>
+                                <option value="fr-FR" {{ filters.lang == 'fr-FR' ? 'selected' : '' }}>Français</option>
+                            </select>
+                        </div>
+                    </div>
 
-				<div class="download__wrapper__left__item">
-					<h3>{{ __('Choose a category', 'ng') }}</h3>
-					<div class="sub-choices">
-						<ul>
-							{% for key, choice in choices.carburant %}
-								<li @click="toggleFilter('carburant.{{ key }}')" :class="(checkActive('carburant.{{ key }}')) ? 'active' : ''">
-									<span class="check-li"></span>
-									<span class="name">{{ choice }}</span>
-								</li>
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="download__wrapper__right">
-				<div class="search">
-					<input id="searchInput" type="text" v-model="searchQuery" placeholder="{{ __('Search a document, a solution category…', 'ng') }}" @keyup.enter="searchDownload"/>
-					<svg class="icon-search" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.0031 17.0938L22.9596 22.0501C23.2106 22.3012 23.2106 22.7084 22.9596 22.9596C22.7084 23.2106 22.3013 23.2106 22.0501 22.9596L17.0938 18.0031C15.2801 19.6043 12.8975 20.5758 10.2879 20.5758C4.60605 20.5758 0 15.9698 0 10.2879C0 4.60605 4.60605 0 10.2879 0C15.9698 0 20.5759 4.60605 20.5759 10.2879C20.5759 12.8974 19.6043 15.2801 18.0031 17.0938ZM10.2879 19.2898C15.2596 19.2898 19.2898 15.2595 19.2898 10.2879C19.2898 5.31628 15.2596 1.28597 10.2879 1.28597C5.31634 1.28597 1.28603 5.31628 1.28603 10.2879C1.28603 15.2595 5.31634 19.2898 10.2879 19.2898Z" fill="currentColor"/>
-					</svg>
-				</div>
-				<h3>{{ __('All results','ng') }}</h3>
-				<div class="download__wrapper__right__list">
-					{% for download in downloads %}
-						<div class="download__right__list__item" key="{{ download.id }}" data-id="{{ download.id }}">
-							<div class="date">
-								<p>{{ download.date }}</p>
-							</div>
-							<h4>{{ download.title }}</h4>
-							<a href="{{ download.url }}" target="_blank" style="display:inline-block; margin-left: auto;">
-								<svg class="download-icon" style="width: 30px; height: 30px; cursor: pointer; color: #002d72;" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 35.372 36.662">
-									<g transform="translate(-3.11 -3)">
-										<path fill="currentColor" d="M26.284,31.846c.006.006.014.008.021.014a.614.614,0,0,0,.188.125.62.62,0,0,0,.239.048.432.432,0,0,0,.313-.1.59.59,0,0,0,.125-.081l7.037-7.036a.626.626,0,1,0-.886-.886L27.358,29.9V3.626a.626.626,0,1,0-1.253,0V29.871l-5.731-5.857a.627.627,0,1,0-.9.877Z" transform="translate(-6.049)"/>
-										<path fill="currentColor" d="M3.736,54.775h34.12a.626.626,0,0,0,.626-.626V44.075a.626.626,0,1,0-1.253,0v9.447H4.363V44.075a.626.626,0,1,0-1.253,0V54.149a.626.626,0,0,0,.626.626Z" transform="translate(0 -15.113)"/>
-									</g>
-								</svg>
-							</a>
-						</div>
-					{% endfor %}
-				</div>
-			</div>
-		</div>
-	</section>
+                    <div class="download__wrapper__left__item">
+                        <h3>{{ __('Catégorie', 'ng') }}</h3>
+                        <div class="sub-choices">
+                            <select name="category" class="ng-select-style" onchange="showLoader()">
+                                <option value="">-- Toutes --</option>
+                                <option value="Quality" {{ filters.category == 'Quality' ? 'selected' : '' }}>Qualité</option>
+                                <option value="Finance" {{ filters.category == 'Finance' ? 'selected' : '' }}>Finance</option>
+                                <option value="Legal" {{ filters.category == 'Legal' ? 'selected' : '' }}>Légal</option>
+                                <option value="HR" {{ filters.category == 'HR' ? 'selected' : '' }}>RH</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="download__wrapper__left__item" style="margin-top: 15px;">
+                        <a href="{{ post.link }}" onclick="showLoader()" style="font-size:13px; text-decoration:underline; color:#999;">
+                            {{ __('Réinitialiser les filtres', 'ng') }}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="download__wrapper__right" style="position: relative; min-height: 300px;">
+                    <div id="loadingSpinner" class="ng-loader-overlay">
+                        <div class="ng-loader"></div>
+                    </div>
+
+                    <div class="search">
+                        <input id="searchInput" type="text" name="search_text" value="{{ filters.search }}" placeholder="{{ __('Rechercher un document...', 'ng') }}" onchange="showLoader()">
+                        <svg class="icon-search" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.0031 17.0938L22.9596 22.0501C23.2106 22.3012 23.2106 22.7084 22.9596 22.9596C22.7084 23.2106 22.3013 23.2106 22.0501 22.9596L17.0938 18.0031C15.2801 19.6043 12.8975 20.5758 10.2879 20.5758C4.60605 20.5758 0 15.9698 0 10.2879C0 4.60605 4.60605 0 10.2879 0C15.9698 0 20.5759 4.60605 20.5759 10.2879C20.5759 12.8974 19.6043 15.2801 18.0031 17.0938ZM10.2879 19.2898C15.2596 19.2898 19.2898 15.2595 19.2898 10.2879C19.2898 5.31628 15.2596 1.28597 10.2879 1.28597C5.31634 1.28597 1.28603 5.31628 1.28603 10.2879C1.28603 15.2595 5.31634 19.2898 10.2879 19.2898Z" fill="currentColor"/></svg>
+                    </div>
+
+                    <h3>{{ __('All results','ng') }}</h3>
+                    
+                    <div class="download__wrapper__right__list">
+                        {% if downloads is not empty %}
+                            {% for download in downloads %}
+                                <div class="download__right__list__item">
+                                    <div class="date"><p>{{ download.date }}</p></div>
+                                    <h4 style="margin-right: 15px;">{{ download.title }}</h4>
+                                    <a href="{{ download.url }}" target="_blank" style="display:inline-block; margin-left: auto;">
+                                        <svg class="download-icon" style="width: 30px; height: 30px; cursor: pointer; color: #002d72;" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 35.372 36.662">
+                                            <g transform="translate(-3.11 -3)">
+                                                <path fill="currentColor" d="M26.284,31.846c.006.006.014.008.021.014a.614.614,0,0,0,.188.125.62.62,0,0,0,.239.048.432.432,0,0,0,.313-.1.59.59,0,0,0,.125-.081l7.037-7.036a.626.626,0,1,0-.886-.886L27.358,29.9V3.626a.626.626,0,1,0-1.253,0V29.871l-5.731-5.857a.627.627,0,1,0-.9.877Z" transform="translate(-6.049)"/>
+                                                <path fill="currentColor" d="M3.736,54.775h34.12a.626.626,0,0,0,.626-.626V44.075a.626.626,0,1,0-1.253,0v9.447H4.363V44.075a.626.626,0,1,0-1.253,0V54.149a.626.626,0,0,0,.626.626Z" transform="translate(0 -15.113)"/>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div style="padding: 20px; text-align: center; color: #777;">
+                                <p>{{ __('Aucun document trouvé.', 'ng') }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <script>
+        function showLoader() {
+            var loader = document.getElementById('loadingSpinner');
+            if(loader) loader.style.display = 'flex';
+            document.getElementById('filterForm').submit();
+        }
+    </script>
 {% endif %}
