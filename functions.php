@@ -191,3 +191,154 @@ function display_mulesoft_docs_shortcode($atts) {
     return $output;
 }
 add_shortcode('nippon_docs', 'display_mulesoft_docs_shortcode');
+
+
+<?php
+
+// 1. Configuration des identifiants (PROD)
+define('MULE_TOKEN_URL', 'https://login.microsoftonline.com/152d35f3-e46a-4e14-b95c-f462dab4ce70/oauth2/v2.0/token');
+define('MULE_API_URL', 'https://mule-worker-internal-ng-e-documents.de-c1.cloudhub.io:8082/api/v1/cms/public-doc-list');
+define('MULE_CLIENT_ID', '2cdae861-bdc1-4138-abc1-437045fa1cb0'); // ID de Prod [cite: 66]
+// Le secret doit être défini dans le fichier wp-config.php pour la sécurité
+if (!defined('MULE_CLIENT_SECRET')) {
+    define('MULE_CLIENT_SECRET', ''); 
+}
+define('MULE_SCOPE', 'api://2cdae861-bdc1-4138-abc1-437045fa1cb0/.default');
+
+/**
+ * Récupère le Token OAuth 2.0 et le met en cache
+ */
+function get_mulesoft_token() {
+    // On vérifie si on a déjà un token en cache (valide 1h)
+    $cached_token = get_transient('mulesoft_access_token');
+    if ($cached_token) {
+        return $cached_token;
+    }
+
+    $response = wp_remote_post(MULE_TOKEN_URL, [
+        'body' => [
+            'grant_type'    => 'client_credentials',
+            'client_id'     => MULE_CLIENT_ID,
+            'client_secret' => MULE_CLIENT_SECRET,
+            'scope'         => MULE_SCOPE
+        ],
+        'sslverify' => false // À mettre à true si le certificat est valide sur le serveur WP
+    ]);
+
+    if (is_wp_error($response)) {
+        return false;
+    }
+
+    $body = json_decode(wp_remote_retrieve_body($response), true);
+    
+    if (isset($body['access_token'])) {
+        // On sauvegarde le token pour 50 minutes (3000 secondes) pour éviter de spammer Microsoft
+        set_transient('mulesoft_access_token', $body['access_token'], 3000);
+        return $body['access_token'];
+    }
+
+    return false;
+}
+
+/**
+ * Fonction pour récupérer les documents selon la langue
+ */
+function get_documents_by_current_language($docType = 'PDM - Policies') {
+    $token = get_mulesoft_token();
+    if (!$token) return "Erreur d'authentification.";
+
+    // Détection de la langue actuelle de WordPress
+    $locale = get_locale(); // Ex: 'fr_FR'
+    
+    // Mapping Langue -> Code Pays API 
+    switch (substr($locale, 0, 2)) {
+        case 'fr': $countryCode = 'FRA'; break;
+        case 'es': $countryCode = 'ESP'; break;
+        case 'de': $countryCode = 'DEU'; break;
+        case 'pt': $countryCode = 'POR'; break;
+        case 'it': $countryCode = 'ITA'; break;
+        case 'nl': $countryCode = 'NLD'; break;
+        default:   $countryCode = 'GBR'; // Fallback anglais (United Kingdom)
+    }
+
+    // Construction de la requête 
+    $payload = [
+        "DocumentType" => $docType,
+        "Filters" => [
+            [
+                "Operator" => "=",
+                "Relation" => "AND",
+                "Key"      => "NG - Is Public",
+                "Value"    => "YES"
+            ],
+            [
+                "Operator" => "=",
+                "Relation" => "AND",
+                "Key"      => "NG - Country Code",
+                "Value"    => $countryCode
+            ]
+        ],
+        "Sorting" => [
+            "KeywordName" => "NG - Original File Name",
+            "OrderType"   => "NG"
+        ]
+    ];
+
+    $response = wp_remote_post(MULE_API_URL, [
+        'headers' => [
+            'Authorization' => 'Bearer ' . $token,
+            'Content-Type'  => 'application/json'
+        ],
+        'body'      => json_encode($payload),
+        'sslverify' => false, // Important pour l'URL interne si certificat auto-signé
+        'timeout'   => 15 // Laisser un peu de temps au serveur interne
+    ]);
+
+    if (is_wp_error($response)) {
+        return "Erreur de connexion API: " . $response->get_error_message();
+    }
+
+    $code = wp_remote_retrieve_response_code($response);
+    if ($code !== 200) {
+        return "Erreur API ($code)";
+    }
+
+    return json_decode(wp_remote_retrieve_body($response), true);
+}
+
+/**
+ * Création du Shortcode [liste_documents]
+ */
+function render_doc_list_shortcode($atts) {
+    // Attributs par défaut
+    $atts = shortcode_atts(['type' => 'PDM - Policies'], $atts);
+    
+    $data = get_documents_by_current_language($atts['type']);
+
+    if (is_string($data)) {
+        return '<div class="error">' . $data . '</div>';
+    }
+
+    if (empty($data) || !is_array($data)) {
+        return '<p>Aucun document trouvé pour cette langue.</p>';
+    }
+
+    // Affichage HTML simple
+    $output = '<ul class="onbase-doc-list">';
+    foreach ($data as $doc) {
+        // On récupère le nom et l'ID (adapter selon la structure réelle du JSON que tu as reçu tout à l'heure)
+        // Supposition basée sur les logs précédents: il y a surement un champ "Name" ou "FileName" et "OnBaseID"
+        $name = isset($doc['NG - Original File Name']) ? $doc['NG - Original File Name'] : 'Document sans nom';
+        $id = isset($doc['OnBaseID']) ? $doc['OnBaseID'] : '#';
+        
+        // Lien de téléchargement (On pointera vers une route qui gère le download, ou l'URL directe si disponible)
+        $output .= '<li>';
+        $output .= '<strong>' . esc_html($name) . '</strong> (ID: ' . esc_html($id) . ')';
+        $output .= '</li>';
+    }
+    $output .= '</ul>';
+
+    return $output;
+}
+add_shortcode('liste_documents', 'render_doc_list_shortcode');
+
