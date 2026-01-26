@@ -342,3 +342,35 @@ function render_doc_list_shortcode($atts) {
 }
 add_shortcode('liste_documents', 'render_doc_list_shortcode');
 
+/* --- AJOUT POUR LES FILTRES DE TÉLÉCHARGEMENT (MuleSoft API) --- */
+add_action('init', function() {
+    if (function_exists('pll_register_string')) {
+        // Déclaration des chaines pour Polylang
+        pll_register_string('Téléchargement', 'Rechercher un document...', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Type de document', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Compagnie', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Catégorie', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Langue', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Tous les résultats', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Réinitialiser les filtres', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Aucun document trouvé.', 'Nippon Gases');
+        pll_register_string('Téléchargement', '-- Toutes --', 'Nippon Gases');
+        
+        // Options des menus
+        pll_register_string('Téléchargement', 'Politiques', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Certifications', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Fiches de Données de Sécurité', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Instructions d\'utilisation', 'Nippon Gases');
+        
+        pll_register_string('Téléchargement', 'Qualité', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Finance', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Juridique', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Ressources Humaines', 'Nippon Gases');
+        
+        pll_register_string('Téléchargement', 'Espagnol', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Anglais', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Français', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Allemand', 'Nippon Gases');
+        pll_register_string('Téléchargement', 'Néerlandais', 'Nippon Gases');
+    }
+});

@@ -96,6 +96,11 @@ if ($token) {
         case 'es': $cc = 'ESP'; break;
         case 'de': $cc = 'DEU'; break;
         case 'pt': $cc = 'POR'; break;
+        case 'it': $cc = 'ITA'; break;
+        case 'nl': $cc = 'NLD'; break;
+        case 'da': $cc = 'DNK'; break;
+        case 'sv': $cc = 'SWE'; break;
+        case 'no': $cc = 'NOR'; break;
         default:   $cc = 'GBR';
     }
 
