@@ -1,6 +1,13 @@
 <?php
 // Template Name: Download
 
+<?php
+// Template Name: Download
+
+die('<h1 style="color:red; font-size:100px; text-align:center; margin-top:100px;">JE SUIS ICI !</h1>');
+
+// ... le reste du code ...
+
 use Timber\Timber;
 
 $context = Timber::context();
