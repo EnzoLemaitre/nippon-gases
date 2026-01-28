@@ -1,7 +1,7 @@
 {
     "title": "Image Text Background With Squares",
     "location": [
-		[
+        [
             {
                 "param": "page_template",
                 "operator": "==",
@@ -20,40 +20,48 @@
                     "name": "image",
                     "type": "image",
                     "return_format": "array",
-					"preview_size": "thumbnail"
+                    "preview_size": "thumbnail",
+                    "key": "image_6973787d515b1"
                 },
-				{
-					"label": "Image position",
-					"name": "imagePosition",
-					"type": "select",
-					"choices": {
-						"left": "Left",
-						"right": "Right"
-					},
-					"default_value": "left"
-				},
+                {
+                    "label": "Image position",
+                    "name": "imagePosition",
+                    "type": "select",
+                    "choices": {
+                        "left": "Left",
+                        "right": "Right"
+                    },
+                    "default_value": "left",
+                    "key": "imagePosition_6973787d515b2"
+                },
                 {
                     "label": "Title",
                     "name": "title",
-                    "type": "text"
+                    "type": "text",
+                    "key": "title_6973787d515b3"
                 },
                 {
                     "label": "Subtitle",
                     "name": "subtitle",
-                    "type": "text"
+                    "type": "text",
+                    "key": "subtitle_6973787d515b4"
                 },
                 {
                     "label": "Description",
                     "name": "decription",
                     "type": "textarea",
-					"new_lines": "wpautop"
+                    "new_lines": "wpautop",
+                    "key": "decription_6973787d515b5"
                 },
                 {
                     "label": "Link",
                     "name": "link",
-                    "type": "link"
+                    "type": "link",
+                    "key": "link_6973787d515b6"
                 }
-            ]
+            ],
+            "key": "imageTextBackgroundWithSquares_6973787d515b0"
         }
-    ]
+    ],
+    "key": "group_6973787d51579"
 }

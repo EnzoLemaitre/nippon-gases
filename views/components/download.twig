@@ -1,93 +1,778 @@
-{% set download = post.meta('download') %}
+<style>
 
-{% if download %}
-	<section class="download section">
-		{% if download.title %}
-			<h2 class="subtitle">{{ download.title }}</h2>
-		{% endif %}
+ @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
 
-		<div class="download__wrapper">
-			<div class="download__wrapper__left">
-				<div class="download__wrapper__left__item">
-					<h3>{{ __('Choose a document type', 'ng') }}</h3>
-					<div class="sub-choices">
-						<ul>
-							{% for key, choice in choices.carburant %}
-								<li @click="toggleFilter('carburant.{{ key }}')" :class="(checkActive('carburant.{{ key }}')) ? 'active' : ''">
-									<span class="check-li"></span>
-									<span class="name">{{ choice }}</span>
-								</li>
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
 
-				<div class="download__wrapper__left__item">
-					<h3>{{ __('Choose a company', 'ng') }}</h3>
-					<div class="sub-choices">
-						<ul>
-							{% for key, choice in choices.carburant %}
-								<li @click="toggleFilter('carburant.{{ key }}')" :class="(checkActive('carburant.{{ key }}')) ? 'active' : ''">
-									<span class="check-li"></span>
-									<span class="name">{{ choice }}</span>
-								</li>
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
 
-				<div class="download__wrapper__left__item">
-					<h3>{{ __('Choose a language', 'ng') }}</h3>
-					<div class="sub-choices">
-						<ul>
-							{% for key, choice in choices.carburant %}
-								<li @click="toggleFilter('carburant.{{ key }}')" :class="(checkActive('carburant.{{ key }}')) ? 'active' : ''">
-									<span class="check-li"></span>
-									<span class="name">{{ choice }}</span>
-								</li>
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
+ #download {
 
-				<div class="download__wrapper__left__item">
-					<h3>{{ __('Choose a category', 'ng') }}</h3>
-					<div class="sub-choices">
-						<ul>
-							{% for key, choice in choices.carburant %}
-								<li @click="toggleFilter('carburant.{{ key }}')" :class="(checkActive('carburant.{{ key }}')) ? 'active' : ''">
-									<span class="check-li"></span>
-									<span class="name">{{ choice }}</span>
-								</li>
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="download__wrapper__right">
-				<div class="search">
-					<input id="searchInput" type="text" v-model="searchQuery" placeholder="{{ __('Search a document, a solution category…', 'ng') }}" @keyup.enter="searchDownload"/>
-					<svg class="icon-search" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.0031 17.0938L22.9596 22.0501C23.2106 22.3012 23.2106 22.7084 22.9596 22.9596C22.7084 23.2106 22.3013 23.2106 22.0501 22.9596L17.0938 18.0031C15.2801 19.6043 12.8975 20.5758 10.2879 20.5758C4.60605 20.5758 0 15.9698 0 10.2879C0 4.60605 4.60605 0 10.2879 0C15.9698 0 20.5759 4.60605 20.5759 10.2879C20.5759 12.8974 19.6043 15.2801 18.0031 17.0938ZM10.2879 19.2898C15.2596 19.2898 19.2898 15.2595 19.2898 10.2879C19.2898 5.31628 15.2596 1.28597 10.2879 1.28597C5.31634 1.28597 1.28603 5.31628 1.28603 10.2879C1.28603 15.2595 5.31634 19.2898 10.2879 19.2898Z" fill="currentColor"/>
-					</svg>
-				</div>
-				<h3>{{ __('All results','ng') }}</h3>
-				<div class="download__wrapper__right__list">
-					{% for download in downloads %}
-						<div class="download__right__list__item" key="{{ download.id }}" data-id="{{ download.id }}">
-							<div class="date">
-								<p>{{ download.date }}</p>
-							</div>
-							<h4>{{ download.title }}</h4>
-							<svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 35.372 36.662">
-								<g transform="translate(-3.11 -3)">
-									<path d="M26.284,31.846c.006.006.014.008.021.014a.614.614,0,0,0,.188.125.62.62,0,0,0,.239.048.432.432,0,0,0,.313-.1.59.59,0,0,0,.125-.081l7.037-7.036a.626.626,0,1,0-.886-.886L27.358,29.9V3.626a.626.626,0,1,0-1.253,0V29.871l-5.731-5.857a.627.627,0,1,0-.9.877Z" transform="translate(-6.049)"/>
-									<path d="M3.736,54.775h34.12a.626.626,0,0,0,.626-.626V44.075a.626.626,0,1,0-1.253,0v9.447H4.363V44.075a.626.626,0,1,0-1.253,0V54.149a.626.626,0,0,0,.626.626Z" transform="translate(0 -15.113)"/>
-								</g>
-							</svg>
-						</div>
-					{% endfor %}
-				</div>
-			</div>
-		</div>
-	</section>
-{% endif %}
+  font-family: 'Barlow', sans-serif;
+
+  padding: 60px 0;
+
+  background: #fff;
+
+ }
+
+
+
+ .download__container {
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 0 40px;
+
+ }
+
+
+
+ .download__header {
+
+  margin-bottom: 40px;
+
+ }
+
+
+
+ .download__title {
+
+  font-size: 42px;
+
+  font-weight: 400;
+
+  margin-bottom: 0;
+
+  color: #1a1a1a;
+
+ }
+
+
+
+ .download__wrapper {
+
+  display: flex;
+
+  gap: 60px;
+
+ }
+
+
+
+ .download__sidebar {
+
+  flex: 0 0 320px;
+
+ }
+
+
+
+ .download__filter-box {
+
+  background: #f8f8f8;
+
+  padding: 30px;
+
+  border-radius: 8px;
+
+ }
+
+
+
+ .download__main {
+
+  flex: 1;
+
+ }
+
+
+
+ .download__filter-group {
+
+  margin-bottom: 40px;
+
+ }
+
+
+
+ .download__filter-group:last-of-type {
+
+  margin-bottom: 0;
+
+ }
+
+
+
+ .download__filter-title {
+
+  font-size: 18px;
+
+  font-weight: 500;
+
+  margin-bottom: 16px;
+
+  color: #1a1a1a;
+
+ }
+
+
+
+ .download__filter-separator {
+
+  height: 1px;
+
+  background: #e0e0e0;
+
+  margin: 30px 0;
+
+ }
+
+
+
+ .download__radio-group {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+ }
+
+
+
+ .download__radio-item {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  cursor: pointer;
+
+ }
+
+
+
+ .download__radio-item input[type="radio"] {
+
+  width: 18px;
+
+  height: 18px;
+
+  cursor: pointer;
+
+ }
+
+
+
+ .download__radio-item label {
+
+  font-size: 16px;
+
+  color: #333;
+
+  cursor: pointer;
+
+  margin: 0;
+
+ }
+
+
+
+ .download__search-button {
+
+  width: 100%;
+
+  padding: 14px 20px;
+
+  background: #000;
+
+  color: #fff;
+
+  border: none;
+
+  border-radius: 50px;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  transition: background 0.3s;
+
+ }
+
+
+
+ .download__search-button:hover {
+
+  background: #333;
+
+ }
+
+
+
+ .download__search-bar {
+
+  margin-bottom: 30px;
+
+  position: relative;
+
+ }
+
+
+
+ .download__search-bar input {
+
+  width: 100%;
+
+  padding: 16px 50px 16px 20px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 4px;
+
+  font-size: 16px;
+
+  font-family: 'Barlow', sans-serif;
+
+  background: #f8f8f8;
+
+ }
+
+
+
+ .download__search-bar input:focus {
+
+  outline: none;
+
+  border-color: #999;
+
+  background: #fff;
+
+ }
+
+
+
+ .download__search-icon {
+
+  position: absolute;
+
+  right: 20px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 20px;
+
+  height: 20px;
+
+ }
+
+
+
+ .download__results-header {
+
+  margin-bottom: 20px;
+
+ }
+
+
+
+ .download__results-title {
+
+  font-size: 24px;
+
+  font-weight: 500;
+
+  color: #1a1a1a;
+
+ }
+
+
+
+ .download__results-list {
+
+  list-style: none;
+
+  padding: 0;
+
+  margin: 0;
+
+ }
+
+
+
+ .download__result-item {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 20px 0;
+
+  border-bottom: 1px solid #e0e0e0;
+
+ }
+
+
+
+ .download__result-item:last-child {
+
+  border-bottom: none;
+
+ }
+
+
+
+ .download__result-date {
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  color: #1a1a1a;
+
+  min-width: 120px;
+
+ }
+
+
+
+ .download__result-title {
+
+  flex: 1;
+
+  font-size: 18px;
+
+  color: #333;
+
+  padding: 0 30px;
+
+ }
+
+
+
+ .download__result-download {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 40px;
+
+  height: 40px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  transition: all 0.3s;
+
+  text-decoration: none;
+
+ }
+
+
+
+ .download__result-download:hover {
+
+  background: #f0f0f0;
+
+  border-color: #999;
+
+ }
+
+
+
+ .download__no-results {
+
+  text-align: center;
+
+  padding: 60px 20px;
+
+  color: #666;
+
+  font-size: 18px;
+
+ }
+
+
+
+ @media (max-width: 968px) {
+
+  .download__wrapper {
+
+   flex-direction: column;
+
+   gap: 40px;
+
+  }
+
+
+
+  .download__sidebar {
+
+   flex: none;
+
+   width: 100%;
+
+  }
+
+
+
+  .download__result-item {
+
+   flex-direction: column;
+
+   align-items: flex-start;
+
+   gap: 15px;
+
+  }
+
+
+
+  .download__result-title {
+
+   padding: 0;
+
+  }
+
+
+
+  .download__result-download {
+
+   align-self: flex-end;
+
+  }
+
+ }
+
+</style>
+
+
+
+<div class="download__container">
+
+ <div class="download__header">
+
+  <h1 class="download__title">{{ page_title }}</h1>
+
+ </div>
+
+
+
+ <div class="download__wrapper">
+
+  <aside class="download__sidebar">
+
+   <div class="download__filter-box">
+
+    <form method="get" action="">
+
+     <!-- Document Type -->
+
+     <div class="download__filter-group">
+
+      <h3 class="download__filter-title">{{ i18n.choose_doc_type }} *</h3>
+
+      <div class="download__radio-group">
+
+       {% for slug, name in available_doc_types %}
+
+        <div class="download__radio-item">
+
+         <input type="radio" name="doc_type" id="type_{{ loop.index }}" value="{{ slug }}" {% if filters.doc_type == slug %}checked{% endif %} required>
+
+         <label for="type_{{ loop.index }}">{{ name }}</label>
+
+        </div>
+
+       {% endfor %}
+
+      </div>
+
+     </div>
+
+
+
+     <!-- Language Filter -->
+
+     {% if available_languages is not empty %}
+
+      <div class="download__filter-separator"></div>
+
+       
+
+      <div class="download__filter-group">
+
+       <h3 class="download__filter-title">{{ i18n.choose_language }}</h3>
+
+       <div class="download__radio-group">
+
+        <div class="download__radio-item">
+
+         <input type="radio" name="language" id="lang_all" value="" {% if filters.language == '' %}checked{% endif %}>
+
+         <label for="lang_all">{{ i18n.all_languages }}</label>
+
+        </div>
+
+        {% for lang_code, lang_name in available_languages %}
+
+         <div class="download__radio-item">
+
+          <input type="radio" name="language" id="lang_{{ loop.index }}" value="{{ lang_code }}" {% if filters.language == lang_code %}checked{% endif %}>
+
+          <label for="lang_{{ loop.index }}">{{ lang_name }}</label>
+
+         </div>
+
+        {% endfor %}
+
+       </div>
+
+      </div>
+
+     {% endif %}
+
+
+
+     <!-- Category Filter -->
+
+     {% if available_categories is not empty %}
+
+      <div class="download__filter-separator"></div>
+
+       
+
+      <div class="download__filter-group">
+
+       <h3 class="download__filter-title">{{ i18n.choose_category }}</h3>
+
+       <div class="download__radio-group">
+
+        <div class="download__radio-item">
+
+         <input type="radio" name="category" id="cat_all" value="" {% if filters.category == '' %}checked{% endif %}>
+
+         <label for="cat_all">{{ i18n.all_categories }}</label>
+
+        </div>
+
+        {% for cat_key, cat_name in available_categories %}
+
+         <div class="download__radio-item">
+
+          <input type="radio" name="category" id="cat_{{ loop.index }}" value="{{ cat_key }}" {% if filters.category == cat_key %}checked{% endif %}>
+
+          <label for="cat_{{ loop.index }}">{{ cat_name }}</label>
+
+         </div>
+
+        {% endfor %}
+
+       </div>
+
+      </div>
+
+     {% endif %}
+
+
+
+     <div class="download__filter-separator"></div>
+
+
+
+     <button type="submit" class="download__search-button">
+
+      <span>{{ i18n.search }}</span>
+
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+       <circle cx="11" cy="11" r="8"></circle>
+
+       <path d="m21 21-4.35-4.35"></path>
+
+      </svg>
+
+     </button>
+
+    </form>
+
+   </div>
+
+  </aside>
+
+
+
+  <main class="download__main">
+
+   <div class="download__search-bar">
+
+    <form method="get" action="">
+
+     <input type="hidden" name="doc_type" value="{{ filters.doc_type }}">
+
+     <input type="hidden" name="language" value="{{ filters.language }}">
+
+     <input type="hidden" name="category" value="{{ filters.category }}">
+
+     <input 
+
+      type="text" 
+
+      name="search" 
+
+      placeholder="{{ i18n.search_placeholder }}" 
+
+      value="{{ filters.search|default('') }}"
+
+     >
+
+     <svg class="download__search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2">
+
+      <circle cx="11" cy="11" r="8"></circle>
+
+      <path d="m21 21-4.35-4.35"></path>
+
+     </svg>
+
+    </form>
+
+   </div>
+
+
+
+   <div class="download__results-header">
+
+    <h2 class="download__results-title">
+
+     {{ i18n.all_results }}
+
+     {% if results_count > 0 %}
+
+      ({{ results_count }})
+
+     {% endif %}
+
+    </h2>
+
+   </div>
+
+
+
+   {% if filters.doc_type == '' %}
+
+    <div class="download__no-results">
+
+     {{ i18n.select_type_msg }}
+
+    </div>
+
+   {% elseif downloads is not empty %}
+
+    <ul class="download__results-list">
+
+     {% for doc in downloads %}
+
+      <li class="download__result-item">
+
+       <span class="download__result-date">
+
+        {% if doc.documentDate %}
+
+         {{ doc.documentDate|date('d.m.Y') }}
+
+        {% else %}
+
+         --
+
+        {% endif %}
+
+       </span>
+
+       <span class="download__result-title">
+
+        {{ doc.Name|default(doc.docName)|default('Document sans titre') }}
+
+       </span>
+
+       <a href="{{ doc.download_url|default('#') }}" class="download__result-download" download title="Download">
+
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2">
+
+         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+
+         <polyline points="7 10 12 15 17 10"></polyline>
+
+         <line x1="12" y1="15" x2="12" y2="3"></line>
+
+        </svg>
+
+       </a>
+
+      </li>
+
+     {% endfor %}
+
+    </ul>
+
+
+
+    {% if pagination.total > 1 %}
+
+     <div style="margin-top: 40px; text-align: center;">
+
+      {% for i in 1..pagination.total %}
+
+       <a href="?page={{ i }}{% if filters.doc_type %}&doc_type={{ filters.doc_type }}{% endif %}{% if filters.language %}&language={{ filters.language }}{% endif %}{% if filters.category %}&category={{ filters.category }}{% endif %}{% if filters.search %}&search={{ filters.search }}{% endif %}" 
+
+         style="display: inline-block; padding: 8px 12px; margin: 0 4px; border: 1px solid #ddd; text-decoration: none; color: #333; border-radius: 4px; {% if i == pagination.current %}background: #000; color: #fff; border-color: #000;{% endif %}">
+
+        {{ i }}
+
+       </a>
+
+      {% endfor %}
+
+     </div>
+
+    {% endif %}
+
+   {% else %}
+
+    <div class="download__no-results">
+
+     {{ i18n.no_results }}
+
+    </div>
+
+   {% endif %}
+
+  </main>
+
+ </div>
+
+</div>
+

@@ -1,72 +1,82 @@
 {
-	"title": "Image Text Download",
-	"location": [
-		[
-			{
-				"param": "page_template",
-				"operator": "==",
-				"value": "template-compliance.php"
-			}
-		]
-	],
-	"fields": [
-		{
-			"name": "imageTextDownload",
-			"type": "group",
-			"layout": "row",
-			"sub_fields": [
-				{
-					"label": "Image",
-					"name": "image",
-					"type": "image",
-					"return_format": "array",
-					"preview_size": "thumbnail"
-				},
-				{
-					"label": "Image position",
-					"name": "imagePosition",
-					"type": "select",
-					"choices": {
-						"left": "Left",
-						"right": "Right"
-					},
-					"default_value": "left"
-				},
-				{
-					"label": "Title",
-					"name": "title",
-					"type": "text"
-				},
-				{
-					"label": "Subtitle",
-					"name": "subtitle",
-					"type": "text"
-				},
-				{
-					"label": "Description",
-					"name": "decription",
-					"type": "textarea",
-					"new_lines": "wpautop"
-				},
-				{
-					"label": "Button download",
-					"name": "download",
-					"type": "group",
-					"layout": "row",
-					"sub_fields": [
-						{
-							"label": "Label of the button",
-							"name": "label",
-							"type": "text"
-						},
-						{
-							"label": "File",
-							"name": "file",
-							"type": "file"
-						}
-					]
-				}
-			]
-		}
-	]
+    "title": "Image Text Download",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-compliance.php"
+            }
+        ]
+    ],
+    "fields": [
+        {
+            "name": "imageTextDownload",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "key": "image_6973787d50c60"
+                },
+                {
+                    "label": "Image position",
+                    "name": "imagePosition",
+                    "type": "select",
+                    "choices": {
+                        "left": "Left",
+                        "right": "Right"
+                    },
+                    "default_value": "left",
+                    "key": "imagePosition_6973787d50c61"
+                },
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_6973787d50c62"
+                },
+                {
+                    "label": "Subtitle",
+                    "name": "subtitle",
+                    "type": "text",
+                    "key": "subtitle_6973787d50c63"
+                },
+                {
+                    "label": "Description",
+                    "name": "decription",
+                    "type": "textarea",
+                    "new_lines": "wpautop",
+                    "key": "decription_6973787d50c64"
+                },
+                {
+                    "label": "Button download",
+                    "name": "download",
+                    "type": "group",
+                    "layout": "row",
+                    "sub_fields": [
+                        {
+                            "label": "Label of the button",
+                            "name": "label",
+                            "type": "text",
+                            "key": "label_6973787d50c66"
+                        },
+                        {
+                            "label": "File",
+                            "name": "file",
+                            "type": "file",
+                            "key": "file_6973787d50c67"
+                        }
+                    ],
+                    "key": "download_6973787d50c65"
+                }
+            ],
+            "key": "imageTextDownload_6973787d50c5e"
+        }
+    ],
+    "key": "group_6973787d50bcb"
 }

@@ -5,9 +5,9 @@
 {% if gases.found_posts > 0 %}
 	<section class="last-gases container section">
 		<header class="last-gases__header">
-			<h2 class="last-gases__header__title subtitle">{{ __('Our gases', 'ng') }}</h2>
+			<h2 class="last-gases__header__title subtitle">{{ function('pll__', 'Our gases') }}</h2>
 			<div class="last-gases__header__link">
-				<a href="{{ gasesUrl }}">{{ __('See all', 'ng') }}</a>
+				<a href="{{ gasesUrl }}">{{ function('pll__', 'See all') }}</a>
 			</div>
 		</header>
 

@@ -1,42 +1,48 @@
 {
-	"title": "Distributor Search",
-	"fields": [
-		{
-			"label": "Distributor Search",
-			"name": "search",
-			"type": "group",
-			"layout": "row",
-			"sub_fields": [
-				{
-					"label": "Title",
-					"name": "title",
-					"type": "text"
-				},
-				{
-					"label": "Filter title by categories",
-					"name": "filter_cat",
-					"type": "text"
-				},
-				{
-					"label": "Input label: search by company name",
-					"name": "input_company",
-					"type": "text"
-				},
-				{
-					"label": "Input label: search by city",
-					"name": "input_city",
-					"type": "text"
-				}
-			]
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "page_template",
-				"operator": "==",
-				"value": "template-distributor.php"
-			}
-		]
-	]
+    "title": "Distributor Search",
+    "fields": [
+        {
+            "label": "Distributor Search",
+            "name": "search",
+            "type": "group",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "key": "title_69737718b2844"
+                },
+                {
+                    "label": "Filter title by categories",
+                    "name": "filter_cat",
+                    "type": "text",
+                    "key": "filter_cat_69737718b2845"
+                },
+                {
+                    "label": "Input label: search by company name",
+                    "name": "input_company",
+                    "type": "text",
+                    "key": "input_company_69737718b2846"
+                },
+                {
+                    "label": "Input label: search by city",
+                    "name": "input_city",
+                    "type": "text",
+                    "key": "input_city_69737718b2847"
+                }
+            ],
+            "key": "search_69737718b2842"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-distributor.php"
+            }
+        ]
+    ],
+    "key": "group_69737718b27bd"
 }

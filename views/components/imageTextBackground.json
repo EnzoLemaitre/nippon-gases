@@ -1,7 +1,7 @@
 {
     "title": "Image Text Background",
     "location": [
-		[
+        [
             {
                 "param": "page_template",
                 "operator": "==",
@@ -20,40 +20,48 @@
                     "name": "image",
                     "type": "image",
                     "return_format": "array",
-					"preview_size": "thumbnail"
+                    "preview_size": "thumbnail",
+                    "key": "image_6973787d51898"
                 },
-				{
-					"label": "Image position",
-					"name": "imagePosition",
-					"type": "select",
-					"choices": {
-						"left": "Left",
-						"right": "Right"
-					},
-					"default_value": "left"
-				},
+                {
+                    "label": "Image position",
+                    "name": "imagePosition",
+                    "type": "select",
+                    "choices": {
+                        "left": "Left",
+                        "right": "Right"
+                    },
+                    "default_value": "left",
+                    "key": "imagePosition_6973787d51899"
+                },
                 {
                     "label": "Title",
                     "name": "title",
-                    "type": "text"
+                    "type": "text",
+                    "key": "title_6973787d5189a"
                 },
                 {
                     "label": "Subtitle",
                     "name": "subtitle",
-                    "type": "text"
+                    "type": "text",
+                    "key": "subtitle_6973787d5189b"
                 },
                 {
                     "label": "Description",
                     "name": "decription",
                     "type": "textarea",
-					"new_lines": "wpautop"
+                    "new_lines": "wpautop",
+                    "key": "decription_6973787d5189c"
                 },
                 {
                     "label": "Link",
                     "name": "link",
-                    "type": "link"
+                    "type": "link",
+                    "key": "link_6973787d5189d"
                 }
-            ]
+            ],
+            "key": "imageTextBackground_6973787d51897"
         }
-    ]
+    ],
+    "key": "group_6973787d51876"
 }

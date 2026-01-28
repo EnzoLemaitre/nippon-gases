@@ -2,9 +2,9 @@
 {% if posts.found_posts > 0 %}
 	<section class="last-news container section">
 		<header class="last-news__header">
-			<h2 class="last-news__header__title subtitle">{{ __('Latest Company News', 'ng') }}</h2>
+			<h2 class="last-news__header__title subtitle">{{ function('pll__', 'Latest Company News') }}</h2>
 			<div class="last-news__header__link">
-				<a href="{{ fn('get_post_type_archive_link', 'post') }}">{{ __('See all', 'ng') }}</a>
+				<a href="{{ fn('get_post_type_archive_link', 'post') }}">{{ function('pll__', 'See all') }}</a>
 			</div>
 		</header>
 

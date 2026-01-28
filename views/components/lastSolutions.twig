@@ -13,9 +13,9 @@
 {% if solutions > 0 %}
 	<section class="last-solutions container section">
 		<header class="last-solutions__header">
-			<h2 class="last-solutions__header__title subtitle">{{ __('Our solutions', 'ng') }}</h2>
+			<h2 class="last-solutions__header__title subtitle">{{ function('pll__', 'Our solutions') }}</h2>
 			<div class="last-solutions__header__link">
-				<a href="{{ solutionsUrl }}">{{ __('See all', 'ng') }}</a>
+				<a href="{{ solutionsUrl }}">{{ function('pll__', 'See all') }}</a>
 			</div>
 		</header>
 

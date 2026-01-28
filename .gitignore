@@ -1,0 +1,7 @@
+.env
+ node_modules/
+ vendor/
+ acf_cache.json
+ *.save
+ *.log
+ wp-content/uploads/ 
