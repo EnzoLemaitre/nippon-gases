@@ -14,7 +14,16 @@ $json_file = get_template_directory() . '/data/gas-finder-data.json';
 $gas_data = [];
 
 if (file_exists($json_file)) {
-    $gas_data = json_decode(file_get_contents($json_file), true);
+    $raw_data = json_decode(file_get_contents($json_file), true);
+    
+    // Normaliser les noms de techniques pour éviter les doublons
+    foreach ($raw_data as $entry) {
+        // Normaliser "TIG" en "TIG (GTAW)"
+        if ($entry['technique'] === 'TIG') {
+            $entry['technique'] = 'TIG (GTAW)';
+        }
+        $gas_data[] = $entry;
+    }
 }
 
 // Extraire les options uniques pour chaque étape
