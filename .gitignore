@@ -4,3 +4,4 @@ vendor/
 package-lock.json
 composer.lock
 acf_cache.json
+.DS_Store

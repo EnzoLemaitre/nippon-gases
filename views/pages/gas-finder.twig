@@ -1,0 +1,364 @@
+{% extends "layout/base.twig" %}
+
+{% block body %}
+<style>
+.gas-finder {
+  font-family: 'Barlow', sans-serif;
+  display: flex;
+  min-height: 80vh;
+  gap: 0;
+  background: #fff;
+}
+
+.gas-finder__sidebar {
+  width: 300px;
+  background: #f5f5f5;
+  padding: 40px 30px;
+  flex-shrink: 0;
+}
+
+.gas-finder__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.gas-finder__back:hover {
+  color: #000;
+}
+
+.gas-finder__back-arrow {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gas-finder__steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gas-finder__step {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.gas-finder__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 50px;
+  width: 2px;
+  height: calc(100% + 10px);
+  background: #ddd;
+}
+
+.gas-finder__step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #999;
+  background: #fff;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.gas-finder__step--active .gas-finder__step-number {
+  border-color: #000;
+  color: #000;
+  background: #000;
+  color: #fff;
+}
+
+.gas-finder__step--completed .gas-finder__step-number {
+  border-color: #000;
+  background: #000;
+  color: #fff;
+}
+
+.gas-finder__step-label {
+  font-size: 18px;
+  color: #999;
+  font-weight: 500;
+}
+
+.gas-finder__step--active .gas-finder__step-label {
+  color: #000;
+}
+
+.gas-finder__content {
+  flex: 1;
+  padding: 60px 80px;
+}
+
+.gas-finder__title {
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 60px;
+  color: #000;
+}
+
+.gas-finder__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.gas-finder__card {
+  border: 1px solid #e0e0e0;
+  padding: 60px 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #fff;
+}
+
+.gas-finder__card:hover {
+  border-color: #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.gas-finder__card-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+}
+
+.gas-finder__results {
+  display: none;
+}
+
+.gas-finder__results--active {
+  display: block;
+}
+
+.gas-finder__result-item {
+  border: 1px solid #e0e0e0;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.gas-finder__result-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.gas-finder__result-desc {
+  font-size: 16px;
+  color: #666;
+}
+
+@media (max-width: 1024px) {
+  .gas-finder {
+    flex-direction: column;
+  }
+  
+  .gas-finder__sidebar {
+    width: 100%;
+  }
+  
+  .gas-finder__content {
+    padding: 40px 20px;
+  }
+}
+</style>
+
+<div class="gas-finder" id="gasFinder">
+  <div class="gas-finder__sidebar">
+    <a href="#" class="gas-finder__back" id="backButton" style="display: none;">
+      <span class="gas-finder__back-arrow">←</span>
+      {{ i18n.back_to_technique }}
+    </a>
+
+    <ul class="gas-finder__steps">
+      <li class="gas-finder__step gas-finder__step--active" data-step="1">
+        <span class="gas-finder__step-number">1</span>
+        <span class="gas-finder__step-label">{{ i18n.technique }}</span>
+      </li>
+      <li class="gas-finder__step" data-step="2">
+        <span class="gas-finder__step-number">2</span>
+        <span class="gas-finder__step-label">{{ i18n.material }}</span>
+      </li>
+      <li class="gas-finder__step" data-step="3">
+        <span class="gas-finder__step-number">3</span>
+        <span class="gas-finder__step-label">{{ i18n.thickness }}</span>
+      </li>
+      <li class="gas-finder__step" data-step="4">
+        <span class="gas-finder__step-number">4</span>
+        <span class="gas-finder__step-label">{{ i18n.your_gas }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="gas-finder__content">
+    <h1 class="gas-finder__title">{{ title }}</h1>
+
+    <!-- Étape 1: Technique -->
+    <div id="step1" class="gas-finder__step-content">
+      <div class="gas-finder__grid">
+        {% for technique in techniques %}
+          <div class="gas-finder__card" data-technique="{{ technique.name }}">
+            <h3 class="gas-finder__card-title">{{ technique.display|trim }}</h3>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Étape 2: Material -->
+    <div id="step2" class="gas-finder__step-content" style="display: none;">
+      <div class="gas-finder__grid" id="materialGrid"></div>
+    </div>
+
+    <!-- Étape 3: Thickness -->
+    <div id="step3" class="gas-finder__step-content" style="display: none;">
+      <div class="gas-finder__grid" id="thicknessGrid"></div>
+    </div>
+
+    <!-- Étape 4: Results -->
+    <div id="step4" class="gas-finder__step-content gas-finder__results" style="display: none;">
+      <h2 class="gas-finder__subtitle">{{ i18n.recommended_gases }}</h2>
+      <div id="resultsContainer"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const gasData = {{ gas_data|raw }};
+let selectedTechnique = null;
+let selectedMaterial = null;
+let selectedThickness = null;
+
+// Navigation entre étapes
+function goToStep(stepNumber) {
+  document.querySelectorAll('.gas-finder__step-content').forEach(el => el.style.display = 'none');
+  document.getElementById(`step${stepNumber}`).style.display = 'block';
+  
+  document.querySelectorAll('.gas-finder__step').forEach(step => {
+    const num = parseInt(step.dataset.step);
+    step.classList.remove('gas-finder__step--active');
+    if (num < stepNumber) {
+      step.classList.add('gas-finder__step--completed');
+    } else if (num === stepNumber) {
+      step.classList.add('gas-finder__step--active');
+    } else {
+      step.classList.remove('gas-finder__step--completed');
+    }
+  });
+  
+  document.getElementById('backButton').style.display = stepNumber > 1 ? 'inline-flex' : 'none';
+}
+
+// Étape 1: Sélection technique
+document.querySelectorAll('[data-technique]').forEach(card => {
+  card.addEventListener('click', function() {
+    selectedTechnique = this.dataset.technique;
+    loadMaterials();
+    goToStep(2);
+  });
+});
+
+// Charger les matériaux selon la technique
+function loadMaterials() {
+  const materials = [...new Set(
+    gasData
+      .filter(entry => entry.technique === selectedTechnique)
+      .map(entry => entry.material)
+  )];
+  
+  const grid = document.getElementById('materialGrid');
+  grid.innerHTML = materials.map(material => `
+    <div class="gas-finder__card" data-material="${material}">
+      <h3 class="gas-finder__card-title">${material}</h3>
+    </div>
+  `).join('');
+  
+  grid.querySelectorAll('[data-material]').forEach(card => {
+    card.addEventListener('click', function() {
+      selectedMaterial = this.dataset.material;
+      loadThicknesses();
+      goToStep(3);
+    });
+  });
+}
+
+// Charger les épaisseurs selon technique + matériau
+function loadThicknesses() {
+  const thicknesses = [...new Set(
+    gasData
+      .filter(entry => entry.technique === selectedTechnique && entry.material === selectedMaterial)
+      .map(entry => entry.thickness)
+  )];
+  
+  const grid = document.getElementById('thicknessGrid');
+  grid.innerHTML = thicknesses.map(thickness => `
+    <div class="gas-finder__card" data-thickness="${thickness}">
+      <h3 class="gas-finder__card-title">${thickness}</h3>
+    </div>
+  `).join('');
+  
+  grid.querySelectorAll('[data-thickness]').forEach(card => {
+    card.addEventListener('click', function() {
+      selectedThickness = this.dataset.thickness;
+      showResults();
+      goToStep(4);
+    });
+  });
+}
+
+// Afficher les résultats
+function showResults() {
+  const results = gasData.filter(entry => 
+    entry.technique === selectedTechnique && 
+    entry.material === selectedMaterial && 
+    entry.thickness === selectedThickness
+  );
+  
+  const container = document.getElementById('resultsContainer');
+  
+  if (results.length === 0) {
+    container.innerHTML = '<p>{{ i18n.no_results }}</p>';
+    return;
+  }
+  
+  container.innerHTML = results[0].solutions.map(solution => `
+    <div class="gas-finder__result-item">
+      <div class="gas-finder__result-name">${solution.name}</div>
+      ${solution.description ? `<div class="gas-finder__result-desc">${solution.description}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+// Bouton retour
+document.getElementById('backButton').addEventListener('click', function(e) {
+  e.preventDefault();
+  const currentStep = document.querySelector('.gas-finder__step--active');
+  const stepNum = parseInt(currentStep.dataset.step);
+  if (stepNum > 1) {
+    goToStep(stepNum - 1);
+  }
+});
+</script>
+
+{% endblock %}

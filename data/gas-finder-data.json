@@ -1,0 +1,1579 @@
+[
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Non and Low alloyed Steel",
+    "thickness": "1-6 mm",
+    "solutions": [
+      {
+        "name": "Sanarc Flash 1",
+        "description": "Fluidez, mayor velocidad, menor limpieza"
+      },
+      {
+        "name": "Sanarc Easy 2",
+        "description": ""
+      },
+      {
+        "name": "Sanarc 8",
+        "description": ""
+      },
+      {
+        "name": "Sanarc 18",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Non and Low alloyed Steel",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc 8",
+        "description": "Menos proyecciones, mayor fluidez"
+      },
+      {
+        "name": "Sanarc 18",
+        "description": ""
+      },
+      {
+        "name": "Sanarc Easy 2",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "TIG (GTAW)",
+    "material": "Non and Low alloyed Steel",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc AS",
+        "description": "Estabilidad de arco, buen encendido"
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Plasma welding",
+    "material": "Non and Low alloyed Steel",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Saanrc AS",
+        "description": "Estabilidad de arco, buen encendido"
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Laser welding",
+    "material": "Non and Low alloyed Steel",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc AQ",
+        "description": "Buena protección"
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Backing",
+    "material": "Non and Low alloyed Steel",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc AS",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "TIG (GTAW)",
+    "material": "Stainless steel (Austenitic)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "sanarc Easy 4",
+        "description": "Cordones brillantes buena penetración"
+      },
+      {
+        "name": "Sanarc Easy 5",
+        "description": ""
+      },
+      {
+        "name": "Sanarc AS",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Stainless steel (Austenitic)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc Perfect 2",
+        "description": "Fluidez, mayor velocidad y brillo"
+      },
+      {
+        "name": "Sanarc Perfect 3",
+        "description": ""
+      },
+      {
+        "name": "Sanarc 2",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Stainless steel (Austenitic)",
+    "thickness": ">8 mm",
+    "solutions": [
+      {
+        "name": "Sanarc Perfect 3",
+        "description": "Cordones brillantes, alta fluidez y velocidad"
+      },
+      {
+        "name": "Sanarc HC35",
+        "description": ""
+      },
+      {
+        "name": "Sanarc  Perfect 2",
+        "description": ""
+      },
+      {
+        "name": "Sanarc 2",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Plasma welding",
+    "material": "Stainless steel (Austenitic)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "sanarc Easy 4",
+        "description": "Cordones brillantes buena penetración"
+      },
+      {
+        "name": "Sanarc Easy 5",
+        "description": ""
+      },
+      {
+        "name": "Sanarc AS",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Laser welding",
+    "material": "Stainless steel (Austenitic)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc AQ",
+        "description": "Buena protección"
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      },
+      {
+        "name": "Sanarc Easy 5",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Backing",
+    "material": "Stainless steel (Austenitic)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc Easy 5",
+        "description": "Raiz brillante"
+      },
+      {
+        "name": "Sanarc F10",
+        "description": ""
+      },
+      {
+        "name": "Sanarc Easy 4",
+        "description": ""
+      },
+      {
+        "name": "Sanarc AS",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "TIG (GTAW)",
+    "material": "Stainless steel (Feritic and martensitic)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc AS",
+        "description": "Buena protección y protección"
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Stainless steel (Feritic and martensitic)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc Perfect 3",
+        "description": "Mayor fluidez y velocidad"
+      },
+      {
+        "name": "Sanarc HC35",
+        "description": ""
+      },
+      {
+        "name": "Sanarc HC15",
+        "description": ""
+      },
+      {
+        "name": "Sanarc 2",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Stainless steel (Feritic and martensitic)",
+    "thickness": ">8 mm",
+    "solutions": [
+      {
+        "name": "Sanarc HC35",
+        "description": "Mayor fluidez y penetración"
+      },
+      {
+        "name": "Sanarc Perfect 3",
+        "description": ""
+      },
+      {
+        "name": "Sanarc HC15",
+        "description": ""
+      },
+      {
+        "name": "Sanarc 2",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Plasma welding",
+    "material": "Stainless steel (Feritic and martensitic)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc H30",
+        "description": "Mayor velocidad de soldadura"
+      },
+      {
+        "name": "Sanarc AS",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Laser welding",
+    "material": "Stainless steel (Feritic and martensitic)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc H30",
+        "description": "Reduce el plama generado, mayor eficiencia del haz"
+      },
+      {
+        "name": "Sanarc AQ",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      },
+      {
+        "name": "Sanarc HQ",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Backing",
+    "material": "Stainless steel (Feritic and martensitic)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Saanrc AS",
+        "description": "Buena protección"
+      }
+    ]
+  },
+  {
+    "technique": "TIG (GTAW)",
+    "material": "Stainless steel (Duplex and Superduplex)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc T2",
+        "description": "Fluidez, control del balance austenita ferrita"
+      },
+      {
+        "name": "Sanarc HN",
+        "description": ""
+      },
+      {
+        "name": "Sanarc AS",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Stainless steel (Duplex and Superduplex)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc Perfect 2",
+        "description": "Fluidez, control del balance austenita ferrita"
+      },
+      {
+        "name": "Sanarc Perfect 3",
+        "description": ""
+      },
+      {
+        "name": "Sanarc 2",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Stainless steel (Duplex and Superduplex)",
+    "thickness": ">8 mm",
+    "solutions": [
+      {
+        "name": "Sanarc Perfect 3",
+        "description": "Mayor fluidez, estabilidad y velocidad"
+      },
+      {
+        "name": "Sanarc HC35",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Plasma welding",
+    "material": "Stainless steel (Duplex and Superduplex)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc H30",
+        "description": "Mayor velocidad de soldadura"
+      },
+      {
+        "name": "Sanarc AS",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Laser welding",
+    "material": "Stainless steel (Duplex and Superduplex)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc AQ",
+        "description": "Estabilidad del arco, buena protección"
+      },
+      {
+        "name": "Sanarc NQ",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      },
+      {
+        "name": "Sanarc HQ",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Backing",
+    "material": "Stainless steel (Duplex and Superduplex)",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc NS",
+        "description": "Buen acabado, económico"
+      },
+      {
+        "name": "Sanarc AS",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "TIG (GTAW)",
+    "material": "Aluminium - Aluminium alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc Perfect 1",
+        "description": "Fluidez, buena penetración, menor quemado lateral"
+      },
+      {
+        "name": "Sanarc AQ",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Aluminium - Aluminium alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc H30",
+        "description": "Fluidez, velocidad, menor quemado lateral"
+      },
+      {
+        "name": "Sanarc AQ",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Plasma welding",
+    "material": "Aluminium - Aluminium alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc H30",
+        "description": "Buena penetración, menor quemado lateral"
+      },
+      {
+        "name": "Sanarc AQ",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Laser welding",
+    "material": "Aluminium - Aluminium alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc H30",
+        "description": "Reduce el plasma generado, mayor eficiencia del haz"
+      },
+      {
+        "name": "Sanarc AQ",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      },
+      {
+        "name": "Sanarc HQ",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Backing",
+    "material": "Aluminium - Aluminium alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc AQ",
+        "description": "Buena protección"
+      }
+    ]
+  },
+  {
+    "technique": "TIG (GTAW)",
+    "material": "Copper - Copper alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc H30",
+        "description": "Buena penetración"
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      },
+      {
+        "name": "Sanarc AQ",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H70",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Copper - Copper alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc H30",
+        "description": "Buena penetración"
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      },
+      {
+        "name": "Sanarc AQ",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H70",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Plasma welding",
+    "material": "Copper - Copper alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc H30",
+        "description": "Buena penetración"
+      },
+      {
+        "name": "Sanarc AQ",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      },
+      {
+        "name": "Saanrc H70",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Laser welding",
+    "material": "Copper - Copper alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc H30",
+        "description": "Buena penetración, control del plasma generado"
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      },
+      {
+        "name": "Saanrc HQ",
+        "description": ""
+      },
+      {
+        "name": "Sanarc NQ",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Backing",
+    "material": "Copper - Copper alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc AS",
+        "description": "Buena protección"
+      },
+      {
+        "name": "Sanarc NS",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "TIG (GTAW)",
+    "material": "Nickel - Nickel alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "sanarc Easy 4",
+        "description": "Cordones brillantes buena penetración"
+      },
+      {
+        "name": "Sanarc Easy 5",
+        "description": ""
+      },
+      {
+        "name": "Sanarc AS",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Nickel - Nickel alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc Perfect 3",
+        "description": "Eliminación fisuración, alta fluidez y velocidad"
+      },
+      {
+        "name": "Sanarc HC35",
+        "description": ""
+      },
+      {
+        "name": "Sanarc 2",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Plasma welding",
+    "material": "Nickel - Nickel alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "sanarc Easy 4",
+        "description": "Cordones brillantes buena penetración"
+      },
+      {
+        "name": "Sanarc Easy 5",
+        "description": ""
+      },
+      {
+        "name": "Sanarc AS",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Laser welding",
+    "material": "Nickel - Nickel alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc H30",
+        "description": "Buena penetración, control del plasma generado"
+      },
+      {
+        "name": "Sanarc Easy 4",
+        "description": ""
+      },
+      {
+        "name": "Sanarc Easy 5",
+        "description": ""
+      },
+      {
+        "name": "Sanarc AQ",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Backing",
+    "material": "Nickel - Nickel alloys",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc Easy 5",
+        "description": "Raíz brillante"
+      },
+      {
+        "name": "Sanarc F10",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "TIG (GTAW)",
+    "material": "Titanium / Magnesium / Tantalum",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc AQ",
+        "description": "Buena penetración, estabilidad"
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Titanium / Magnesium / Tantalum",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc AQ",
+        "description": "Buena penetración, estabilidad"
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Plasma welding",
+    "material": "Titanium / Magnesium / Tantalum",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc AQ",
+        "description": "Buena penetración, estabilidad"
+      },
+      {
+        "name": "Sanarc H30",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Laser welding",
+    "material": "Titanium / Magnesium / Tantalum",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc H30",
+        "description": "Buena penetración, control del plasma generado"
+      },
+      {
+        "name": "Sanarc AQ",
+        "description": ""
+      },
+      {
+        "name": "Sanarc H50",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "Backing",
+    "material": "Titanium / Magnesium / Tantalum",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc AQ",
+        "description": "Buena protección"
+      }
+    ]
+  },
+  {
+    "technique": "MIG /MAG (GMAW)",
+    "material": "Galvanized Steel",
+    "thickness": "General use",
+    "solutions": [
+      {
+        "name": "Sanarc Perfect 4",
+        "description": "Reducción de proyecciones, mayor estabilidad"
+      },
+      {
+        "name": "Sanarc 20",
+        "description": ""
+      },
+      {
+        "name": "Sanarc 18",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  },
+  {
+    "technique": "TIG",
+    "material": "Aluminium",
+    "thickness": "XXXX",
+    "solutions": []
+  }
+]
