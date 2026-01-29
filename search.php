@@ -14,7 +14,7 @@ $args = [
     'post_type' => ['post', 'news', 'solutions', 'gases'],
     'post_status' => 'publish',
     's' => $search_query,
-    'posts_per_page' => 20,
+    'posts_per_page' => 10,
     'paged' => get_query_var('paged') ? get_query_var('paged') : 1
 ];
 
