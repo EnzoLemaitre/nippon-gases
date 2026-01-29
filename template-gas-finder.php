@@ -84,7 +84,9 @@ $context['i18n'] = [
     'select' => 'Select',
     'recommended_gases' => 'Recommended gases',
     'description' => 'Description',
-    'no_results' => 'No gas found for this combination'
+    'no_results' => 'No gas found for this combination',
+    'contact_us' => 'Contact us',
+    'our_choice' => 'Our choice'
 ];
 
 Timber::render('pages/gas-finder.twig', $context);

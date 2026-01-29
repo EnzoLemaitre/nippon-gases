@@ -226,22 +226,76 @@
   display: block;
 }
 
+.gas-finder__contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 32px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  margin-bottom: 40px;
+}
+
+.gas-finder__contact-button:hover {
+  background: #333;
+}
+
+.gas-finder__contact-arrow {
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
 .gas-finder__result-item {
-  border: 1px solid #e0e0e0;
-  padding: 24px;
-  margin-bottom: 20px;
+  padding: 40px 0;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.gas-finder__result-item:last-child {
+  border-bottom: none;
+}
+
+.gas-finder__result-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #4a9bd6;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.gas-finder__result-badge::before {
+  content: '✓';
+  margin-right: 6px;
 }
 
 .gas-finder__result-name {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
   color: #000;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .gas-finder__result-desc {
-  font-size: 16px;
+  font-size: 18px;
   color: #666;
+  line-height: 1.6;
 }
 
 @media (max-width: 1024px) {
@@ -314,6 +368,11 @@
 
     <!-- Étape 4: Results -->
     <div id="step4" class="gas-finder__step-content gas-finder__results" style="display: none;">
+      <a href="#contact" class="gas-finder__contact-button">
+        Contact us
+        <span class="gas-finder__contact-arrow">→</span>
+      </a>
+      
       <h1 class="gas-finder__title" id="resultsTitle">The following gases are recommended for your needs.</h1>
       <div id="resultsContainer"></div>
       
@@ -447,8 +506,9 @@ function showResults() {
   const totalGases = results[0].solutions.length;
   titleElement.textContent = `The following gases are recommended for your needs. We found these ${totalGases} gases:`;
   
-  container.innerHTML = results[0].solutions.map(solution => `
+  container.innerHTML = results[0].solutions.map((solution, index) => `
     <div class="gas-finder__result-item">
+      ${index === 0 ? '<div class="gas-finder__result-badge">Our choice</div>' : ''}
       <div class="gas-finder__result-name">${solution.name}</div>
       ${solution.description ? `<div class="gas-finder__result-desc">${solution.description}</div>` : ''}
     </div>
