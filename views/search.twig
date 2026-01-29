@@ -153,30 +153,29 @@
     flex-shrink: 0;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 28px;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
     background: #fff;
     color: #000;
-    border: 2px solid #000;
-    border-radius: 50px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
     transition: all 0.3s;
-    white-space: nowrap;
   }
 
   .search-page__result-link:hover {
-    background: #000;
-    color: #fff;
+    background: #f0f0f0;
+    border-color: #999;
   }
 
   .search-page__result-arrow {
     transition: transform 0.3s;
+    font-size: 20px;
   }
 
   .search-page__result-link:hover .search-page__result-arrow {
-    transform: translateX(4px);
+    transform: translateX(2px);
   }
 
   .search-page__no-results {
@@ -267,8 +266,7 @@
                   {{ post.preview.length(100) }}
                 </p>
               </div>
-              <a href="{{ post.link }}" class="search-page__result-link">
-                {{ i18n.view_page }}
+              <a href="{{ post.link }}" class="search-page__result-link" aria-label="{{ i18n.view_page }}">
                 <span class="search-page__result-arrow">→</span>
               </a>
             </li>
