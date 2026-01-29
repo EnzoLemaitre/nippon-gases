@@ -1,6 +1,7 @@
 <?php // Template Name: Distributor
 
     $context = Timber::context();
+    $context['post'] = Timber::get_post();
 
     $args = [
     'post_type'      => 'distributors',
