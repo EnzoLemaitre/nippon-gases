@@ -307,3 +307,33 @@ add_filter('query_vars', function($vars) {
     $vars[] = 's';
     return $vars;
 });
+
+/**
+ * Get search page URL for current site (multisite-compatible)
+ * Works by finding the page with the search template
+ */
+function get_search_page_url() {
+    // Cherche une page avec le template search-landing
+    $search_page = get_pages([
+        'meta_key' => '_wp_page_template',
+        'meta_value' => 'template-search-landing.php',
+        'number' => 1,
+        'post_status' => 'publish'
+    ]);
+    
+    if (!empty($search_page)) {
+        return get_permalink($search_page[0]->ID);
+    }
+    
+    // Fallback : cherche par slug commun
+    $common_slugs = ['search', 'ricerca', 'recherche', 'buscar', 'zoeken', 'sog'];
+    foreach ($common_slugs as $slug) {
+        $page = get_page_by_path($slug);
+        if ($page) {
+            return get_permalink($page->ID);
+        }
+    }
+    
+    // Last fallback
+    return home_url('/search');
+}
