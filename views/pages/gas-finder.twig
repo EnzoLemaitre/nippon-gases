@@ -2,6 +2,21 @@
 
 {% block body %}
 <style>
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gas-finder__step-content {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
 .gas-finder {
   font-family: 'Barlow', sans-serif;
   display: flex;
