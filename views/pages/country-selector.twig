@@ -119,8 +119,9 @@
         }
 
         .selector__button {
-            display: inline-flex;
+            display: flex;
             align-items: center;
+            justify-content: center;
             gap: 12px;
             padding: 18px 48px;
             background: #fff;
@@ -133,17 +134,16 @@
             cursor: pointer;
             transition: all 0.3s;
             margin-top: 20px;
+            position: relative;
         }
 
         .selector__button:hover {
             background: #e0e0e0;
-            transform: translateX(4px);
         }
 
         .selector__button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
-            transform: none;
         }
 
         .selector__button-arrow {
@@ -155,6 +155,7 @@
             align-items: center;
             justify-content: center;
             font-size: 14px;
+            flex-shrink: 0;
         }
 
         @media (max-width: 768px) {
@@ -214,7 +215,7 @@
 
             <div class="selector__error" id="errorMessage"></div>
 
-            <button type="submit" class="selector__button" id="submitButton">
+            <button type="button" class="selector__button" id="submitButton">
                 {{ i18n.select_button }}
                 <span class="selector__button-arrow">→</span>
             </button>
@@ -290,8 +291,8 @@
             }
         });
 
-        // Gestion de la soumission
-        selectorForm.addEventListener('submit', function(e) {
+        // Gestion du clic sur le bouton
+        submitButton.addEventListener('click', function(e) {
             e.preventDefault();
             
             const country = countrySelect.value;
