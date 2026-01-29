@@ -124,12 +124,65 @@
 .gas-finder__content {
   flex: 1;
   padding: 60px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .gas-finder__title {
   font-size: 36px;
   font-weight: 400;
   margin-bottom: 60px;
+  color: #000;
+}
+
+.gas-finder__restart {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.gas-finder__restart-title {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.gas-finder__restart-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 32px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.gas-finder__restart-button:hover {
+  background: #000;
+  color: #fff;
+}
+
+.gas-finder__restart-arrow {
+  width: 24px;
+  height: 24px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.gas-finder__restart-button:hover .gas-finder__restart-arrow {
+  background: #fff;
   color: #000;
 }
 
@@ -228,10 +281,9 @@
   </div>
 
   <div class="gas-finder__content">
-    <h1 class="gas-finder__title">{{ title }}</h1>
-
     <!-- Étape 1: Technique -->
     <div id="step1" class="gas-finder__step-content">
+      <h1 class="gas-finder__title">Find the right gas for your specific needs</h1>
       <div class="gas-finder__grid">
         {% for technique in techniques %}
           <div class="gas-finder__card" data-technique="{{ technique.name }}">
@@ -243,18 +295,28 @@
 
     <!-- Étape 2: Material -->
     <div id="step2" class="gas-finder__step-content" style="display: none;">
+      <h1 class="gas-finder__title">Great! Now, we'd like to know what material you'll be using.</h1>
       <div class="gas-finder__grid" id="materialGrid"></div>
     </div>
 
     <!-- Étape 3: Thickness -->
     <div id="step3" class="gas-finder__step-content" style="display: none;">
+      <h1 class="gas-finder__title">We're almost done! What thickness will you use?</h1>
       <div class="gas-finder__grid" id="thicknessGrid"></div>
     </div>
 
     <!-- Étape 4: Results -->
     <div id="step4" class="gas-finder__step-content gas-finder__results" style="display: none;">
-      <h2 class="gas-finder__subtitle">{{ i18n.recommended_gases }}</h2>
+      <h1 class="gas-finder__title" id="resultsTitle">The following gases are recommended for your needs.</h1>
       <div id="resultsContainer"></div>
+      
+      <div class="gas-finder__restart">
+        <h2 class="gas-finder__restart-title">Want to find another solution?</h2>
+        <button class="gas-finder__restart-button" id="restartButton">
+          Start over
+          <span class="gas-finder__restart-arrow">→</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -351,11 +413,17 @@ function showResults() {
   );
   
   const container = document.getElementById('resultsContainer');
+  const titleElement = document.getElementById('resultsTitle');
   
   if (results.length === 0) {
     container.innerHTML = '<p>{{ i18n.no_results }}</p>';
+    titleElement.textContent = 'No gas found for this combination';
     return;
   }
+  
+  // Compter le nombre total de gaz
+  const totalGases = results[0].solutions.length;
+  titleElement.textContent = `The following gases are recommended for your needs. We found these ${totalGases} gases:`;
   
   container.innerHTML = results[0].solutions.map(solution => `
     <div class="gas-finder__result-item">
@@ -364,6 +432,14 @@ function showResults() {
     </div>
   `).join('');
 }
+
+// Bouton restart
+document.getElementById('restartButton').addEventListener('click', function() {
+  selectedTechnique = null;
+  selectedMaterial = null;
+  selectedThickness = null;
+  goToStep(1);
+});
 
 // Bouton retour
 document.getElementById('backButton').addEventListener('click', function(e) {
