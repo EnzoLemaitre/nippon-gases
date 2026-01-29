@@ -29,11 +29,12 @@ $countries = [
 $active_languages = [];
 if (function_exists('pll_languages_list')) {
     $langs = pll_languages_list(['fields' => 'slug']);
-foreach ($langs as $lang) {
-    $active_languages[$lang] = [
-        'code' => $lang,
-        'name' => strtoupper($lang)
-    ];
+    foreach ($langs as $lang) {
+        $active_languages[$lang] = [
+            'code' => $lang,
+            'name' => strtoupper($lang)
+        ];
+    }
 }
 
 // Filtrer les pays selon les langues disponibles
