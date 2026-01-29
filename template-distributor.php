@@ -73,11 +73,13 @@
 
 <?php
 
-$context['GOOGLE_MAPS_API'] = getenv('GOOGLE_MAPS_API');
-error_log("GOOGLE_MAPS_API value: " . ($context['GOOGLE_MAPS_API'] ?: 'VIDE'));
+$env_file = get_template_directory() . '/.env';
+if (file_exists($env_file)) {
+    $env_content = file_get_contents($env_file);
+    preg_match("/GOOGLE_MAPS_API='([^']+)'/", $env_content, $matches);
+    $context['GOOGLE_MAPS_API'] = $matches[1] ?? '';
+}
 
-$client_id = getenv('ONBASE_CLIENT_ID');
-$client_secret = getenv('ONBASE_CLIENT_SECRET');
-$scope = getenv('ONBASE_SCOPE');
+error_log("GOOGLE_MAPS_API value: " . ($context['GOOGLE_MAPS_API'] ?? 'VIDE'));
 
 Timber::render('pages/distributor.twig', $context);
