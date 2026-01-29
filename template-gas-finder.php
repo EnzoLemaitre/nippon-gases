@@ -11,7 +11,9 @@ $context['post'] = Timber::get_post();
 
 // Charger les données JSON
 $json_file = get_template_directory() . '/data/gas-finder-data.json';
+$attributes_file = get_template_directory() . '/data/gas-attributes.json';
 $gas_data = [];
+$gas_attributes = [];
 
 if (file_exists($json_file)) {
     $raw_data = json_decode(file_get_contents($json_file), true);
@@ -24,6 +26,10 @@ if (file_exists($json_file)) {
         }
         $gas_data[] = $entry;
     }
+}
+
+if (file_exists($attributes_file)) {
+    $gas_attributes = json_decode(file_get_contents($attributes_file), true);
 }
 
 // Extraire les options uniques pour chaque étape
@@ -69,6 +75,8 @@ foreach ($techniques as $tech) {
 
 $context['techniques'] = $techniques_formatted;
 $context['gas_data'] = json_encode($gas_data);
+$context['gas_attributes'] = json_encode($gas_attributes);
+$context['bottle_image'] = get_template_directory_uri() . '/assets/img/visuel_bonbonne.jpg';
 
 // Champs ACF
 $context['title'] = get_field('title') ?: 'Find the right gas for your specific needs';

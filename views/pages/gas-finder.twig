@@ -264,10 +264,23 @@
   padding: 40px 0;
   border-bottom: 1px solid #e0e0e0;
   position: relative;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
 }
 
 .gas-finder__result-item:last-child {
   border-bottom: none;
+}
+
+.gas-finder__result-image {
+  width: 120px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.gas-finder__result-content {
+  flex: 1;
 }
 
 .gas-finder__result-badge {
@@ -290,7 +303,22 @@
   font-size: 24px;
   font-weight: 600;
   color: #000;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.gas-finder__result-attributes {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.gas-finder__result-attribute {
+  padding: 8px 16px;
+  background: #f5f5f5;
+  color: #333;
+  font-size: 14px;
+  border-radius: 4px;
 }
 
 .gas-finder__result-desc {
@@ -390,6 +418,8 @@
 
 <script>
 const gasData = {{ gas_data|raw }};
+const gasAttributes = {{ gas_attributes|raw }};
+const bottleImage = '{{ bottle_image }}';
 let selectedTechnique = null;
 let selectedMaterial = null;
 let selectedThickness = null;
@@ -507,13 +537,39 @@ function showResults() {
   const totalGases = results[0].solutions.length;
   titleElement.textContent = `The following gases are recommended for your needs. We found these ${totalGases} gases:`;
   
-  container.innerHTML = results[0].solutions.map((solution, index) => `
-    <div class="gas-finder__result-item">
-      ${index === 0 ? '<div class="gas-finder__result-badge">Our choice</div>' : ''}
-      <div class="gas-finder__result-name">${solution.name}</div>
-      ${solution.description ? `<div class="gas-finder__result-desc">${solution.description}</div>` : ''}
-    </div>
-  `).join('');
+  container.innerHTML = results[0].solutions.map((solution, index) => {
+    // Nettoyer le nom pour matcher avec les attributs (enlever espaces, casse, etc.)
+    const cleanName = solution.name.replace(/®/g, '').trim();
+    const attributes = gasAttributes[cleanName] || {};
+    
+    // Construire les pastilles d'attributs
+    let attributesHTML = '';
+    if (attributes.attribute1 || attributes.attribute2) {
+      attributesHTML = '<div class="gas-finder__result-attributes">';
+      if (attributes.attribute1) {
+        attributesHTML += `<span class="gas-finder__result-attribute">${attributes.attribute1}</span>`;
+      }
+      if (attributes.attribute2) {
+        attributesHTML += `<span class="gas-finder__result-attribute">${attributes.attribute2}</span>`;
+      }
+      attributesHTML += '</div>';
+    }
+    
+    // Description : nouvelle description si disponible, sinon l'ancienne
+    const description = attributes.description || solution.description;
+    
+    return `
+      <div class="gas-finder__result-item">
+        <img src="${bottleImage}" alt="Gas bottle" class="gas-finder__result-image">
+        <div class="gas-finder__result-content">
+          ${index === 0 ? '<div class="gas-finder__result-badge">Our choice</div>' : ''}
+          <div class="gas-finder__result-name">${solution.name}</div>
+          ${attributesHTML}
+          ${description ? `<div class="gas-finder__result-desc">${description}</div>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
 }
 
 // Bouton restart

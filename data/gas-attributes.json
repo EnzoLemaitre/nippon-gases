@@ -1,0 +1,117 @@
+{
+  "Sanarc AS/AQ": {
+    "attribute1": "Standard",
+    "attribute2": "",
+    "description": "Gas inerte para soldadura TIP de todos los materiales y MIG de aluminio (Sanarc AQ)"
+  },
+  "Sanarc Perfect 1": {
+    "attribute1": "Menor oxidación",
+    "attribute2": "Estabilidad de arco",
+    "description": "Gas de protección para soldadura TIG y MIG estándar de aluminio"
+  },
+  "Sanarc H30": {
+    "attribute1": "Baño más fluido",
+    "attribute2": "Mejor degasificación del baño",
+    "description": "Gas de protección para soldadura TIG Y MIG en espesores gruesos"
+  },
+  "Sanarc H50": {
+    "attribute1": "Baño aun más fluido",
+    "attribute2": "Aun mejor degasificación del baño",
+    "description": "Gas de protección para soldadura TIG Y MIG en espesores más gruesos"
+  },
+  "Sanarc Easy 4": {
+    "attribute1": "Mayor velocidad",
+    "attribute2": "Cordones más brillantes",
+    "description": "Gas de protección para la soldadura TIG de aceros inoxidables austeníticos."
+  },
+  "Sanarc Easy 5": {
+    "attribute1": "Mayor velocidad (extra)",
+    "attribute2": "Cordones aun más brillantes",
+    "description": "Gas de protección para la soldadura TIG de aceros inoxidables austeníticos."
+  },
+  "Sanarc T2": {
+    "attribute1": "Mantiene el equilibrio austenita ferrita",
+    "attribute2": "Incrementa la resistencia a la corrosión",
+    "description": "Gas de protección para la soldaura TIG de los aceros inoxidables austenoferríticos y austeníticos"
+  },
+  "Sanarc 2": {
+    "attribute1": "Standard",
+    "attribute2": "Estabilidad en el arco",
+    "description": "Gas de protección para la soldadura MAG de los aceros inoxidables"
+  },
+  "Sanarc 8": {
+    "attribute1": "Standard",
+    "attribute2": "Estabilidad en el arco",
+    "description": "Gas de protección para la soldadura MAG de los aceros al carbono y baja aleación"
+  },
+  "Sanarc 18": {
+    "attribute1": "Standard",
+    "attribute2": "Buena fusión",
+    "description": "Gas de protección para la soldadura MAG de los aceros al carbono y baja aleación y FCAW"
+  },
+  "Sanarc E2": {
+    "attribute1": "Estabilidad del arco",
+    "attribute2": "Reduce intensidad de transición",
+    "description": "Gas de protección para soldadura MAG de acero al carbono y baja aleación"
+  },
+  "Sanarc Easy 2": {
+    "attribute1": "Estabilidad del arco",
+    "attribute2": "Reduce intensidad de transición",
+    "description": "Gas de protección para soldadura robotizada MAG de pequeños espesores de acero de baja aleación"
+  },
+  "Sanarc Flash 1": {
+    "attribute1": "Estabilidad del arco",
+    "attribute2": "Aumenta la fluidez",
+    "description": "Gas de protección para soldadura MAG de aceros al carbono y de baja aleación"
+  },
+  "Sanarc HC15": {
+    "attribute1": "Incremento de la fluidez",
+    "attribute2": "Mayor control del input térmico",
+    "description": "Gas de protección para soldadura MAG de aceros inoxidables"
+  },
+  "Sanarc HC35": {
+    "attribute1": "Incremento de la fluidez",
+    "attribute2": "Mayor control del input térmico",
+    "description": "Gas de protección para soldadura MAG de espesores gruesos de aceros inoxidables"
+  },
+  "Sanarc Perfect 3": {
+    "attribute1": "Acabados mejorados",
+    "attribute2": "Carbono limitado",
+    "description": "Gas de protección especial para soldadura MAG de aleaciones de níquel y aceros inoxidables"
+  },
+  "Sanarc F10": {
+    "attribute1": "Raices más brillantes",
+    "attribute2": "Reductor de oxígeno",
+    "description": "Gas de respaldo para aceros inoxidables austeníticos"
+  },
+  "Sanarc NS": {
+    "attribute1": "Estabiliza el nitrógeno en el baño",
+    "attribute2": "Estabiliza balance austenita y ferrita",
+    "description": "Gas de respaldo para acero dúplex y soldadura láser de acero dúplex"
+  },
+  "Sanarc NQ": {
+    "attribute1": "Cordones más brillantes",
+    "attribute2": "Menos oxidación",
+    "description": "Gas de protección para soldadura láser de aceros austeniticos"
+  },
+  "Sanarc HS/HQ": {
+    "attribute1": "Mejora la transferencia de calor",
+    "attribute2": "Evita el plasma",
+    "description": "Gas de protección para soldadura láser"
+  },
+  "Sanarc Perfect 2": {
+    "attribute1": "Control del balance austenita y ferrita",
+    "attribute2": "Mayor fluidez y penetración",
+    "description": "Gas de protección para soldadura MAG de aceros austenoferríticos y austeníticos"
+  },
+  "Sanarc HN": {
+    "attribute1": "Control del balance austenita y ferrita",
+    "attribute2": "Mayor fluidez y penetración",
+    "description": "Gas de protección para soldadura TIG de aceros austenoferríticos y austeníticos"
+  },
+  "Sanarc Perfect 4": {
+    "attribute1": "Reducción de proyecciones",
+    "attribute2": "Mayor estabilidad",
+    "description": "Gas de protección para soldadura MAG de acero al carbono y específica para acero galvanizado"
+  }
+}
