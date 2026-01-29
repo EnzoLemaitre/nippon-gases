@@ -73,6 +73,11 @@
 
 <?php
 
-$context['GOOGLE_MAPS_API'] = $_ENV['GOOGLE_MAPS_API'];
+
+$context['GOOGLE_MAPS_API'] = getenv('GOOGLE_MAPS_API');
+
+$client_id = getenv('ONBASE_CLIENT_ID');
+$client_secret = getenv('ONBASE_CLIENT_SECRET');
+$scope = getenv('ONBASE_SCOPE');
 
 Timber::render('pages/distributor.twig', $context);
