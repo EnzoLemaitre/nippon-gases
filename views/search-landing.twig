@@ -1,0 +1,105 @@
+{% extends "layout/base.twig" %}
+
+{% block body %}
+<style>
+  .search-landing {
+    font-family: 'Barlow', sans-serif;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    background: #fff;
+  }
+
+  .search-landing__container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .search-landing__title {
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    color: #1a1a1a;
+  }
+
+  .search-landing__form {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .search-landing__input {
+    width: 100%;
+    padding: 20px 150px 20px 28px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 20px;
+    font-family: 'Barlow', sans-serif;
+    transition: border-color 0.3s;
+  }
+
+  .search-landing__input:focus {
+    outline: none;
+    border-color: #000;
+  }
+
+  .search-landing__submit {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 14px 36px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .search-landing__submit:hover {
+    background: #333;
+  }
+
+  @media (max-width: 768px) {
+    .search-landing__title {
+      font-size: 36px;
+    }
+
+    .search-landing__input {
+      padding: 18px 24px;
+      font-size: 18px;
+    }
+
+    .search-landing__submit {
+      position: static;
+      transform: none;
+      width: 100%;
+      margin-top: 16px;
+    }
+  }
+</style>
+
+<div class="search-landing">
+  <div class="search-landing__container">
+    <h1 class="search-landing__title">{{ page_title }}</h1>
+    
+    <form method="get" action="{{ site.url }}" class="search-landing__form" role="search">
+      <input 
+        type="text" 
+        name="s" 
+        class="search-landing__input"
+        placeholder="{{ i18n.search_placeholder }}" 
+        required
+        autofocus
+      >
+      <button type="submit" class="search-landing__submit">{{ i18n.search_button }}</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
