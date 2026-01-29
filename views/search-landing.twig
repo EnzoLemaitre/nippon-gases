@@ -29,41 +29,43 @@
     position: relative;
     max-width: 700px;
     margin: 0 auto;
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
   }
 
   .search-landing__input {
     width: 100%;
-    padding: 20px 150px 20px 28px;
-    border: 2px solid #e0e0e0;
-    border-radius: 50px;
-    font-size: 20px;
+    padding: 16px 50px 16px 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 18px;
     font-family: 'Barlow', sans-serif;
+    background: #fff;
     transition: border-color 0.3s;
   }
 
   .search-landing__input:focus {
     outline: none;
-    border-color: #000;
+    border-color: #999;
   }
 
   .search-landing__submit {
     position: absolute;
-    right: 8px;
+    right: 28px;
     top: 50%;
     transform: translateY(-50%);
-    padding: 14px 36px;
-    background: #000;
-    color: #fff;
+    width: 20px;
+    height: 20px;
+    background: transparent;
     border: none;
-    border-radius: 50px;
-    font-size: 18px;
-    font-weight: 500;
     cursor: pointer;
-    transition: background 0.3s;
+    padding: 0;
   }
 
-  .search-landing__submit:hover {
-    background: #333;
+  .search-landing__submit svg {
+    width: 20px;
+    height: 20px;
   }
 
   @media (max-width: 768px) {
@@ -98,7 +100,12 @@
         required
         autofocus
       >
-      <button type="submit" class="search-landing__submit">{{ i18n.search_button }}</button>
+      <button type="submit" class="search-landing__submit" aria-label="{{ i18n.search_button }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
     </form>
   </div>
 </div>

@@ -36,42 +36,44 @@
   .search-page__form {
     margin-bottom: 50px;
     position: relative;
-    max-width: 700px;
+    max-width: 100%;
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
   }
 
   .search-page__input {
     width: 100%;
-    padding: 18px 140px 18px 24px;
-    border: 2px solid #e0e0e0;
-    border-radius: 50px;
-    font-size: 18px;
+    padding: 16px 50px 16px 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
     font-family: 'Barlow', sans-serif;
+    background: #fff;
     transition: border-color 0.3s;
   }
 
   .search-page__input:focus {
     outline: none;
-    border-color: #000;
+    border-color: #999;
   }
 
   .search-page__submit {
     position: absolute;
-    right: 8px;
+    right: 28px;
     top: 50%;
     transform: translateY(-50%);
-    padding: 12px 32px;
-    background: #000;
-    color: #fff;
+    width: 20px;
+    height: 20px;
+    background: transparent;
     border: none;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 500;
     cursor: pointer;
-    transition: background 0.3s;
+    padding: 0;
   }
 
-  .search-page__submit:hover {
-    background: #333;
+  .search-page__submit svg {
+    width: 20px;
+    height: 20px;
   }
 
   .search-page__results-header {
@@ -241,7 +243,12 @@
         value="{{ search_query }}"
         required
       >
-      <button type="submit" class="search-page__submit">{{ i18n.search_button }}</button>
+      <button type="submit" class="search-page__submit" aria-label="{{ i18n.search_button }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
     </form>
 
     {% if search_query %}
@@ -268,9 +275,21 @@
           {% endfor %}
         </ul>
 
-        {% if pagination %}
+        {% if pagination and pagination.pages %}
           <div class="search-page__pagination">
-            {{ pagination }}
+            {% if pagination.prev %}
+              <a href="{{ pagination.prev.link }}" class="search-page__pagination-link">← Précédent</a>
+            {% endif %}
+            
+            {% for page in pagination.pages %}
+              <a href="{{ page.link }}" class="search-page__pagination-link {% if page.current %}search-page__pagination-link--active{% endif %}">
+                {{ page.title }}
+              </a>
+            {% endfor %}
+            
+            {% if pagination.next %}
+              <a href="{{ pagination.next.link }}" class="search-page__pagination-link">Suivant →</a>
+            {% endif %}
           </div>
         {% endif %}
       {% else %}
