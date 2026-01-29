@@ -17,6 +17,12 @@
   animation: fadeIn 0.4s ease-in-out;
 }
 
+.gas-finder-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px 8%;
+}
+
 .gas-finder {
   font-family: 'Barlow', sans-serif;
   display: flex;
@@ -123,10 +129,9 @@
 
 .gas-finder__content {
   flex: 1;
-  padding: 60px 0;
+  padding: 60px 0 60px 80px;
   max-width: 100%;
   width: 100%;
-  margin: 0 8%;
 }
 
 .gas-finder__title {
@@ -254,7 +259,8 @@
 }
 </style>
 
-<div class="gas-finder" id="gasFinder">
+<div class="gas-finder-wrapper">
+  <div class="gas-finder" id="gasFinder">
   <div class="gas-finder__sidebar">
     <a href="#" class="gas-finder__back" id="backButton" style="display: none;">
       <span class="gas-finder__back-arrow">←</span>
