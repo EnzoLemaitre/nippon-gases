@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    {{ fn('wp_head') }}
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .selector {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .selector__logo {
+            margin-bottom: 60px;
+        }
+
+        .selector__logo img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .selector__title {
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .selector__subtitle {
+            font-size: 16px;
+            color: #999;
+            margin-bottom: 60px;
+            line-height: 1.5;
+        }
+
+        .selector__form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .selector__select-wrapper {
+            position: relative;
+        }
+
+        .selector__select {
+            width: 100%;
+            padding: 20px 50px 20px 24px;
+            background: transparent;
+            border: 1px solid #333;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 18px;
+            font-family: 'Barlow', sans-serif;
+            cursor: pointer;
+            appearance: none;
+            transition: border-color 0.3s;
+        }
+
+        .selector__select:hover:not(:disabled) {
+            border-color: #666;
+        }
+
+        .selector__select:focus {
+            outline: none;
+            border-color: #fff;
+        }
+
+        .selector__select:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            color: #666;
+        }
+
+        .selector__select option {
+            background: #000;
+            color: #fff;
+        }
+
+        .selector__select-arrow {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #fff;
+        }
+
+        .selector__error {
+            color: #ff6b6b;
+            font-size: 14px;
+            font-style: italic;
+            min-height: 20px;
+            margin-top: -8px;
+        }
+
+        .selector__button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 48px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            font-family: 'Barlow', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .selector__button:hover {
+            background: #e0e0e0;
+            transform: translateX(4px);
+        }
+
+        .selector__button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .selector__button-arrow {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .selector__title {
+                font-size: 28px;
+            }
+
+            .selector__subtitle {
+                font-size: 14px;
+            }
+
+            .selector__select {
+                font-size: 16px;
+                padding: 16px 40px 16px 20px;
+            }
+
+            .selector__button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Loading state */
+        .selector--loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="selector" id="countrySelector">
+        {% if logo %}
+        <div class="selector__logo">
+            <img src="{{ logo.url }}" alt="{{ logo.alt ?: 'Nippon Gases' }}">
+        </div>
+        {% endif %}
+
+        <h1 class="selector__title">{{ title }}</h1>
+        <p class="selector__subtitle">{{ subtitle }}</p>
+
+        <form class="selector__form" id="selectorForm">
+            <div class="selector__select-wrapper">
+                <select class="selector__select" id="countrySelect" name="country" required>
+                    <option value="">{{ i18n.choose_country }}</option>
+                    {% for country in countries %}
+                        <option value="{{ country.code }}">{{ country.name }}</option>
+                    {% endfor %}
+                </select>
+                <span class="selector__select-arrow">▼</span>
+            </div>
+
+            <div class="selector__select-wrapper">
+                <select class="selector__select" id="languageSelect" name="language" required disabled>
+                    <option value="">{{ i18n.choose_language }}</option>
+                </select>
+                <span class="selector__select-arrow">▼</span>
+            </div>
+
+            <div class="selector__error" id="errorMessage"></div>
+
+            <button type="submit" class="selector__button" id="submitButton">
+                {{ i18n.select_button }}
+                <span class="selector__button-arrow">→</span>
+            </button>
+        </form>
+    </div>
+
+    <script>
+        // Configuration
+        const countryLanguageMap = {{ country_lang_map|raw }};
+        const languageUrls = {{ language_urls|raw }};
+
+        const countrySelect = document.getElementById('countrySelect');
+        const languageSelect = document.getElementById('languageSelect');
+        const errorMessage = document.getElementById('errorMessage');
+        const submitButton = document.getElementById('submitButton');
+        const selectorForm = document.getElementById('selectorForm');
+        const selector = document.getElementById('countrySelector');
+
+        // Détection automatique du navigateur
+        function detectAndRedirect() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            const langCode = browserLang.split('-')[0].toLowerCase();
+            
+            console.log('Browser language detected:', langCode);
+
+            // Vérifier si la langue est disponible
+            if (languageUrls[langCode]) {
+                console.log('Redirecting to:', languageUrls[langCode]);
+                window.location.href = languageUrls[langCode];
+                return true;
+            }
+
+            return false;
+        }
+
+        // Tenter la redirection automatique au chargement
+        // Décommenter pour activer la détection auto
+        // if (detectAndRedirect()) {
+        //     selector.classList.add('selector--loading');
+        // }
+
+        // Gestion du changement de pays
+        countrySelect.addEventListener('change', function() {
+            const selectedCountry = this.value;
+            
+            // Réinitialiser le select de langue
+            languageSelect.innerHTML = '<option value="">{{ i18n.choose_language }}</option>';
+            errorMessage.textContent = '';
+
+            if (selectedCountry && countryLanguageMap[selectedCountry]) {
+                // Activer et remplir le select de langue
+                languageSelect.disabled = false;
+                
+                const languages = countryLanguageMap[selectedCountry];
+                languages.forEach(langCode => {
+                    const option = document.createElement('option');
+                    option.value = langCode;
+                    option.textContent = langCode.toUpperCase();
+                    languageSelect.appendChild(option);
+                });
+            } else {
+                languageSelect.disabled = true;
+            }
+        });
+
+        // Gestion de la soumission
+        selectorForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const country = countrySelect.value;
+            const language = languageSelect.value;
+
+            if (!country) {
+                errorMessage.textContent = '{{ i18n.error_message }}';
+                return;
+            }
+
+            if (!language) {
+                errorMessage.textContent = '{{ i18n.error_message }}';
+                return;
+            }
+
+            // Redirection vers l'URL de la langue sélectionnée
+            if (languageUrls[language]) {
+                selector.classList.add('selector--loading');
+                window.location.href = languageUrls[language];
+            } else {
+                errorMessage.textContent = 'Language not available';
+            }
+        });
+
+        // Effacer le message d'erreur lors de la sélection
+        languageSelect.addEventListener('change', function() {
+            errorMessage.textContent = '';
+        });
+    </script>
+
+    {{ fn('wp_footer') }}
+</body>
+</html>
