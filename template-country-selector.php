@@ -28,10 +28,12 @@ $countries = [
 // Récupérer les langues actives dans Polylang
 $active_languages = [];
 if (function_exists('pll_languages_list')) {
-    $langs = pll_languages_list();
-    foreach ($langs as $lang) {
-        $active_languages[$lang] = pll_get_language_details($lang);
-    }
+    $langs = pll_languages_list(['fields' => 'slug']);
+foreach ($langs as $lang) {
+    $active_languages[$lang] = [
+        'code' => $lang,
+        'name' => strtoupper($lang)
+    ];
 }
 
 // Filtrer les pays selon les langues disponibles
