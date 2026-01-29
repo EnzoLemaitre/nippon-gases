@@ -262,10 +262,10 @@
             return false;
         }
 
-        // Décommenter pour activer la détection automatique
-        // if (detectAndRedirect()) {
-        //     selector.classList.add('selector--loading');
-        // }
+        // Activer la détection automatique
+        if (detectAndRedirect()) {
+            selector.classList.add('selector--loading');
+        }
 
         // Gestion du changement de pays
         countrySelect.addEventListener('change', function() {
