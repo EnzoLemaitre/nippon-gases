@@ -53,9 +53,9 @@ foreach ($countries as $country_code => $langs) {
         $available_countries[$country_code] = [
             'code' => $country_code,
             'name' => get_country_name($country_code),
-            'languages' => array_filter($langs, function($lang) use ($active_languages) {
+            'languages' => array_values(array_filter($langs, function($lang) use ($active_languages) {
                 return isset($active_languages[$lang]);
-            })
+            }))
         ];
     }
 }
