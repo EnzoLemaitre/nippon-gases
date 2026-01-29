@@ -573,3 +573,9 @@ function handle_onbase_document_download() {
   exit;
 
 }
+
+// Allow search parameter on custom search page
+add_filter('query_vars', function($vars) {
+    $vars[] = 's';
+    return $vars;
+});
