@@ -1,7 +1,6 @@
+node_modules/
+vendor/
 .env
- node_modules/
- vendor/
- acf_cache.json
- *.save
- *.log
- wp-content/uploads/ 
+package-lock.json
+composer.lock
+acf_cache.json
