@@ -73,8 +73,8 @@
 
 <?php
 
-
 $context['GOOGLE_MAPS_API'] = getenv('GOOGLE_MAPS_API');
+error_log("GOOGLE_MAPS_API value: " . ($context['GOOGLE_MAPS_API'] ?: 'VIDE'));
 
 $client_id = getenv('ONBASE_CLIENT_ID');
 $client_secret = getenv('ONBASE_CLIENT_SECRET');
