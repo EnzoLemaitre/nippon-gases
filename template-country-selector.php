@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Country Selector
- * Description: Page de sélection pays/langue avec détection automatique
+ * Description: Sélecteur de pays/langue pour multisite WordPress
  */
 
 use Timber\Timber;
@@ -9,93 +9,108 @@ use Timber\Timber;
 $context = Timber::context();
 $context['post'] = Timber::get_post();
 
-// Configuration des pays et leurs langues disponibles
-// Format: 'country_code' => ['lang1', 'lang2', ...]
-$countries = [
-    'ES' => ['es', 'en'], // España
-    'IT' => ['it', 'en'], // Italia
-    'FR' => ['fr', 'en'], // France
-    'DE' => ['de', 'en'], // Deutschland
-    'PT' => ['pt', 'en'], // Portugal
-    'GB' => ['en'],       // United Kingdom
-    'BE' => ['fr', 'nl', 'en'], // België/Belgique
-    'NL' => ['nl', 'en'], // Nederland
-    'DK' => ['da'],       // Danmark
-    'SE' => ['sv'],       // Sverige
-    'NO' => ['no']        // Norge
+// Configuration des pays avec leurs sites et langues
+// Format: 'country_code' => ['url' => 'site_url', 'languages' => ['lang1', 'lang2']]
+$countries_config = [
+    'ES' => [
+        'name' => 'España',
+        'url' => 'https://wptest.nippongases.com/es/',
+        'languages' => ['es' => 'Español', 'en' => 'English']
+    ],
+    'IT' => [
+        'name' => 'Italia',
+        'url' => 'https://wptest.nippongases.com/it/',
+        'languages' => ['it' => 'Italiano', 'en' => 'English']
+    ],
+    'FR' => [
+        'name' => 'France',
+        'url' => 'https://wptest.nippongases.com/fr/',
+        'languages' => ['fr' => 'Français', 'en' => 'English']
+    ],
+    'DE' => [
+        'name' => 'Deutschland',
+        'url' => 'https://wptest.nippongases.com/de/',
+        'languages' => ['de' => 'Deutsch', 'en' => 'English']
+    ],
+    'PT' => [
+        'name' => 'Portugal',
+        'url' => 'https://wptest.nippongases.com/pt/',
+        'languages' => ['pt' => 'Português', 'en' => 'English']
+    ],
+    'GB' => [
+        'name' => 'United Kingdom',
+        'url' => 'https://wptest.nippongases.com/gb/',
+        'languages' => ['en' => 'English']
+    ],
+    'BE' => [
+        'name' => 'België / Belgique',
+        'url' => 'https://wptest.nippongases.com/be/',
+        'languages' => ['fr' => 'Français', 'nl' => 'Nederlands', 'en' => 'English']
+    ],
+    'NL' => [
+        'name' => 'Nederland',
+        'url' => 'https://wptest.nippongases.com/nl/',
+        'languages' => ['nl' => 'Nederlands', 'en' => 'English']
+    ],
+    'DK' => [
+        'name' => 'Danmark',
+        'url' => 'https://wptest.nippongases.com/dk/',
+        'languages' => ['da' => 'Dansk']
+    ],
+    'SE' => [
+        'name' => 'Sverige',
+        'url' => 'https://wptest.nippongases.com/se/',
+        'languages' => ['sv' => 'Svenska']
+    ],
+    'NO' => [
+        'name' => 'Norge',
+        'url' => 'https://wptest.nippongases.com/no/',
+        'languages' => ['no' => 'Norsk']
+    ]
 ];
 
-// Récupérer les langues actives dans Polylang
-$active_languages = [];
-if (function_exists('pll_languages_list')) {
-    $langs = pll_languages_list(['fields' => 'slug']);
-    foreach ($langs as $lang) {
-        $active_languages[$lang] = [
-            'code' => $lang,
-            'name' => strtoupper($lang)
-        ];
-    }
+// Préparer les données pour le template
+$countries = [];
+foreach ($countries_config as $code => $config) {
+    $countries[] = [
+        'code' => $code,
+        'name' => $config['name'],
+        'languages' => $config['languages']
+    ];
 }
 
-// Filtrer les pays selon les langues disponibles
-$available_countries = [];
-foreach ($countries as $country_code => $langs) {
-    // Vérifier si au moins une langue du pays est active
-    $has_active_lang = false;
-    foreach ($langs as $lang) {
-        if (isset($active_languages[$lang])) {
-            $has_active_lang = true;
-            break;
+// Préparer le mapping pays -> langues pour JavaScript
+$country_lang_map = [];
+foreach ($countries_config as $code => $config) {
+    $country_lang_map[$code] = array_keys($config['languages']);
+}
+
+// Préparer les URLs de redirection par langue
+// Format: "es" => "https://wptest.nippongases.com/es/"
+$language_urls = [];
+foreach ($countries_config as $country_code => $config) {
+    foreach ($config['languages'] as $lang_code => $lang_name) {
+        // Pour les pays avec une seule langue, rediriger directement
+        if (count($config['languages']) === 1) {
+            $language_urls[$lang_code] = $config['url'];
+        } else {
+            // Pour les pays multilingues, construire l'URL avec la langue
+            // Par exemple: /es/ pour espagnol, /es/en/ pour anglais en Espagne
+            if ($lang_code === array_key_first($config['languages'])) {
+                // Langue principale = URL de base du pays
+                $language_urls[$country_code . '_' . $lang_code] = $config['url'];
+            } else {
+                // Autres langues = URL + code langue
+                $language_urls[$country_code . '_' . $lang_code] = $config['url'] . $lang_code . '/';
+            }
         }
     }
-    
-    if ($has_active_lang) {
-        $available_countries[$country_code] = [
-            'code' => $country_code,
-            'name' => get_country_name($country_code),
-            'languages' => array_values(array_filter($langs, function($lang) use ($active_languages) {
-                return isset($active_languages[$lang]);
-            }))
-        ];
-    }
 }
 
-// Fonction helper pour les noms de pays
-function get_country_name($code) {
-    $names = [
-        'ES' => 'España',
-        'IT' => 'Italia',
-        'FR' => 'France',
-        'DE' => 'Deutschland',
-        'PT' => 'Portugal',
-        'GB' => 'United Kingdom',
-        'BE' => 'België / Belgique',
-        'NL' => 'Nederland',
-        'DK' => 'Danmark',
-        'SE' => 'Sverige',
-        'NO' => 'Norge'
-    ];
-    return isset($names[$code]) ? $names[$code] : $code;
-}
-
-// Préparer les données pour JavaScript
-$country_lang_map = [];
-foreach ($available_countries as $country) {
-    $country_lang_map[$country['code']] = $country['languages'];
-}
-
-// URLs des langues pour la redirection
-$language_urls = [];
-if (function_exists('pll_home_url')) {
-    foreach ($active_languages as $lang_code => $lang_data) {
-        $language_urls[$lang_code] = pll_home_url($lang_code);
-    }
-}
-
-$context['countries'] = $available_countries;
+$context['countries'] = $countries;
 $context['country_lang_map'] = json_encode($country_lang_map);
 $context['language_urls'] = json_encode($language_urls);
-$context['active_languages'] = $active_languages;
+$context['countries_config'] = json_encode($countries_config);
 
 // Champs ACF
 $context['logo'] = get_field('logo');

@@ -177,7 +177,6 @@
             }
         }
 
-        /* Loading state */
         .selector--loading {
             opacity: 0.6;
             pointer-events: none;
@@ -223,14 +222,12 @@
     </div>
 
     <script>
-        // Configuration
-        const countryLanguageMap = {{ country_lang_map|raw }};
-        const languageUrls = {{ language_urls|raw }};
-
+        // Configuration complète des pays et leurs sites
+        const countriesConfig = {{ countries_config|raw }};
+        
         const countrySelect = document.getElementById('countrySelect');
         const languageSelect = document.getElementById('languageSelect');
         const errorMessage = document.getElementById('errorMessage');
-        const submitButton = document.getElementById('submitButton');
         const selectorForm = document.getElementById('selectorForm');
         const selector = document.getElementById('countrySelector');
 
@@ -238,21 +235,33 @@
         function detectAndRedirect() {
             const browserLang = navigator.language || navigator.userLanguage;
             const langCode = browserLang.split('-')[0].toLowerCase();
+            const countryCode = browserLang.split('-')[1]?.toUpperCase();
             
-            console.log('Browser language detected:', langCode);
+            console.log('Browser detected:', browserLang, 'Lang:', langCode, 'Country:', countryCode);
 
-            // Vérifier si la langue est disponible
-            if (languageUrls[langCode]) {
-                console.log('Redirecting to:', languageUrls[langCode]);
-                window.location.href = languageUrls[langCode];
-                return true;
+            // Essayer de matcher pays + langue
+            if (countryCode && countriesConfig[countryCode]) {
+                const country = countriesConfig[countryCode];
+                if (country.languages[langCode]) {
+                    console.log('Exact match found, redirecting to:', country.url);
+                    window.location.href = country.url;
+                    return true;
+                }
+            }
+
+            // Essayer de trouver un pays qui a cette langue
+            for (const [code, config] of Object.entries(countriesConfig)) {
+                if (config.languages[langCode]) {
+                    console.log('Language match found, redirecting to:', config.url);
+                    window.location.href = config.url;
+                    return true;
+                }
             }
 
             return false;
         }
 
-        // Tenter la redirection automatique au chargement
-        // Décommenter pour activer la détection auto
+        // Décommenter pour activer la détection automatique
         // if (detectAndRedirect()) {
         //     selector.classList.add('selector--loading');
         // }
@@ -261,19 +270,19 @@
         countrySelect.addEventListener('change', function() {
             const selectedCountry = this.value;
             
-            // Réinitialiser le select de langue
+            // Réinitialiser
             languageSelect.innerHTML = '<option value="">{{ i18n.choose_language }}</option>';
             errorMessage.textContent = '';
 
-            if (selectedCountry && countryLanguageMap[selectedCountry]) {
-                // Activer et remplir le select de langue
+            if (selectedCountry && countriesConfig[selectedCountry]) {
+                const country = countriesConfig[selectedCountry];
                 languageSelect.disabled = false;
                 
-                const languages = countryLanguageMap[selectedCountry];
-                languages.forEach(langCode => {
+                // Remplir avec les langues disponibles pour ce pays
+                Object.entries(country.languages).forEach(([code, name]) => {
                     const option = document.createElement('option');
-                    option.value = langCode;
-                    option.textContent = langCode.toUpperCase();
+                    option.value = code;
+                    option.textContent = name;
                     languageSelect.appendChild(option);
                 });
             } else {
@@ -288,26 +297,34 @@
             const country = countrySelect.value;
             const language = languageSelect.value;
 
-            if (!country) {
+            if (!country || !language) {
                 errorMessage.textContent = '{{ i18n.error_message }}';
                 return;
             }
 
-            if (!language) {
-                errorMessage.textContent = '{{ i18n.error_message }}';
-                return;
-            }
-
-            // Redirection vers l'URL de la langue sélectionnée
-            if (languageUrls[language]) {
+            const countryConfig = countriesConfig[country];
+            
+            if (countryConfig) {
                 selector.classList.add('selector--loading');
-                window.location.href = languageUrls[language];
+                
+                // Si une seule langue, rediriger vers l'URL du pays
+                if (Object.keys(countryConfig.languages).length === 1) {
+                    window.location.href = countryConfig.url;
+                } else {
+                    // Si multilingue, vérifier si c'est la langue principale
+                    const firstLang = Object.keys(countryConfig.languages)[0];
+                    if (language === firstLang) {
+                        window.location.href = countryConfig.url;
+                    } else {
+                        window.location.href = countryConfig.url + language + '/';
+                    }
+                }
             } else {
-                errorMessage.textContent = 'Language not available';
+                errorMessage.textContent = 'Country not found';
             }
         });
 
-        // Effacer le message d'erreur lors de la sélection
+        // Effacer le message d'erreur
         languageSelect.addEventListener('change', function() {
             errorMessage.textContent = '';
         });
