@@ -12,7 +12,8 @@ $context['post'] = Timber::get_post();
 // Détection de l'environnement (preprod vs prod)
 $current_domain = $_SERVER['HTTP_HOST'];
 $is_preprod = (strpos($current_domain, 'wptest') !== false);
-$base_url = $is_preprod ? 'https://wptest.nippongases.com' : 'https://nippongases.com';
+// Utilise le domaine actuel pour construire les URLs (supporte wp.nippongases.com et nippongases.com)
+$base_url = 'https://' . $current_domain;
 
 // Configuration des pays avec leurs sites et langues
 // Format: 'country_code' => ['url' => 'site_url', 'languages' => ['lang1', 'lang2']]
