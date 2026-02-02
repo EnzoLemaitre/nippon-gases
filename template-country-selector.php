@@ -9,62 +9,67 @@ use Timber\Timber;
 $context = Timber::context();
 $context['post'] = Timber::get_post();
 
+// Détection de l'environnement (preprod vs prod)
+$current_domain = $_SERVER['HTTP_HOST'];
+$is_preprod = (strpos($current_domain, 'wptest') !== false);
+$base_url = $is_preprod ? 'https://wptest.nippongases.com' : 'https://nippongases.com';
+
 // Configuration des pays avec leurs sites et langues
 // Format: 'country_code' => ['url' => 'site_url', 'languages' => ['lang1', 'lang2']]
 $countries_config = [
     'ES' => [
         'name' => 'España',
-        'url' => 'https://wptest.nippongases.com/es/',
+        'url' => $base_url . '/es/',
         'languages' => ['es' => 'Español', 'en' => 'English']
     ],
     'IT' => [
         'name' => 'Italia',
-        'url' => 'https://wptest.nippongases.com/it/',
+        'url' => $base_url . '/it/',
         'languages' => ['it' => 'Italiano', 'en' => 'English']
     ],
     'FR' => [
         'name' => 'France',
-        'url' => 'https://wptest.nippongases.com/fr/',
+        'url' => $base_url . '/fr/',
         'languages' => ['fr' => 'Français', 'en' => 'English']
     ],
     'DE' => [
         'name' => 'Deutschland',
-        'url' => 'https://wptest.nippongases.com/de/',
+        'url' => $base_url . '/de/',
         'languages' => ['de' => 'Deutsch', 'en' => 'English']
     ],
     'PT' => [
         'name' => 'Portugal',
-        'url' => 'https://wptest.nippongases.com/pt/',
+        'url' => $base_url . '/pt/',
         'languages' => ['pt' => 'Português', 'en' => 'English']
     ],
     'GB' => [
         'name' => 'United Kingdom',
-        'url' => 'https://wptest.nippongases.com/gb/',
+        'url' => $base_url . '/gb/',
         'languages' => ['en' => 'English']
     ],
     'BE' => [
         'name' => 'België / Belgique',
-        'url' => 'https://wptest.nippongases.com/be/',
+        'url' => $base_url . '/be/',
         'languages' => ['fr' => 'Français', 'nl' => 'Nederlands', 'en' => 'English']
     ],
     'NL' => [
         'name' => 'Nederland',
-        'url' => 'https://wptest.nippongases.com/nl/',
+        'url' => $base_url . '/nl/',
         'languages' => ['nl' => 'Nederlands', 'en' => 'English']
     ],
     'DK' => [
         'name' => 'Danmark',
-        'url' => 'https://wptest.nippongases.com/dk/',
+        'url' => $base_url . '/dk/',
         'languages' => ['da' => 'Dansk']
     ],
     'SE' => [
         'name' => 'Sverige',
-        'url' => 'https://wptest.nippongases.com/se/',
+        'url' => $base_url . '/se/',
         'languages' => ['sv' => 'Svenska']
     ],
     'NO' => [
         'name' => 'Norge',
-        'url' => 'https://wptest.nippongases.com/no/',
+        'url' => $base_url . '/no/',
         'languages' => ['no' => 'Norsk']
     ]
 ];
@@ -86,7 +91,7 @@ foreach ($countries_config as $code => $config) {
 }
 
 // Préparer les URLs de redirection par langue
-// Format: "es" => "https://wptest.nippongases.com/es/"
+// Format: "es" => "https://nippongases.com/es/"
 $language_urls = [];
 foreach ($countries_config as $country_code => $config) {
     foreach ($config['languages'] as $lang_code => $lang_name) {
