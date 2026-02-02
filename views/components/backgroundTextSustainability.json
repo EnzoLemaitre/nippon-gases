@@ -1,0 +1,49 @@
+{
+	"title": "Background Image and Text",
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "template-sustainability.php"
+			}
+		]
+	],
+	"fields": [
+		{
+			"name": "backgroundTextSustainability",
+			"type": "group",
+			"layout": "row",
+			"sub_fields": [
+				{
+					"label": "Image",
+					"name": "image",
+					"type": "image",
+					"return_format": "url",
+					"preview_size": "thumbnail"
+				},
+				{
+					"label": "Title",
+					"name": "title",
+					"type": "text"
+				},
+				{
+					"label": "Subtitle",
+					"name": "subtitle",
+					"type": "text"
+				},
+				{
+					"label": "Description",
+					"name": "decription",
+					"type": "textarea",
+					"new_lines": "wpautop"
+				},
+				{
+					"label": "Link",
+					"name": "link",
+					"type": "link"
+				}
+			]
+		}
+	]
+}

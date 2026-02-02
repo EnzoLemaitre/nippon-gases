@@ -16,10 +16,19 @@
 
 		&__text {
 			width: 40%;
+
+			@media (max-width: 768px) {
+				width: 100%;
+				margin-bottom: 40px;
+			}
 		}
 
 		.milestones {
 			width: 40%;
+
+			@media (max-width: 768px) {
+				width: 100%;
+			}
 		}
 	}
 }

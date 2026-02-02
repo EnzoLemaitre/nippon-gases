@@ -109,8 +109,38 @@ window.onresize = reportWindowSize;
 document.addEventListener("DOMContentLoaded", function () {
 	const milestoneItems = document.querySelectorAll(".milestones li");
 
+	function equalizeHeights() {
+		const expandedItems = document.querySelectorAll(".milestones li.expanded");
+		
+		if (expandedItems.length === 0) return;
+		
+		expandedItems.forEach(item => {
+			item.style.height = 'auto';
+		});
+		
+		let maxHeight = 0;
+		expandedItems.forEach((item) => {
+			const height = item.offsetHeight;
+			if (height > maxHeight) {
+				maxHeight = height;
+			}
+		});
+		
+		milestoneItems.forEach(item => {
+			if (item.classList.contains('expanded')) {
+				item.style.height = maxHeight + 'px';
+			} else {
+				item.style.height = '';
+			}
+		});
+	}
+
 	if (milestoneItems.length > 0) {
 		milestoneItems[0].classList.add("expanded");
+		
+		setTimeout(() => {
+			equalizeHeights();
+		}, 100);
 	}
 
 	milestoneItems.forEach((item) => {
@@ -124,6 +154,12 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 
 			this.classList.add("expanded");
+			
+			setTimeout(() => {
+				equalizeHeights();
+			}, 50);
 		});
 	});
+
+	window.addEventListener('resize', equalizeHeights);
 });
