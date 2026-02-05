@@ -8,6 +8,7 @@
 
 		<section class="section our-milestones">
 			{% set milestones = post.meta('ourMilestones') %}
+
 			{% if milestones.title or milestones.description %}
 				<div class="our-milestones__text">
 					<h2 class="subtitle">{{ milestones.title }}</h2>
@@ -20,5 +21,7 @@
 
 		{% include 'components/imageText.twig' %}
 		{% include 'components/textColsBlue2.twig' %}
+		{% include 'components/numbersSustainability.twig' %}
+		{% include 'components/backgroundTextSustainability.twig' %}
 	</main>
 {% endblock %}

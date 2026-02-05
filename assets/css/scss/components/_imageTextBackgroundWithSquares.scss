@@ -9,8 +9,78 @@
 
 	.square {
 		position: absolute;
-		width: 44px;
-		height: 44px;
+		width: 3vw;
+		min-width: 20px;
+		aspect-ratio: 1;
+		--square-size: max(3vw, 20px);
+	}
+
+	.squares-left {
+		.square {
+			&:first-child {
+				top: 0;
+				left: 0;
+				background-color: var(--grey-light-color);
+			}
+
+			&:nth-child(2) {
+				top: 0;
+				left: var(--square-size);
+				background-color: transparent;
+			}
+
+			&:nth-child(3) {
+				top: 0;
+				left: calc(var(--square-size) * 2);
+				background-color: var(--blue-color);
+			}
+
+			&:nth-child(4) {
+				top: var(--square-size);
+				left: 0;
+				background-color: var(--dark-blue-color);
+			}
+
+			&:nth-child(5) {
+				top: var(--square-size);
+				left: var(--square-size);
+				background-color: var(--background-color);
+			}
+
+			&:nth-child(6) {
+				top: calc(var(--square-size) * 2);
+				left: 0;
+				background-color: var(--light-primary-color);
+			}
+		}
+	}
+
+	.squares-right {
+		.square {
+			&:first-child {
+				bottom: 0;
+				right: 0;
+				background-color: var(--blue-color);
+			}
+
+			&:nth-child(2) {
+				bottom: var(--square-size);
+				right: 0;
+				background-color: var(--grey-light-color);
+			}
+
+			&:nth-child(3) {
+				bottom: calc(var(--square-size) * 2);
+				right: 0;
+				background-color: var(--light-primary-color);
+			}
+
+			&:nth-child(4) {
+				bottom: 0;
+				right: var(--square-size);
+				background-color: var(--dark-blue-color);
+			}
+		}
 	}
 
 	&__wrapper {
@@ -19,6 +89,10 @@
 		justify-content: space-between;
 		align-items: center;
 		gap: 30px 4%;
+	}
+
+	.btn {
+		border: 1px solid var(--background-color);
 	}
 
 	.image-text {

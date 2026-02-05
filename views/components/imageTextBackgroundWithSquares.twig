@@ -7,12 +7,14 @@
 
 {% if imageText.title or imageText.subtitle or imageText.decription or imageText.link or imageText.image %}
 	<section class="section image-text image-text-background-with-squares image-text__position-{{ imageText.imagePosition }}{{ noText ? ' image-text__no-text' : '' }}{{ not imageText.image ? ' image-text__no-image' : '' }}">
-		<div class="square square-"></div>
-		<div class="square square-"></div>
-		<div class="square square-"></div>
-		<div class="square square-"></div>
-		<div class="square square-"></div>
-		<div class="square square-"></div>
+		<div class="squares-left">
+			<div class="square"></div>
+			<div class="square"></div>
+			<div class="square"></div>
+			<div class="square"></div>
+			<div class="square"></div>
+			<div class="square"></div>
+		</div>
 
 		<div class="container image-text-background-with-squares__wrapper">
 			{% if imageText.title or imageText.subtitle or imageText.decription or imageText.link %}
@@ -27,7 +29,7 @@
 						<div class="image-text__content__description content">{{ imageText.decription }}</div>
 					{% endif %}
 					{% if imageText.link %}
-						{{ link(imageText.link, 'btn') }}
+						{{ link(imageText.link, 'btn btn__light') }}
 					{% endif %}
 				</div>
 			{% endif %}
@@ -39,9 +41,11 @@
 			{% endif %}
 		</div>
 
-		<div class="square square-"></div>
-		<div class="square square-"></div>
-		<div class="square square-"></div>
-		<div class="square square-"></div>
+		<div class="squares-right">
+			<div class="square"></div>
+			<div class="square"></div>
+			<div class="square"></div>
+			<div class="square"></div>
+		</div>
 	</section>
 {% endif %}

@@ -1,0 +1,22 @@
+{% set backgroundText = post.meta('backgroundTextSustainability') %}
+{% set image = (backgroundText.image ? ' style="background-image: url(' ~ backgroundText.image ~ ')"' : null) %}
+
+{% if backgroundText.title or backgroundText.decription or backgroundText.subtitle or backgroundText.link %}
+	<section class="background-text-sustainability container section"{{image}}>
+		{% if backgroundText.title or backgroundText.subtitle %}
+			<div class="background-text-sustainability__title">
+				{% if backgroundText.title %}<h2 class="subtitle">{{ backgroundText.title }}</h2>{% endif %}
+				{% if backgroundText.subtitle %}<h3 class="background-text-sustainability__title__subtitle">{{ backgroundText.subtitle }}</h3>{% endif %}
+			</div>
+		{% endif %}
+		{% if backgroundText.decription or backgroundText.link %}
+			<div class="background-text-sustainability__description">
+				{% if backgroundText.decription %}<div class="content">{{ backgroundText.decription }}</div>{% endif %}
+				{% if backgroundText.decription and backgroundText.link %}
+					<div class="line"></div>
+				{% endif %}
+				{{ link(backgroundText.link, 'btn btn__light background-text-sustainability__description__link') }}
+			</div>
+		{% endif %}
+	</section>
+{% endif %}

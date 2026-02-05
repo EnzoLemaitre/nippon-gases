@@ -5,14 +5,15 @@
 	height: -webkit-fill-available;
 
 	li {
-		width: 65px;
+		width: 4.5%;
 		color: var(--primary-color);
 		overflow-wrap: break-word;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		//transition: flex 0.4s ease-in-out;
-		//overflow: hidden;
+		transition: flex 0.4s ease-in-out, height 0.4s ease-in-out;
+		overflow: hidden;
+		height: auto;
 
 		&:first-child {
 			background-color: var(--light-blue-color);
@@ -33,17 +34,14 @@
 
 		.symbol {
 			color: #fff;
-			font-size: var(--fs-xl);
+			font-size: var(--fs-l);
 			font-weight: 300;
 		}
 
 		&.expanded {
 			flex: 1;
-			display: block;
-			padding-top: 100px;
-			padding-bottom: 100px;
-			padding-right: 70px;
-			padding-left: 70px;
+			display: flex;
+			padding: 120px 70px;
 
 			.milestones__wrapper {
 				display: block;
@@ -62,7 +60,7 @@
 
 	&__number {
 		font-weight: bold;
-		font-size: var(--fs-xxl);
+		font-size: var(--fs-xxxxl);
 		line-height: var(--line-height);
 	}
 
@@ -80,7 +78,7 @@
 	&__title {
 		margin-top: auto;
 		font-weight: 500;
-		font-size: var(--fs-l);
+		font-size: var(--fs-xxl);
 		line-height: var(--line-height);
 	}
 }

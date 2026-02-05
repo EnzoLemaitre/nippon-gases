@@ -1,0 +1,51 @@
+{% set number = post.meta('numbersSustainability') %}
+{% if number.card.title or number.card.description or number.card.cards | length > 0 %}
+	<section class="container section number-sustainability">
+
+		{% if number.card.cards | length > 0 or number.card.description %}
+			<div class="number-sustainability__inner">
+				{% if number.card.description %}
+					<div class="number-sustainability__text{% if number.card.cards | length == 0 %} no-number{% endif %}">
+						<div class="number-sustainability__text__title">
+							{% if number.card.title %}
+								<h2 class="number-sustainability__text__title subtitle">{{ number.card.title }}</h2>
+							{% endif %}
+							{% if number.card.subtitle %}
+								<h3 class="number-sustainability__text__title__subtitle">{{ number.card.subtitle }}</h3>
+							{% endif %}
+
+						</div>
+						{% if number.card.description %}
+							<div class="number-sustainability__description">{{ number.card.description }}</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{% if number.card.cards | length > 0 %}
+					<div class="number-sustainability__number">
+						{% for card in number.card.cards %}
+							<div class="number-sustainability__number__card color-{{ card.color }}">
+								<div class="number-sustainability__number__card__top">
+									{% set img = get_image(card.image) %}
+									<div class="number-sustainability__number__card__number{{ not img ? ' no-image' : '' }}">
+										<p class="number-sustainability__number__card__number__title">{{ card.number }}</p>
+										{% if img %}
+											<div class="number-sustainability__number__card__number__image">
+												<img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" width="{{ img.width }}" height="{{ img.height }}">
+											</div>
+										{% endif %}
+
+									</div>
+								</div>
+								{% if card.description %}
+									<div class="number-sustainability__number__card__description">
+										<p class="number-sustainability__number__card__description">{{ card.description }}</p>
+									</div>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+	</section>
+{% endif %}
